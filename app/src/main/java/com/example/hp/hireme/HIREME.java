@@ -18,7 +18,7 @@ public class HIREME extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hireme);
+        setContentView(R.layout.activity_register);
 
 
 
