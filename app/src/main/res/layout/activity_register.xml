@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.hp.hireme.AccuontActivity.RegisterActivity">
+
+
+    <LinearLayout
+        android:layout_centerVertical="true"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="8dp">
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:ems="10"
+            android:inputType="textPassword"
+            tools:ignore="MissingConstraints"
+            app:layout_constraintRight_toLeftOf="parent"
+            tools:layout_constraintTop_creator="1"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintBottom_creator="1"
+            app:layout_constraintBottom_toTopOf="parent"
+            tools:layout_constraintLeft_creator="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:inputType="textPersonName"
+            android:id="@+id/editTextName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ادخل الاسم كامل " />
+        <EditText
+            android:inputType="textEmailAddress"
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ادخل البريد الالكتروني " />
+
+        <EditText
+            android:inputType="textPassword"
+            android:id="@+id/editTextPasword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint=" كلمة المرور" />
+        <EditText
+            android:inputType="textPassword"
+            android:id="@+id/editTextCPasword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="تحقق من كلمة المرور" />
+        <Button
+            android:id="@+id/buttonRgister"
+            android:text="تسجيل"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textAlignment="center"
+            android:text=" هل لديك حساب؟ تسجيل دخول من هنا "
+            android:id="@+id/textviewLogIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
