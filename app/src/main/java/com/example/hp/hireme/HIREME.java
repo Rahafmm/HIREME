@@ -126,7 +126,7 @@ private DatabaseReference mDatabase;
                             //close this activity
                             finish();
                             //opening login activity
-                            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                         }else{
                             //display some message here
                             Toast.makeText(HIREME.this,"Registration Error",Toast.LENGTH_LONG).show();
