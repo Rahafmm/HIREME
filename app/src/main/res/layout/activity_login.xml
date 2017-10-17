@@ -16,7 +16,7 @@ tools:layout_editor_absoluteX="8dp"
 tools:layout_editor_absoluteY="162dp">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textviewLogIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="                                             Log In" />

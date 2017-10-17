@@ -49,7 +49,6 @@ private DatabaseReference mDatabase;
         if (firebaseAuth.getCurrentUser() !=null){
             //prf activity
             finish();
-            startActivity(new Intent(getApplicationContext(),ProfileActivity.class));
         }
 
         mDatabase= FirebaseDatabase.getInstance().getReference().child("candet");
@@ -78,7 +77,7 @@ private DatabaseReference mDatabase;
         //calling register method on click
         registerUser();}
         if(view == textViewLogIn ) {
-            startActivity(new Intent(new Intent(this, LoginActivity.class) ));
+            startActivity(new Intent(this, LoginActivity.class) );
 
         }
         if(view == textViewLogIn ) {
