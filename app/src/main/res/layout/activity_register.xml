@@ -8,63 +8,90 @@
 
 
     <LinearLayout
-        android:layout_centerVertical="true"
         android:layout_width="395dp"
         android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
         android:orientation="vertical"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="8dp">
+        android:textAlignment="gravity"
+        tools:layout_editor_absoluteX="52dp"
+        tools:layout_editor_absoluteY="153dp">
+
         <EditText
             android:id="@+id/editText"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:ems="10"
             android:inputType="textPassword"
-            tools:ignore="MissingConstraints"
-            app:layout_constraintRight_toLeftOf="parent"
-            tools:layout_constraintTop_creator="1"
-            tools:layout_constraintRight_creator="1"
-            tools:layout_constraintBottom_creator="1"
             app:layout_constraintBottom_toTopOf="parent"
-            tools:layout_constraintLeft_creator="1"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintRight_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_constraintBottom_creator="1"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintTop_creator="1" />
+
         <EditText
-            android:inputType="textPersonName"
             android:id="@+id/editTextName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="ادخل الاسم كامل " />
+            android:layout_margin="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:hint="ادخل الاسم كامل "
+            android:inputType="textPersonName"
+            android:singleLine="false"
+            android:textAlignment="textStart"
+            android:textAllCaps="true" />
+
         <EditText
-            android:inputType="textEmailAddress"
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="ادخل البريد الالكتروني " />
+            android:hint="ادخل البريد الالكتروني "
+            android:inputType="textEmailAddress"
+            android:textAlignment="gravity" />
 
         <EditText
-            android:inputType="textPassword"
             android:id="@+id/editTextPasword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint=" كلمة المرور" />
-        <EditText
+            android:hint=" كلمة المرور"
             android:inputType="textPassword"
+            android:textAlignment="textEnd" />
+
+        <EditText
             android:id="@+id/editTextCPasword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="تحقق من كلمة المرور" />
+            android:hint="تحقق من كلمة المرور"
+            android:inputType="textPassword"
+            android:textAlignment="textEnd" />
+
         <Button
             android:id="@+id/buttonRgister"
-            android:text="تسجيل"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="تسجيل" />
+
         <TextView
-            android:textAlignment="center"
-            android:text=" هل لديك حساب؟ تسجيل دخول من هنا "
             android:id="@+id/textviewLogIn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text=" هل لديك حساب؟ تسجيل دخول من هنا "
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/regorg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="  إذا كنت صاحب شركة اضغط هنا للتسجيل...   "
+            android:textAlignment="center" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
