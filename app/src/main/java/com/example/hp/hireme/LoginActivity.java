@@ -2,6 +2,7 @@ package com.example.hp.hireme;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -11,6 +12,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 
@@ -21,7 +25,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private EditText editTextPassword;
     private TextView textViewregister;
 
-   private FirebaseAuth m;
+   private FirebaseAuth firebaseAuth;
+
     private ProgressDialog progressDialog;
 
     @Override
@@ -29,18 +34,27 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        editTextEmail=(EditText)findViewById(R.id.editTextEmail);
-        editTextPassword=(EditText)findViewById(R.id.editTextPasword);
-       buttonLogIn=(Button) findViewById(R.id.buttonLogin);
-        textViewregister=(TextView)findViewById(R.id.textViewregister);
+        firebaseAuth = firebaseAuth.getInstance();
 
-        progressDialog=new ProgressDialog(this);
+        if (firebaseAuth.getCurrentUser() != null) {
+
+            //profile activity here
+            finish();
+            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+        }
+
+        editTextEmail = (EditText) findViewById(R.id.editTextEmail);
+        editTextPassword = (EditText) findViewById(R.id.editTextPasword);
+        buttonLogIn = (Button) findViewById(R.id.buttonLogin);
+        textViewregister = (TextView) findViewById(R.id.textViewregister);
+
+        progressDialog = new ProgressDialog(this);
 
         buttonLogIn.setOnClickListener(this);
         textViewregister.setOnClickListener(this);
 
-    }
 
+    }
     private void CandidateLogIn(){
 
         String email=editTextEmail.getText().toString().trim();
@@ -60,6 +74,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         //display progress
         progressDialog.setMessage("Loging In please wait");
         progressDialog.show();
+
+        firebaseAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        progressDialog.dismiss();
+                        if (task.isSuccessful()){
+                            //start profile activity
+                            finish();
+                            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                        }
+                    }
+                });
+
     }
 
     @Override
