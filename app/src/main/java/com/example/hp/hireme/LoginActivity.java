@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private Button buttonLogIn;
     private EditText editTextEmail;
-    private EditText editTextPassword;
+    private EditText editTextPasword;
     private TextView textViewregister;
 
    private FirebaseAuth firebaseAuth;
@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
 
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
-        editTextPassword = (EditText) findViewById(R.id.editTextPasword);
+        editTextPasword = (EditText) findViewById(R.id.editTextPasword);
         buttonLogIn = (Button) findViewById(R.id.buttonLogin);
         textViewregister = (TextView) findViewById(R.id.textViewregister);
 
@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private void CandidateLogIn(){
 
         String email=editTextEmail.getText().toString().trim();
-        String password=editTextPassword.getText().toString().trim();
+        String password=editTextPasword.getText().toString().trim();
 
         //checking if email and password are empty
         if (TextUtils.isEmpty(email) ){
