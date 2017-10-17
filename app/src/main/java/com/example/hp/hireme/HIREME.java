@@ -34,7 +34,7 @@ private DatabaseReference mDatabase;
     private ProgressDialog progressDialog;
     private TextView regorg;
 
-    //defining firebaseauth object
+    //defining firebase auth object
 
     private FirebaseAuth firebaseAuth;
 
@@ -45,6 +45,13 @@ private DatabaseReference mDatabase;
 
         //initializing firebase auth object
         firebaseAuth = FirebaseAuth.getInstance();
+
+        if (firebaseAuth.getCurrentUser() !=null){
+            //prf activity
+            finish();
+            startActivity(new Intent(getApplicationContext(),ProfileActivity.class));
+        }
+
         mDatabase= FirebaseDatabase.getInstance().getReference().child("candet");
         //initializing views
         editTextName = (EditText) findViewById(R.id.editTextName);
@@ -71,7 +78,7 @@ private DatabaseReference mDatabase;
         //calling register method on click
         registerUser();}
         if(view == textViewLogIn ) {
-            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+            startActivity(new Intent(new Intent(this, LoginActivity.class) ));
 
         }
         if(view == textViewLogIn ) {
@@ -119,7 +126,7 @@ private DatabaseReference mDatabase;
                             //close this activity
                             finish();
                             //opening login activity
-                            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
                         }else{
                             //display some message here
                             Toast.makeText(HIREME.this,"Registration Error",Toast.LENGTH_LONG).show();
