@@ -8,11 +8,9 @@
     tools:layout_editor_absoluteY="89dp"
     tools:layout_editor_absoluteX="0dp">
 
-<LinearLayout
+<LnearLayout
 android:layout_width="344dp"
 android:layout_height="wrap_content"
-android:layouy_centerHorizontal="true"
-android:layouy_centerVertical="true"
 android:orientation="vertical"
 tools:layout_editor_absoluteX="8dp"
 tools:layout_editor_absoluteY="162dp">
@@ -48,4 +46,5 @@ tools:layout_editor_absoluteY="162dp">
     android:id="@+id/textViewregister"
     android:layout_width="match_parent"
     android:layout_height="wrap_content" />
-</LinearLayout>
+</LnearLayout>
+    </android.support.constraint.ConstraintLayout>

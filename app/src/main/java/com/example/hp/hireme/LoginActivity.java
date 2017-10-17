@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
@@ -20,7 +21,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private EditText editTextPassword;
     private TextView textViewregister;
 
-    //private FirebaseAuth
+   private FirebaseAuth m;
     private ProgressDialog progressDialog;
 
     @Override
@@ -29,8 +30,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
 
         editTextEmail=(EditText)findViewById(R.id.editTextEmail);
-        editTextPassword=(EditText)findViewById(R.id.editTextPassword);
-       buttonLogIn=(Button) findViewById(R.id.buttonLogIn);
+        editTextPassword=(EditText)findViewById(R.id.editTextPasword);
+       buttonLogIn=(Button) findViewById(R.id.buttonLogin);
         textViewregister=(TextView)findViewById(R.id.textViewregister);
 
         progressDialog=new ProgressDialog(this);
@@ -46,12 +47,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         String password=editTextPassword.getText().toString().trim();
 
         //checking if email and password are empty
-        if (TextUtils.isEmpty((email)){
+        if (TextUtils.isEmpty(email) ){
             Toast.makeText(this,"please enter your email",Toast.LENGTH_LONG).show();
             return;
         }
 
-        if (TextUtils.isEmpty((password)){
+        if (TextUtils.isEmpty(password) ){
             Toast.makeText(this,"please enter your password",Toast.LENGTH_LONG).show();
             return;
         }
@@ -63,10 +64,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View view){
-        if (view=buttonLogIn){
+        if (view==buttonLogIn){
             CandidateLogIn();
         }
-        if (view=textViewregister){
+        if (view==textViewregister){
             finish();
             startActivity(new Intent(this,HIREME.class));
         }
