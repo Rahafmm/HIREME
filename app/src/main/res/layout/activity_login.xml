@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.hp.hireme.HIREME"
+    tools:layout_editor_absoluteY="89dp"
+    tools:layout_editor_absoluteX="0dp">
+
+<LinearLayout
+android:layout_width="344dp"
+android:layout_height="wrap_content"
+android:layouy_centerHorizontal="true"
+android:layouy_centerVertical="true"
+android:orientation="vertical"
+tools:layout_editor_absoluteX="8dp"
+tools:layout_editor_absoluteY="162dp">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="                                 Candidate Log In" />
+
+    <EditText
+    android:inputType="textEmailAddress"
+    android:id="@+id/editTextEmail"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="                       Enter your Email" />
+
+<EditText
+    android:inputType="textPassword"
+    android:id="@+id/editTextPasword"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="           password" />
+
+<Button
+    android:id="@+id/buttonLogin"
+    android:text="Log In"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+<TextView
+    android:textAlignment="center"
+    android:text="dont have an account? register here"
+    android:id="@+id/textViewregister"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+</LinearLayout>
