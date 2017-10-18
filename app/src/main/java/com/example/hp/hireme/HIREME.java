@@ -46,10 +46,10 @@ private DatabaseReference mDatabase;
         //initializing firebase auth object
         firebaseAuth = FirebaseAuth.getInstance();
 
-        if (firebaseAuth.getCurrentUser() !=null){
+      //  if (firebaseAuth.getCurrentUser() !=null){
             //prf activity
-            finish();
-        }
+           // finish();
+       // }
 
         mDatabase= FirebaseDatabase.getInstance().getReference().child("candet");
         //initializing views
@@ -77,12 +77,10 @@ private DatabaseReference mDatabase;
         //calling register method on click
         registerUser();}
         if(view == textViewLogIn ) {
-            startActivity(new Intent(this, LoginActivity.class) );
+            startActivity(new Intent(this, ProfileActivity.class) );
 
         }
-        if(view == textViewLogIn ) {
-            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-        }
+
     }
 
     private void registerUser() {
@@ -125,7 +123,7 @@ private DatabaseReference mDatabase;
                             //close this activity
                             finish();
                             //opening login activity
-                            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                           // startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                         }else{
                             //display some message here
                             Toast.makeText(HIREME.this,"Registration Error",Toast.LENGTH_LONG).show();
