@@ -16,7 +16,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.DatabaseReference; //why?
 import com.google.firebase.database.FirebaseDatabase;
 
 public class HIREME extends AppCompatActivity implements View.OnClickListener {
@@ -30,7 +30,7 @@ public class HIREME extends AppCompatActivity implements View.OnClickListener {
     private  EditText editTextCPasword;
     private Button buttonSignup;
     private TextView  textViewLogIn;
-private DatabaseReference mDatabase;
+    private DatabaseReference mDatabase;
     private ProgressDialog progressDialog;
     private TextView regorg;
 
@@ -46,10 +46,11 @@ private DatabaseReference mDatabase;
         //initializing firebase auth object
         firebaseAuth = FirebaseAuth.getInstance();
 
-      //  if (firebaseAuth.getCurrentUser() !=null){
+        //if (firebaseAuth.getCurrentUser() !=null){
             //prf activity
-           // finish();
-       // }
+            //finish();
+            //startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+        //}
 
         mDatabase= FirebaseDatabase.getInstance().getReference().child("candet");
         //initializing views
@@ -77,7 +78,7 @@ private DatabaseReference mDatabase;
         //calling register method on click
         registerUser();}
         if(view == textViewLogIn ) {
-            startActivity(new Intent(this, ProfileActivity.class) );
+            startActivity(new Intent(this, ProfileActivity.class) ); //profile=login
 
         }
 
@@ -113,7 +114,7 @@ private DatabaseReference mDatabase;
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         //checking if success
-                        if(task.isSuccessful()){
+                        if(task.isSuccessful()){ //diffrent 13:05
                             String User_ID=firebaseAuth.getCurrentUser().getUid();
                             DatabaseReference Cureent_User_db= mDatabase.child(User_ID);
                             Cureent_User_db.child("name").setValue(Name);
