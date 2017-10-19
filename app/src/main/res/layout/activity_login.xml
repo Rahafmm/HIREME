@@ -42,9 +42,55 @@ tools:layout_editor_absoluteY="162dp">
     android:layout_height="wrap_content" />
 <TextView
     android:textAlignment="center"
-    android:text="dont have an account? register here"
+    android:text="don't have an account? register here"
     android:id="@+id/textViewregister"
     android:layout_width="match_parent"
     android:layout_height="wrap_content" />
-</LinearLayout>
-    </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
+
+    <!-- <EditText
+         android:id="@+id/loginEmailFiled"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:ems="10"
+         android:hint="Enter Email"
+         android:inputType="textEmailAddress"
+         tools:layout_editor_absoluteY="148dp"
+         app:layout_constraintRight_toRightOf="parent"
+         app:layout_constraintLeft_toLeftOf="parent" />
+
+     <EditText
+         android:id="@+id/loginPasswordFiled"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:ems="10"
+         android:hint="Enter Password"
+         android:inputType="textPassword"
+         tools:layout_editor_absoluteX="97dp"
+         tools:layout_editor_absoluteY="205dp" />
+
+     <Button
+         android:id="@+id/loginBtn"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Button"
+         tools:layout_editor_absoluteX="161dp"
+         tools:layout_editor_absoluteY="277dp"
+         tools:text="Login" />
+
+     <android.support.constraint.Guideline
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:id="@+id/guideline"
+         app:layout_constraintGuide_begin="20dp"
+         android:orientation="horizontal" />
+
+     <Button
+         android:id="@+id/registerPage"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Button"
+         tools:layout_editor_absoluteX="105dp"
+         tools:layout_editor_absoluteY="526dp"
+         tools:text="Don't have an account?" />-->
+</android.support.constraint.ConstraintLayout>
