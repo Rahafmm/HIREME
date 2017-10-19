@@ -9,7 +9,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -19,79 +18,52 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class HIREME extends AppCompatActivity implements View.OnClickListener {
-
-
-
-    //defining view objects
+public class RegisterOrgActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText editTextEmail;
     private EditText editTextName;
     private EditText editTextPassword;
     private  EditText editTextCPasword;
-    private Button buttonSignup;
-    private TextView  textViewLogIn;
-private DatabaseReference mDatabase;
+    private Button buttonRgister;
+    private DatabaseReference mDatabase;
+    private EditText editTextLocation ;
     private ProgressDialog progressDialog;
-    private TextView regorg;
-    private TextView loorg;
-
-
-    //defining firebase auth object
-
     private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_registerorg);
+
 
         //initializing firebase auth object
         firebaseAuth = FirebaseAuth.getInstance();
 
-      //  if (firebaseAuth.getCurrentUser() !=null){
+        if (firebaseAuth.getCurrentUser() !=null){
             //prf activity
-           // finish();
-       // }
-
-        mDatabase= FirebaseDatabase.getInstance().getReference().child("candet");
+            finish();
+        }
+        mDatabase= FirebaseDatabase.getInstance().getReference().child("Org");
         //initializing views
         editTextName = (EditText) findViewById(R.id.editTextName);
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPasword);
         editTextCPasword = (EditText) findViewById(R.id.editTextCPasword);
-        textViewLogIn = (TextView) findViewById(R.id.textviewLogIn);
-        regorg = (TextView) findViewById(R.id.regorg);
-        loorg = (TextView) findViewById(R.id.loorg);
-        buttonSignup = (Button) findViewById(R.id.buttonRgister);
+        editTextLocation = (EditText) findViewById(R.id.editTextLocation);
+        buttonRgister = (Button) findViewById(R.id.buttonRgister);
 
         //attaching listener to button
-        buttonSignup.setOnClickListener((View.OnClickListener) this);
-        textViewLogIn.setOnClickListener(this);
-        regorg.setOnClickListener(this);
-        loorg.setOnClickListener(this);
+        buttonRgister.setOnClickListener((View.OnClickListener) this);
+
         // to chow message
         progressDialog = new ProgressDialog(this);
 
     }
 
-
     @Override
     public void onClick(View view) {
-        if(view == buttonSignup ){
-        //calling register method on click
-        registerUser();}
-        if(view == textViewLogIn ) {
-            startActivity(new Intent(this, ProfileActivity.class) );
-
-        }
-        if(view == regorg ) {
-            startActivity(new Intent(this, RegisterOrgActivity.class) );
-
-        }
-        if(view == loorg ) {
-            startActivity(new Intent(this, ProfileActivity.class) );
-
-        }
+        if(view == buttonRgister ){
+            //calling register method on click
+            registerUser();}
 
     }
 
@@ -99,9 +71,13 @@ private DatabaseReference mDatabase;
         //getting email and password from edit texts
         final String Cpassword = editTextCPasword.getText().toString().trim();
         final String Name = editTextName.getText().toString().trim();
+        final String Location =editTextLocation.getText().toString().trim();
+
 
         String email = editTextEmail.getText().toString().trim();
         String password  = editTextPassword.getText().toString().trim();
+
+
 
         //checking if email and passwords are empty
         if(TextUtils.isEmpty(email)){
@@ -114,7 +90,12 @@ private DatabaseReference mDatabase;
             return; //stop the function execution
         }
 
-        //if the email and password are not empty
+        if(TextUtils.isEmpty(Location)){
+            Toast.makeText(this,"Please enter Location",Toast.LENGTH_LONG).show();
+            return; //stop the function execution
+        }
+
+        //if the email and password and Location are not empty
         //displaying a progress dialog
         progressDialog.setMessage("Registering Please Wait...");
         progressDialog.show();
@@ -130,15 +111,17 @@ private DatabaseReference mDatabase;
                             DatabaseReference Cureent_User_db= mDatabase.child(User_ID);
                             Cureent_User_db.child("name").setValue(Name);
                             Cureent_User_db.child("Cpassword").setValue(Cpassword);
+                            Cureent_User_db.child("Location").setValue(Location);
+
                             //display message to the user here
-                            Toast.makeText(HIREME.this,"Successfully registered",Toast.LENGTH_LONG).show();
+                            Toast.makeText(RegisterOrgActivity.this,"Successfully registered",Toast.LENGTH_LONG).show();
                             //close this activity
                             finish();
                             //opening login activity
-                           // startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                         }else{
                             //display some message here
-                            Toast.makeText(HIREME.this,"Registration Error",Toast.LENGTH_LONG).show();
+                            Toast.makeText(RegisterOrgActivity.this,"Registration Error",Toast.LENGTH_LONG).show();
                         }
                         progressDialog.dismiss();
                     }
