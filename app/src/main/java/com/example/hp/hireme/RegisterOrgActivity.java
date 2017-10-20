@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -28,6 +29,7 @@ public class RegisterOrgActivity extends AppCompatActivity implements View.OnCli
     private EditText editTextLocation ;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
+    private TextView textViewLogIn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +52,11 @@ public class RegisterOrgActivity extends AppCompatActivity implements View.OnCli
         editTextCPasword = (EditText) findViewById(R.id.editTextCPasword);
         editTextLocation = (EditText) findViewById(R.id.editTextLocation);
         buttonRgister = (Button) findViewById(R.id.buttonRgister);
+        textViewLogIn = (TextView) findViewById(R.id.textviewLogIn);
 
         //attaching listener to button
         buttonRgister.setOnClickListener((View.OnClickListener) this);
+        textViewLogIn.setOnClickListener(this);
 
         // to chow message
         progressDialog = new ProgressDialog(this);
@@ -64,8 +68,12 @@ public class RegisterOrgActivity extends AppCompatActivity implements View.OnCli
         if(view == buttonRgister ){
             //calling register method on click
             registerUser();}
+        if(view == textViewLogIn ) {
+            startActivity(new Intent(this, LoginActivity.class) ); //profile=login
 
+        }
     }
+
 
     private void registerUser() {
         //getting email and password from edit texts

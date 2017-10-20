@@ -82,7 +82,7 @@ public class HIREME extends AppCompatActivity implements View.OnClickListener {
         //calling register method on click
         registerUser();}
         if(view == textViewLogIn ) {
-            startActivity(new Intent(this, ProfileActivity.class) ); //profile=login
+            startActivity(new Intent(this, LoginActivity.class) ); //profile=login
 
         }
         if(view == regorg ) {
