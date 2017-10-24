@@ -139,7 +139,6 @@
 
 
 
-
         <EditText
         android:id="@+id/editTextLocation"
         android:layout_width="match_parent"

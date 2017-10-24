@@ -31,7 +31,6 @@ public class RegisterOrgActivity extends AppCompatActivity implements View.OnCli
     private FirebaseAuth firebaseAuth;
     private TextView textViewLogIn;
     private TextView  tv;
-
     private TextView textpasswordempty;
     private TextView textnameempty;
     private TextView textpasswordmatch;
