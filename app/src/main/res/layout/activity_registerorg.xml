@@ -4,157 +4,98 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.hp.hireme.AccuontActivity.RegisterActivity"
-    tools:layout_editor_absoluteY="81dp"
-    tools:layout_editor_absoluteX="0dp">
+    tools:context="com.example.hp.hireme.AccuontActivity.RegisterActivity">
 
     <LinearLayout
-        android:layout_width="338dp"
-        android:layout_height="479dp"
+        android:layout_width="265dp"
+        android:layout_height="371dp"
         android:layout_centerVertical="true"
 
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-
+        android:layout_marginBottom="95dp"
+        android:layout_marginLeft="48dp"
         android:layout_marginStart="52dp"
         android:layout_marginTop="8dp"
         android:orientation="vertical"
         android:textAlignment="gravity"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
 
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:ems="10"
-            android:inputType="textPassword"
-            app:layout_constraintBottom_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints"
-            tools:layout_constraintBottom_creator="1"
-            tools:layout_constraintLeft_creator="1"
-            tools:layout_constraintRight_creator="1"
-            tools:layout_constraintTop_creator="1" />
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1">
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
-        <EditText
-            android:id="@+id/editTextName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:layout_marginBottom="15dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"
-            android:hint="ادخل الاسم كامل "
-            android:inputType="textPersonName"
-            android:singleLine="false"
-            android:textAlignment="textStart"
-            android:textAllCaps="true" />
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:hint="ادخل الاسم كامل "
+        android:inputType="textPersonName"
+        android:singleLine="false"
+        android:textAlignment="textStart"
+        android:textAllCaps="true" />
 
-        <TextView
-            android:id="@+id/textnameempty"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:paddingLeft="15dp"
-            android:paddingTop="15dp"
-            android:text=""
-            android:textAlignment="textStart"
-            android:textColor="@android:color/holo_red_light"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="48dp"
-            tools:layout_editor_absoluteY="267dp" />
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ادخل البريد الالكتروني "
+        android:inputType="textEmailAddress"
+        android:textAlignment="gravity" />
 
-        <EditText
-            android:id="@+id/editTextEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="ادخل البريد الالكتروني "
-            android:inputType="textEmailAddress"
-            android:textAlignment="gravity" />
+    <EditText
+        android:id="@+id/editTextPasword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint=" كلمة المرور"
+        android:inputType="textPassword"
+        android:textAlignment="textEnd" />
 
-        <TextView
-            android:id="@+id/textemailempty"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:paddingLeft="15dp"
-            android:paddingTop="15dp"
-            android:text=""
-            android:textAlignment="textStart"
-            android:textColor="@android:color/holo_red_light"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="48dp"
-            tools:layout_editor_absoluteY="267dp" />
-
-        <EditText
-            android:id="@+id/editTextPasword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint=" كلمة المرور"
-            android:inputType="textPassword"
-            android:textAlignment="textEnd" />
-
-        <TextView
-            android:id="@+id/textpasswordempty"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:paddingLeft="15dp"
-            android:paddingTop="15dp"
-            android:text=""
-            android:textAlignment="textStart"
-            android:textColor="@android:color/holo_red_light"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="48dp"
-            tools:layout_editor_absoluteY="267dp" />
-
-        <EditText
-            android:id="@+id/editTextCPasword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="تحقق من كلمة المرور"
-            android:inputType="textPassword"
-            android:textAlignment="textEnd" />
-
-        <TextView
-            android:id="@+id/textpasswordmatch"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:paddingLeft="15dp"
-            android:paddingTop="15dp"
-            android:text=""
-            android:textAlignment="textStart"
-            android:textColor="@android:color/holo_red_light"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="48dp"
-            tools:layout_editor_absoluteY="267dp" />
+    <EditText
+        android:id="@+id/editTextCPasword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="تحقق من كلمة المرور"
+        android:inputType="textPassword"
+        android:textAlignment="textEnd" />
 
 
-        <EditText
-            android:id="@+id/editTextLocation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="ادخل موقع الشركة"
-            android:inputType="text"
-            android:textAlignment="gravity" />
+
+    <EditText
+        android:id="@+id/editTextLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ادخل موقع الشركة"
+        android:inputType="text"
+        android:textAlignment="gravity" />
 
         <Button
             android:id="@+id/buttonRgister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="تسجيل" />
-
         <TextView
             android:id="@+id/textviewLogIn"
             android:layout_width="match_parent"
