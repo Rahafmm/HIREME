@@ -34,7 +34,10 @@ public class HIREME extends AppCompatActivity implements View.OnClickListener {
     private ProgressDialog progressDialog;
     private TextView regorg;
     private TextView loorg;
+    private TextView  tv;
+    private TextView textpasswordempty;
 
+    private TextView textpasswordmatch;
 
     //defining firebase auth object
 
@@ -64,7 +67,9 @@ public class HIREME extends AppCompatActivity implements View.OnClickListener {
         regorg = (TextView) findViewById(R.id.regorg);
         loorg = (TextView) findViewById(R.id.loorg);
         buttonSignup = (Button) findViewById(R.id.buttonRgister);
-
+        textpasswordempty =(TextView)findViewById(R.id.textpasswordempty);
+        tv = (TextView)findViewById(R.id.textemailempty);
+        textpasswordmatch = (TextView)findViewById(R.id.textpasswordmatch);
         //attaching listener to button
         buttonSignup.setOnClickListener((View.OnClickListener) this);
         textViewLogIn.setOnClickListener(this);
@@ -90,7 +95,7 @@ public class HIREME extends AppCompatActivity implements View.OnClickListener {
 
         }
         if(view == loorg ) {
-            startActivity(new Intent(this, ProfileActivity.class) );
+            startActivity(new Intent(this, LoginOrgActivity.class) );
 
         }
 
@@ -104,16 +109,35 @@ public class HIREME extends AppCompatActivity implements View.OnClickListener {
         String email = editTextEmail.getText().toString().trim();
         String password  = editTextPassword.getText().toString().trim();
 
+
         //checking if email and passwords are empty
         if(TextUtils.isEmpty(email)){
-            Toast.makeText(this,"Please enter email",Toast.LENGTH_LONG).show();
+           //Toast.makeText(this,"Please enter email",Toast.LENGTH_LONG).show();
+
+            tv.setText("* حقل مطلوب ");
+
+            if(TextUtils.isEmpty(password)){
+                //Toast.makeText(this,"Please enter password",Toast.LENGTH_LONG).show();
+
+                textpasswordempty.setText("* حقل مطلوب");
+                if(password!= Cpassword){
+                    //Toast.makeText(this,"Please enter password",Toast.LENGTH_LONG).show();
+
+                    textpasswordmatch.setText("* كلمة السر غير متطابقة");
+                    return; //stop the function execution
+                }
+                return; //stop the function execution
+            }
             return; //stop the function execution
         }
 
         if(TextUtils.isEmpty(password)){
-            Toast.makeText(this,"Please enter password",Toast.LENGTH_LONG).show();
-            return; //stop the function execution
+            //Toast.makeText(this,"Please enter password",Toast.LENGTH_LONG).show();
+
+            textpasswordempty.setText("* حقل مطلوب");
+           return; //stop the function execution
         }
+
 
         //if the email and password are not empty
         //displaying a progress dialog

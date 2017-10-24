@@ -69,7 +69,7 @@ public class RegisterOrgActivity extends AppCompatActivity implements View.OnCli
             //calling register method on click
             registerUser();}
         if(view == textViewLogIn ) {
-            startActivity(new Intent(this, LoginActivity.class) ); //profile=login
+            startActivity(new Intent(this, LoginOrgActivity.class) ); //profile=login
 
         }
     }
@@ -113,20 +113,21 @@ public class RegisterOrgActivity extends AppCompatActivity implements View.OnCli
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        //checking if success
+
                         if(task.isSuccessful()){
                             String User_ID=firebaseAuth.getCurrentUser().getUid();
                             DatabaseReference Cureent_User_db= mDatabase.child(User_ID);
-                            Cureent_User_db.child("name").setValue(Name);
+
                             Cureent_User_db.child("Cpassword").setValue(Cpassword);
                             Cureent_User_db.child("Location").setValue(Location);
 
+                            Cureent_User_db.child("name").setValue(Name);
                             //display message to the user here
                             Toast.makeText(RegisterOrgActivity.this,"Successfully registered",Toast.LENGTH_LONG).show();
                             //close this activity
                             finish();
                             //opening login activity
-                            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                            startActivity(new Intent(getApplicationContext(), LoginOrgActivity.class));
                         }else{
                             //display some message here
                             Toast.makeText(RegisterOrgActivity.this,"Registration Error",Toast.LENGTH_LONG).show();

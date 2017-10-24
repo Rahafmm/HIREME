@@ -18,20 +18,20 @@
         android:textColor="@android:color/darker_gray"
         android:textSize="18sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="267dp" />
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="-47dp" />
 
 
     <LinearLayout
-        android:layout_width="395dp"
+        android:layout_width="302dp"
 
-        android:layout_height="wrap_content"
+        android:layout_height="534dp"
         android:layout_centerVertical="true"
         android:orientation="vertical"
         android:paddingTop="100dp"
         android:textAlignment="gravity"
-        tools:layout_editor_absoluteX="52dp"
-        tools:layout_editor_absoluteY="153dp">
+        tools:layout_editor_absoluteX="54dp"
+        tools:layout_editor_absoluteY="34dp">
 
         <EditText
             android:id="@+id/editText"
@@ -74,6 +74,21 @@
             android:inputType="textEmailAddress"
             android:textAlignment="gravity" />
 
+        <TextView
+            android:id="@+id/textemailempty"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:paddingLeft="15dp"
+            android:paddingTop="15dp"
+            android:text=""
+            android:textAlignment="textStart"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="48dp"
+            tools:layout_editor_absoluteY="267dp" />
+
+
         <EditText
             android:id="@+id/editTextPasword"
             android:layout_width="match_parent"
@@ -82,6 +97,20 @@
             android:inputType="textPassword"
             android:textAlignment="textEnd" />
 
+        <TextView
+            android:id="@+id/textpasswordempty"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:paddingLeft="15dp"
+            android:paddingTop="15dp"
+            android:text=""
+            android:textAlignment="textStart"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="48dp"
+            tools:layout_editor_absoluteY="267dp" />
+
         <EditText
             android:id="@+id/editTextCPasword"
             android:layout_width="match_parent"
@@ -89,6 +118,19 @@
             android:hint="تحقق من كلمة المرور"
             android:inputType="textPassword"
             android:textAlignment="textEnd" />
+        <TextView
+            android:id="@+id/textpasswordmatch"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:paddingLeft="15dp"
+            android:paddingTop="15dp"
+            android:text=""
+            android:textAlignment="textStart"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="48dp"
+            tools:layout_editor_absoluteY="267dp" />
 
         <Button
             android:id="@+id/buttonRgister"
@@ -109,6 +151,7 @@
             android:layout_height="wrap_content"
             android:text="  إذا كنت صاحب شركة اضغط هنا للتسجيل...   "
             android:textAlignment="center" />
+
         <TextView
             android:id="@+id/loorg"
             android:layout_width="match_parent"
