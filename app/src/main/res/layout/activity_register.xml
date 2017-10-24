@@ -74,6 +74,7 @@
             android:textAlignment="textStart"
             android:textAllCaps="true" />
 
+
         <TextView
             android:id="@+id/textnameempty"
             android:layout_width="match_parent"
