@@ -37,6 +37,7 @@ public class HIREME extends AppCompatActivity implements View.OnClickListener {
     private TextView  tv;
     private TextView textpasswordempty;
 
+    private TextView textpasswordmatch;
 
     //defining firebase auth object
 
@@ -68,6 +69,7 @@ public class HIREME extends AppCompatActivity implements View.OnClickListener {
         buttonSignup = (Button) findViewById(R.id.buttonRgister);
         textpasswordempty =(TextView)findViewById(R.id.textpasswordempty);
         tv = (TextView)findViewById(R.id.textemailempty);
+        textpasswordmatch = (TextView)findViewById(R.id.textpasswordmatch);
         //attaching listener to button
         buttonSignup.setOnClickListener((View.OnClickListener) this);
         textViewLogIn.setOnClickListener(this);
@@ -107,6 +109,7 @@ public class HIREME extends AppCompatActivity implements View.OnClickListener {
         String email = editTextEmail.getText().toString().trim();
         String password  = editTextPassword.getText().toString().trim();
 
+
         //checking if email and passwords are empty
         if(TextUtils.isEmpty(email)){
            //Toast.makeText(this,"Please enter email",Toast.LENGTH_LONG).show();
@@ -117,6 +120,12 @@ public class HIREME extends AppCompatActivity implements View.OnClickListener {
                 //Toast.makeText(this,"Please enter password",Toast.LENGTH_LONG).show();
 
                 textpasswordempty.setText("* حقل مطلوب");
+                if(password!= Cpassword){
+                    //Toast.makeText(this,"Please enter password",Toast.LENGTH_LONG).show();
+
+                    textpasswordmatch.setText("* كلمة السر غير متطابقة");
+                    return; //stop the function execution
+                }
                 return; //stop the function execution
             }
             return; //stop the function execution
@@ -128,6 +137,7 @@ public class HIREME extends AppCompatActivity implements View.OnClickListener {
             textpasswordempty.setText("* حقل مطلوب");
            return; //stop the function execution
         }
+
 
         //if the email and password are not empty
         //displaying a progress dialog
