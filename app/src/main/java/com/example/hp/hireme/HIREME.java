@@ -95,7 +95,7 @@ public class HIREME extends AppCompatActivity implements View.OnClickListener {
 
         }
         if(view == loorg ) {
-            startActivity(new Intent(this, ProfileActivity.class) );
+            startActivity(new Intent(this, LoginOrgActivity.class) );
 
         }
 

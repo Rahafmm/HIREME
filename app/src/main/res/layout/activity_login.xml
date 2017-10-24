@@ -8,44 +8,47 @@
     tools:layout_editor_absoluteY="89dp"
     tools:layout_editor_absoluteX="0dp">
 
-<LinearLayout
-android:layout_width="344dp"
-android:layout_height="wrap_content"
-android:orientation="vertical"
-tools:layout_editor_absoluteX="8dp"
-tools:layout_editor_absoluteY="162dp">
-
-    <TextView
-        android:id="@+id/textviewLogIn"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="344dp"
         android:layout_height="wrap_content"
-        android:text="                                             Log In" />
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="160dp">
 
-    <EditText
-    android:inputType="textEmailAddress"
-    android:id="@+id/editTextEmail"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:hint="                       Enter your Email" />
+        <TextView
+            android:id="@+id/textviewLogIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="                                             تسجيل الدخول المرشح" />
 
-<EditText
-    android:inputType="textPassword"
-    android:id="@+id/editTextPasword"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:hint="           password" />
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="البريد الإلكتروني"
+            android:inputType="textEmailAddress"
+            android:selectAllOnFocus="false"
+            android:singleLine="false"
+            android:textAlignment="center" />
 
-<Button
-    android:id="@+id/buttonLogin"
-    android:text="Log In"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" />
-<TextView
-    android:textAlignment="center"
-    android:text="don't have an account? register here"
-    android:id="@+id/textViewregister"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" />
+        <EditText
+            android:inputType="textPassword"
+            android:id="@+id/editTextPasword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="           كلمة المرور" />
+
+        <Button
+            android:id="@+id/buttonLogin"
+            android:text="تسجيل الدخول"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textAlignment="center"
+            android:text="ليس لديك حساب؟ سجل من هنا"
+            android:id="@+id/textViewregister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
     <!-- <EditText

@@ -69,7 +69,7 @@ public class RegisterOrgActivity extends AppCompatActivity implements View.OnCli
             //calling register method on click
             registerUser();}
         if(view == textViewLogIn ) {
-            startActivity(new Intent(this, LoginActivity.class) ); //profile=login
+            startActivity(new Intent(this, LoginOrgActivity.class) ); //profile=login
 
         }
     }
@@ -127,7 +127,7 @@ public class RegisterOrgActivity extends AppCompatActivity implements View.OnCli
                             //close this activity
                             finish();
                             //opening login activity
-                            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                            startActivity(new Intent(getApplicationContext(), LoginOrgActivity.class));
                         }else{
                             //display some message here
                             Toast.makeText(RegisterOrgActivity.this,"Registration Error",Toast.LENGTH_LONG).show();
