@@ -6,37 +6,78 @@
     android:layout_height="match_parent"
     tools:context="com.example.hp.hireme.HIREME"
     tools:layout_editor_absoluteY="89dp"
-    tools:layout_editor_absoluteX="0dp">
+    tools:layout_editor_absoluteX="0dp"
+    android:background="@drawable/qq"
+    >
 
     <LinearLayout
-        android:layout_width="344dp"
-        android:layout_height="wrap_content"
+        android:layout_width="296dp"
+
+        android:layout_height="581dp"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="33dp"
-        tools:layout_editor_absoluteY="160dp">
+        android:paddingTop="10dp"
+        android:textAlignment="gravity"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
+            android:paddingTop="10dp"
+            android:paddingLeft="30dp"
             android:id="@+id/textviewLogIn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="                                             تسجيل الدخول المرشح" />
+            android:layout_width="345dp"
+            android:layout_height="152dp"
+            android:text="             تسجيل دخول المرشح"
+            android:textAlignment="center"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="16dp"
+            />
 
         <EditText
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
             android:hint="البريد الإلكتروني"
             android:inputType="textEmailAddress"
             android:selectAllOnFocus="false"
             android:singleLine="false"
-            android:textAlignment="center" />
+            android:textAlignment="textStart"
+            android:textAllCaps="true"
+            />
 
         <EditText
             android:inputType="textPassword"
             android:id="@+id/editTextPasword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="           كلمة المرور" />
+            android:layout_margin="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:hint="كلمة المرور"
+            android:textAlignment="textEnd"
+            />
 
         <Button
             android:id="@+id/buttonLogin"
