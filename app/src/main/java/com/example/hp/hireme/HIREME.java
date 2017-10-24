@@ -36,7 +36,7 @@ public class HIREME extends AppCompatActivity implements View.OnClickListener {
     private TextView loorg;
     private TextView  tv;
     private TextView textpasswordempty;
-
+    private TextView textnameempty;
     private TextView textpasswordmatch;
 
     //defining firebase auth object
@@ -70,6 +70,8 @@ public class HIREME extends AppCompatActivity implements View.OnClickListener {
         textpasswordempty =(TextView)findViewById(R.id.textpasswordempty);
         tv = (TextView)findViewById(R.id.textemailempty);
         textpasswordmatch = (TextView)findViewById(R.id.textpasswordmatch);
+        textnameempty = (TextView)findViewById(R.id.textnameempty);
+
         //attaching listener to button
         buttonSignup.setOnClickListener((View.OnClickListener) this);
         textViewLogIn.setOnClickListener(this);
@@ -110,65 +112,64 @@ public class HIREME extends AppCompatActivity implements View.OnClickListener {
         String password  = editTextPassword.getText().toString().trim();
 
 
-        //checking if email and passwords are empty
-        if(TextUtils.isEmpty(email)){
-           //Toast.makeText(this,"Please enter email",Toast.LENGTH_LONG).show();
+        //checking if email and passwords and name are not empty
+        if(TextUtils.isEmpty(Name)) {
+            textnameempty.setText("* حقل مطلوب ");
+        }else{
+            textnameempty.setText("");
+        }
 
+        if(TextUtils.isEmpty(email)) {
             tv.setText("* حقل مطلوب ");
-
-            if(TextUtils.isEmpty(password)){
-                //Toast.makeText(this,"Please enter password",Toast.LENGTH_LONG).show();
-
-                textpasswordempty.setText("* حقل مطلوب");
-                if(password!= Cpassword){
-                    //Toast.makeText(this,"Please enter password",Toast.LENGTH_LONG).show();
-
-                    textpasswordmatch.setText("* كلمة السر غير متطابقة");
-                    return; //stop the function execution
-                }
-                return; //stop the function execution
-            }
-            return; //stop the function execution
+        }else{
+            tv.setText("");
         }
 
         if(TextUtils.isEmpty(password)){
-            //Toast.makeText(this,"Please enter password",Toast.LENGTH_LONG).show();
-
             textpasswordempty.setText("* حقل مطلوب");
-           return; //stop the function execution
+        }else{
+            textpasswordempty.setText("");
+            password  = editTextPassword.getText().toString().trim();
         }
 
+        if(password.equals(Cpassword)) {
+            textpasswordmatch.setText("");
+        }else{
+            textpasswordmatch.setText("* كلمة السر غير متطابقة");
+        }
 
-        //if the email and password are not empty
-        //displaying a progress dialog
-        progressDialog.setMessage("Registering Please Wait...");
-        progressDialog.show();
+        if(textpasswordmatch.getText().toString().trim().isEmpty()&&textpasswordempty.getText().toString().trim().isEmpty()&&tv.getText().toString().trim().isEmpty()&&textnameempty.getText().toString().trim().isEmpty()) {
 
-        //creating a new user
-        firebaseAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        //checking if success
-                        if(task.isSuccessful()){ //diffrent 13:05
-                            String User_ID=firebaseAuth.getCurrentUser().getUid();
-                            DatabaseReference Cureent_User_db= mDatabase.child(User_ID);
-                            Cureent_User_db.child("name").setValue(Name);
-                            Cureent_User_db.child("Cpassword").setValue(Cpassword);
-                            //display message to the user here
-                            Toast.makeText(HIREME.this,"Successfully registered",Toast.LENGTH_LONG).show();
-                            //close this activity
-                            finish();
-                            //opening login activity
-                           // startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-                        }else{
-                            //display some message here
-                            Toast.makeText(HIREME.this,"Registration Error",Toast.LENGTH_LONG).show();
+            //if the email and password are not empty
+            //displaying a progress dialog
+            progressDialog.setMessage("Registering Please Wait...");
+            progressDialog.show();
+
+            //creating a new user
+            firebaseAuth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            //checking if success
+                            if (task.isSuccessful()) { //diffrent 13:05
+                                String User_ID = firebaseAuth.getCurrentUser().getUid();
+                                DatabaseReference Cureent_User_db = mDatabase.child(User_ID);
+                                Cureent_User_db.child("name").setValue(Name);
+                                Cureent_User_db.child("Cpassword").setValue(Cpassword);
+                                //display message to the user here
+                                Toast.makeText(HIREME.this, "Successfully registered", Toast.LENGTH_LONG).show();
+                                //close this activity
+                                finish();
+                                //opening login activity
+                                // startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                            } else {
+                                //display some message here
+                                Toast.makeText(HIREME.this, "Registration Error", Toast.LENGTH_LONG).show();
+                            }
+                            progressDialog.dismiss();
                         }
-                        progressDialog.dismiss();
-                    }
-                });
-
+                    });
+        }
     }
 }
 

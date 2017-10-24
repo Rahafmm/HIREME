@@ -30,6 +30,10 @@ public class RegisterOrgActivity extends AppCompatActivity implements View.OnCli
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
     private TextView textViewLogIn;
+    private TextView  tv;
+    private TextView textpasswordempty;
+    private TextView textnameempty;
+    private TextView textpasswordmatch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +57,10 @@ public class RegisterOrgActivity extends AppCompatActivity implements View.OnCli
         editTextLocation = (EditText) findViewById(R.id.editTextLocation);
         buttonRgister = (Button) findViewById(R.id.buttonRgister);
         textViewLogIn = (TextView) findViewById(R.id.textviewLogIn);
+        textpasswordempty =(TextView)findViewById(R.id.textpasswordempty);
+        tv = (TextView)findViewById(R.id.textemailempty);
+        textpasswordmatch = (TextView)findViewById(R.id.textpasswordmatch);
+        textnameempty = (TextView)findViewById(R.id.textnameempty);
 
         //attaching listener to button
         buttonRgister.setOnClickListener((View.OnClickListener) this);
@@ -88,54 +96,65 @@ public class RegisterOrgActivity extends AppCompatActivity implements View.OnCli
 
 
         //checking if email and passwords are empty
-        if(TextUtils.isEmpty(email)){
-            Toast.makeText(this,"Please enter email",Toast.LENGTH_LONG).show();
-            return; //stop the function execution
+        if(TextUtils.isEmpty(Name)) {
+            textnameempty.setText("* حقل مطلوب ");
+        }else{
+            textnameempty.setText("");
+        }
+
+        if(TextUtils.isEmpty(email)) {
+            tv.setText("* حقل مطلوب ");
+        }else{
+            tv.setText("");
         }
 
         if(TextUtils.isEmpty(password)){
-            Toast.makeText(this,"Please enter password",Toast.LENGTH_LONG).show();
-            return; //stop the function execution
+            textpasswordempty.setText("* حقل مطلوب");
+        }else{
+            textpasswordempty.setText("");
+            password  = editTextPassword.getText().toString().trim();
         }
 
-        if(TextUtils.isEmpty(Location)){
-            Toast.makeText(this,"Please enter Location",Toast.LENGTH_LONG).show();
-            return; //stop the function execution
+        if(password.equals(Cpassword)) {
+            textpasswordmatch.setText("");
+        }else{
+            textpasswordmatch.setText("* كلمة السر غير متطابقة");
         }
 
-        //if the email and password and Location are not empty
-        //displaying a progress dialog
-        progressDialog.setMessage("Registering Please Wait...");
-        progressDialog.show();
+        if(textpasswordmatch.getText().toString().trim().isEmpty()&&textpasswordempty.getText().toString().trim().isEmpty()&&tv.getText().toString().trim().isEmpty()&&textnameempty.getText().toString().trim().isEmpty()) {
+            //if the email and password and Location are not empty
+            //displaying a progress dialog
+            progressDialog.setMessage("Registering Please Wait...");
+            progressDialog.show();
 
-        //creating a new user
-        firebaseAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
+            //creating a new user
+            firebaseAuth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
 
-                        if(task.isSuccessful()){
-                            String User_ID=firebaseAuth.getCurrentUser().getUid();
-                            DatabaseReference Cureent_User_db= mDatabase.child(User_ID);
+                            if (task.isSuccessful()) {
+                                String User_ID = firebaseAuth.getCurrentUser().getUid();
+                                DatabaseReference Cureent_User_db = mDatabase.child(User_ID);
 
-                            Cureent_User_db.child("Cpassword").setValue(Cpassword);
-                            Cureent_User_db.child("Location").setValue(Location);
+                                Cureent_User_db.child("Cpassword").setValue(Cpassword);
+                                Cureent_User_db.child("Location").setValue(Location);
 
-                            Cureent_User_db.child("name").setValue(Name);
-                            //display message to the user here
-                            Toast.makeText(RegisterOrgActivity.this,"Successfully registered",Toast.LENGTH_LONG).show();
-                            //close this activity
-                            finish();
-                            //opening login activity
-                            startActivity(new Intent(getApplicationContext(), LoginOrgActivity.class));
-                        }else{
-                            //display some message here
-                            Toast.makeText(RegisterOrgActivity.this,"Registration Error",Toast.LENGTH_LONG).show();
+                                Cureent_User_db.child("name").setValue(Name);
+                                //display message to the user here
+                                Toast.makeText(RegisterOrgActivity.this, "Successfully registered", Toast.LENGTH_LONG).show();
+                                //close this activity
+                                finish();
+                                //opening login activity
+                                startActivity(new Intent(getApplicationContext(), LoginOrgActivity.class));
+                            } else {
+                                //display some message here
+                                Toast.makeText(RegisterOrgActivity.this, "Registration Error", Toast.LENGTH_LONG).show();
+                            }
+                            progressDialog.dismiss();
                         }
-                        progressDialog.dismiss();
-                    }
-                });
-
+                    });
+        }
     }
 }
 
