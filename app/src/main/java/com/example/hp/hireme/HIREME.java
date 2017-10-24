@@ -34,6 +34,8 @@ public class HIREME extends AppCompatActivity implements View.OnClickListener {
     private ProgressDialog progressDialog;
     private TextView regorg;
     private TextView loorg;
+    private TextView  tv;
+    private TextView textpasswordempty;
 
 
     //defining firebase auth object
@@ -64,7 +66,8 @@ public class HIREME extends AppCompatActivity implements View.OnClickListener {
         regorg = (TextView) findViewById(R.id.regorg);
         loorg = (TextView) findViewById(R.id.loorg);
         buttonSignup = (Button) findViewById(R.id.buttonRgister);
-
+        textpasswordempty =(TextView)findViewById(R.id.textpasswordempty);
+        tv = (TextView)findViewById(R.id.textemailempty);
         //attaching listener to button
         buttonSignup.setOnClickListener((View.OnClickListener) this);
         textViewLogIn.setOnClickListener(this);
@@ -106,13 +109,24 @@ public class HIREME extends AppCompatActivity implements View.OnClickListener {
 
         //checking if email and passwords are empty
         if(TextUtils.isEmpty(email)){
-            Toast.makeText(this,"Please enter email",Toast.LENGTH_LONG).show();
+           //Toast.makeText(this,"Please enter email",Toast.LENGTH_LONG).show();
+
+            tv.setText("* حقل مطلوب ");
+
+            if(TextUtils.isEmpty(password)){
+                //Toast.makeText(this,"Please enter password",Toast.LENGTH_LONG).show();
+
+                textpasswordempty.setText("* حقل مطلوب");
+                return; //stop the function execution
+            }
             return; //stop the function execution
         }
 
         if(TextUtils.isEmpty(password)){
-            Toast.makeText(this,"Please enter password",Toast.LENGTH_LONG).show();
-            return; //stop the function execution
+            //Toast.makeText(this,"Please enter password",Toast.LENGTH_LONG).show();
+
+            textpasswordempty.setText("* حقل مطلوب");
+           return; //stop the function execution
         }
 
         //if the email and password are not empty
