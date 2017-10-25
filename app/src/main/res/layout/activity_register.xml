@@ -9,47 +9,38 @@
     tools:context="com.example.hp.hireme.AccuontActivity.RegisterActivity">
 
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="345dp"
-        android:layout_height="71dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:paddingLeft="80dp"
-        android:paddingTop="50dp"
-        android:text="تسجيل مرشح جديد"
-        android:textAlignment="center"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginBottom="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="1dp"
-        app:layout_constraintVertical_bias="1.0"
-        app:layout_constraintHorizontal_bias="0.0" />
-
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="307dp"
         android:layout_height="556dp"
 
         android:layout_centerVertical="true"
-        android:layout_marginBottom="-105dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
-
         android:layout_marginRight="8dp"
-        android:layout_marginStart="52dp"
+        android:layout_marginTop="8dp"
         android:orientation="vertical"
+        android:paddingTop="10dp"
         android:textAlignment="gravity"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        tools:layout_constraintBottom_creator="1"
-        tools:layout_constraintLeft_creator="1">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            android:paddingLeft="80dp"
+
+            android:text="تسجيل مرشح جديد"
+            android:textAlignment="center"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="58dp" />
 
         <EditText
             android:id="@+id/editTextName"
