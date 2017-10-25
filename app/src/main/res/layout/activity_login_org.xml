@@ -89,6 +89,18 @@
             android:id="@+id/textViewregister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+        <TextView
+            android:textAlignment="center"
+            android:text="لست جهة,مرشح؟سجل من هنا.."
+            android:id="@+id/textViewregisterCan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textAlignment="center"
+            android:text="تسجيل الدخول كمرشح.."
+            android:id="@+id/textViewloginCan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
 

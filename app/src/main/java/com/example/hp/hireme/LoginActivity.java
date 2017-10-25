@@ -126,6 +126,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private TextView textViewregister;
    private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
+    private TextView textViewregisterorg;
+    private TextView textViewloginorg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -145,11 +147,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         editTextPasword = (EditText) findViewById(R.id.editTextPasword);
         buttonLogIn = (Button) findViewById(R.id.buttonLogin);
         textViewregister = (TextView) findViewById(R.id.textViewregister);
+        textViewregisterorg = (TextView) findViewById(R.id.textViewregisterorg);
+        textViewloginorg = (TextView) findViewById(R.id.textViewloginorg);
 
         progressDialog = new ProgressDialog(this);
 
         buttonLogIn.setOnClickListener(this);
         textViewregister.setOnClickListener(this);
+        textViewregisterorg.setOnClickListener(this);
+        textViewloginorg.setOnClickListener(this);
 
 
     }
@@ -196,6 +202,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (view==textViewregister){
             finish();
             startActivity(new Intent(this,HIREME.class));
+        }
+        if (view==textViewregisterorg){
+            finish();
+            startActivity(new Intent(this,RegisterOrgActivity.class));
+        }
+        if (view==textViewloginorg){
+            finish();
+            startActivity(new Intent(this,LoginOrgActivity.class));
         }
 
 

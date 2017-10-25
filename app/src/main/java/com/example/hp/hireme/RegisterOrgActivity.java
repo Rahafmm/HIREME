@@ -34,6 +34,8 @@ public class RegisterOrgActivity extends AppCompatActivity implements View.OnCli
     private TextView textpasswordempty;
     private TextView textnameempty;
     private TextView textpasswordmatch;
+    private TextView logCan;
+    private TextView regCan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,9 +64,13 @@ public class RegisterOrgActivity extends AppCompatActivity implements View.OnCli
         textpasswordmatch = (TextView)findViewById(R.id.textpasswordmatch);
         textnameempty = (TextView)findViewById(R.id.textnameempty);
 
+        regCan = (TextView) findViewById(R.id.regCan);
+        logCan = (TextView) findViewById(R.id.logCan);
         //attaching listener to button
         buttonRgister.setOnClickListener((View.OnClickListener) this);
         textViewLogIn.setOnClickListener(this);
+        regCan.setOnClickListener(this);
+        logCan.setOnClickListener(this);
 
         // to chow message
         progressDialog = new ProgressDialog(this);
@@ -78,6 +84,14 @@ public class RegisterOrgActivity extends AppCompatActivity implements View.OnCli
             registerUser();}
         if(view == textViewLogIn ) {
             startActivity(new Intent(this, LoginOrgActivity.class) ); //profile=login
+
+        }
+        if(view == regCan ) {
+            startActivity(new Intent(this, HIREME.class) );
+
+        }
+        if(view == logCan ) {
+            startActivity(new Intent(this, LoginActivity.class) );
 
         }
     }

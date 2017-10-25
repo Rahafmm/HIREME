@@ -36,6 +36,8 @@ import com.google.firebase.database.ValueEventListener;
         private TextView textViewregister;
         private FirebaseAuth firebaseAuth;
         private ProgressDialog progressDialog;
+        private TextView textViewregisterCan;
+        private TextView textViewloginCan;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -55,11 +57,15 @@ import com.google.firebase.database.ValueEventListener;
             editTextPasword = (EditText) findViewById(R.id.editTextPasword);
             buttonLogIn = (Button) findViewById(R.id.buttonLogin);
             textViewregister = (TextView) findViewById(R.id.textViewregister);
+            textViewregisterCan = (TextView) findViewById(R.id.textViewregisterCan);
+            textViewloginCan = (TextView) findViewById(R.id.textViewloginCan);
 
             progressDialog = new ProgressDialog(this);
 
             buttonLogIn.setOnClickListener(this);
             textViewregister.setOnClickListener(this);
+            textViewregisterCan.setOnClickListener(this);
+            textViewloginCan.setOnClickListener(this);
 
 
         }
@@ -106,6 +112,14 @@ import com.google.firebase.database.ValueEventListener;
             if (view==textViewregister){
                 finish();
                 startActivity(new Intent(this,RegisterOrgActivity.class));
+            }
+            if (view==textViewregisterCan){
+                finish();
+                startActivity(new Intent(this,HIREME.class));
+            }
+            if (view==textViewloginCan){
+                finish();
+                startActivity(new Intent(this,LoginActivity.class));
             }
 
 

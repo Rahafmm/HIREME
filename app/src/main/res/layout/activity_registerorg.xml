@@ -4,29 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.hp.hireme.AccuontActivity.RegisterActivity">
+    tools:context="com.example.hp.hireme.AccuontActivity.RegisterActivity"
+    android:background="@drawable/qq">
 
     <LinearLayout
-        android:layout_width="306dp"
-        android:layout_height="486dp"
+        android:layout_width="307dp"
+        android:layout_height="556dp"
         android:layout_centerVertical="true"
 
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginStart="52dp"
-        android:layout_marginTop="8dp"
         android:orientation="vertical"
         android:textAlignment="gravity"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
 
-        app:layout_constraintVertical_bias="0.489"
         tools:layout_constraintBottom_creator="1"
         tools:layout_constraintLeft_creator="1"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.0">
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_bias="0.64">
     <EditText
         android:id="@+id/editText"
         android:layout_width="0dp"
@@ -157,6 +158,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=" هل لديك حساب؟ تسجيل دخول من هنا "
+            android:textAlignment="center" />
+        <TextView
+            android:id="@+id/regCan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="  إذا كنت مرشح اضغط هنا للتسجيل...   "
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/logCan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="/تسجيل الدخول"
             android:textAlignment="center" />
 
 
