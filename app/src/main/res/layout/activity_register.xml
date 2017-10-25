@@ -7,55 +7,43 @@
     android:background="@drawable/qq"
 
     tools:context="com.example.hp.hireme.AccuontActivity.RegisterActivity">
+
+
     <TextView
-        android:paddingTop="50dp"
-        android:paddingLeft="80dp"
         android:id="@+id/textView"
         android:layout_width="345dp"
-        android:layout_height="152dp"
-        android:text="تسجيل مستخدم جديد"
+        android:layout_height="71dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:paddingLeft="80dp"
+        android:paddingTop="50dp"
+        android:text="تسجيل مرشح جديد"
         android:textAlignment="center"
         android:textColor="@android:color/darker_gray"
         android:textSize="18sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
-
+        app:layout_constraintHorizontal_bias="0.16"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteY="-46dp" />
 
     <LinearLayout
-        android:layout_width="296dp"
+        android:id="@+id/linearLayout"
 
-        android:layout_height="581dp"
+        android:layout_width="304dp"
+        android:layout_height="584dp"
         android:layout_centerVertical="true"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="65dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
         android:orientation="vertical"
         android:paddingTop="100dp"
         android:textAlignment="gravity"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
-
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:ems="10"
-            android:inputType="textPassword"
-            app:layout_constraintBottom_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints"
-            tools:layout_constraintBottom_creator="1"
-            tools:layout_constraintLeft_creator="1"
-            tools:layout_constraintRight_creator="1"
-            tools:layout_constraintTop_creator="1" />
+        android:weightSum="1"
+        app:layout_constraintHorizontal_bias="0.494">
 
         <EditText
             android:id="@+id/editTextName"
@@ -72,8 +60,8 @@
             android:inputType="textPersonName"
             android:singleLine="false"
             android:textAlignment="textStart"
-            android:textAllCaps="true" />
-
+            android:textAllCaps="true"
+            android:layout_weight="0.53" />
 
         <TextView
             android:id="@+id/textnameempty"
@@ -110,7 +98,6 @@
             android:textStyle="bold"
             tools:layout_editor_absoluteX="48dp"
             tools:layout_editor_absoluteY="267dp" />
-
 
         <EditText
             android:id="@+id/editTextPasword"
@@ -182,6 +169,24 @@
             android:layout_height="wrap_content"
             android:text="  /  تسجيل الدخول   "
             android:textAlignment="center" />
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:ems="10"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_constraintBottom_creator="1"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintTop_creator="1" />
+
+
     </LinearLayout>
 
 

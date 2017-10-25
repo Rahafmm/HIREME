@@ -6,7 +6,24 @@
     android:layout_height="match_parent"
     tools:context="com.example.hp.hireme.AccuontActivity.RegisterActivity"
     android:background="@drawable/qq">
-
+    <TextView
+        android:paddingTop="50dp"
+        android:paddingLeft="80dp"
+        android:id="@+id/textView"
+        android:layout_width="345dp"
+        android:layout_height="0dp"
+        android:text="تسجيل جهة جديدة"
+        android:textAlignment="center"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2" />
     <LinearLayout
         android:layout_width="307dp"
         android:layout_height="556dp"
@@ -26,8 +43,9 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="8dp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintVertical_bias="0.64">
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintVertical_bias="1.0"
+        android:id="@+id/linearLayout2">
     <EditText
         android:id="@+id/editText"
         android:layout_width="0dp"

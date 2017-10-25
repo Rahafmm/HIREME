@@ -34,7 +34,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         buttonLogout=(Button) findViewById(R.id.buttonLogout);
 
-        textViewUserEmail.setText("Welcome"+user.getEmail());
+        textViewUserEmail.setText("Welcome "+user.getEmail());
 
         buttonLogout.setOnClickListener(this);
 
