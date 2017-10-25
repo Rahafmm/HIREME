@@ -30,19 +30,18 @@
         app:layout_constraintVertical_bias="0.0">
 
         <TextView
-            android:paddingTop="10dp"
-            android:paddingLeft="30dp"
             android:id="@+id/textviewLogIn"
-            android:layout_width="345dp"
+            android:layout_width="match_parent"
             android:layout_height="152dp"
-            android:text="             تسجيل دخول المرشح"
+            android:paddingLeft="30dp"
+            android:paddingTop="10dp"
+            android:text="تسجيل دخول المرشح"
             android:textAlignment="center"
             android:textColor="@android:color/darker_gray"
             android:textSize="18sp"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="16dp"
-            />
+            tools:layout_editor_absoluteY="16dp" />
 
         <EditText
             android:id="@+id/editTextEmail"
