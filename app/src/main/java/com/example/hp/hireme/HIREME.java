@@ -2,8 +2,10 @@ package com.example.hp.hireme;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
@@ -103,6 +105,7 @@ public class HIREME extends AppCompatActivity implements View.OnClickListener {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
     private void registerUser() {
         //getting email and password from edit texts
         final String Cpassword = editTextCPasword.getText().toString().trim();
@@ -158,10 +161,11 @@ public class HIREME extends AppCompatActivity implements View.OnClickListener {
                                 Cureent_User_db.child("Cpassword").setValue(Cpassword);
                                 //display message to the user here
                                 Toast.makeText(HIREME.this, "Successfully registered", Toast.LENGTH_LONG).show();
+
                                 //close this activity
                                 finish();
                                 //opening login activity
-                                // startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                             } else {
                                 //display some message here
                                 Toast.makeText(HIREME.this, "Registration Error", Toast.LENGTH_LONG).show();
