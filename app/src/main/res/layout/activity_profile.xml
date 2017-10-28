@@ -34,13 +34,14 @@
         android:id="@+id/buttonLogout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#9fd0d4"
         android:text="Logout"
-        tools:layout_editor_absoluteY="447dp"
-        tools:layout_editor_absoluteX="148dp"
+        tools:layout_conversion_absoluteHeight="0dp"
+        tools:layout_conversion_absoluteWidth="0dp"
         tools:layout_conversion_absoluteX="0dp"
         tools:layout_conversion_absoluteY="0dp"
-        tools:layout_conversion_absoluteWidth="0dp"
-        tools:layout_conversion_absoluteHeight="0dp" />
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="447dp" />
 
 </android.support.constraint.ConstraintLayout>
 

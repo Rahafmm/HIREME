@@ -79,9 +79,10 @@
 
         <Button
             android:id="@+id/buttonLogin"
-            android:text="تسجيل الدخول"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:background="#9fd0d4"
+            android:text="تسجيل الدخول" />
         <TextView
             android:textAlignment="center"
             android:text="ليس لديك حساب؟ سجل من هنا"
