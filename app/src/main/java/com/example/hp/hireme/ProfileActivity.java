@@ -54,8 +54,8 @@ private ImageButton imageButton8;
             startActivity(new Intent(this, LoginActivity.class));
         }
         if(view==imageButton8){
-            //startActivity(new Intent(this, ProfileEditActivity2.class));
-            startActivity(new Intent(this, EditProfileActivity.class));
+            startActivity(new Intent(this, ProfileEditActivity2.class));
+            //startActivity(new Intent(this, EditProfileActivity.class));
         }
         if(view==addpos){
             startActivity(new Intent(this, activityAddPosition.class));
