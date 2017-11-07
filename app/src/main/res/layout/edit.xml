@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/qq"
+    android:orientation="vertical"
+    android:weightSum="1"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.hp.hireme.ProfileEditActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="150dp"
+            android:layout_height="150dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:id="@+id/llpro"
+                android:visibility="invisible"
+                >
+                <com.daimajia.numberprogressbar.NumberProgressBar
+                    android:id="@+id/profiledp_progress_bar"
+                    custom:progress_text_size="10sp"
+                    style="@style/NumberProgressBar_Default"
+
+                    />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/profile_image"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:paddingTop="15dp"
+                android:src="@drawable/prof"
+
+                 />
+
+            <ImageView
+                android:id="@+id/pimageView"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignEnd="@+id/profile_image"
+                android:layout_alignParentBottom="true"
+                android:layout_alignRight="@+id/profile_image"
+                android:layout_marginBottom="14dp"
+                android:onClick="changeprofileImage"
+                android:src="@drawable/editimage" />
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/profile_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+
+            android:text="Profile Name" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_weight="0.37"
+        android:orientation="vertical">
+
+
+        <EditText
+            android:id="@+id/profile_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+
+            android:maxLines="1"
+            android:paddingTop="20dp"
+            android:singleLine="true"
+            android:textAlignment="textStart" />
+
+
+        <EditText
+            android:id="@+id/profile_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:hint="الرقم السري"
+            android:maxLines="1"
+            android:paddingTop="20dp"
+            android:singleLine="true" />
+
+
+
+
+
+        <EditText
+            android:id="@+id/profile_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="موقع الشركة"
+            android:maxLines="1"
+            android:paddingTop="20dp"
+            android:singleLine="true"
+            android:textAlignment="textStart" />
+
+
+        <TextView
+            android:id="@+id/textcat"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_weight="0.26"
+            android:paddingTop="15dp"
+            android:text="ادخل تنصيف الشركة"
+            android:textAlignment="textStart"
+            android:textSize="18sp" />
+
+        <Spinner
+            android:id="@+id/editcat"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="-5dp"
+
+            />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:background="@android:color/darker_gray" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginStart="180dp"
+        android:layout_marginTop="15dp"
+        android:background="#9fd0d4"
+        android:elevation="0dp"
+
+        android:text="حفظ"
+        android:textAlignment="center" />
+
+</LinearLayout>

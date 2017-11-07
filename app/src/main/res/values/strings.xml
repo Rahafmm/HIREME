@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">HIRE ME</string>
+
+    <array name="catogary">
+
+        <item name="Tue"></item>
+        <item name="Tue">IT</item>
+        <item name="Mon">Health</item>
+        <item name="Wed">Other</item>
+    </array>
 </resources>

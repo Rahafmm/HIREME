@@ -41,6 +41,7 @@ public class RegisterOrgActivity extends AppCompatActivity implements View.OnCli
     private TextView logCan;
     private TextView regCan;
     private Spinner cat;
+    Org org;
     String record="nothing";
     String cata[]={"IT","Health","Other"};
     ArrayAdapter<String> adapter;
@@ -194,12 +195,20 @@ public class RegisterOrgActivity extends AppCompatActivity implements View.OnCli
                                 Cureent_User_db.child("catgory").setValue(record);
 
                                 Cureent_User_db.child("name").setValue(Name);
+                                org=new Org();
+                                org.setEmail(editTextEmail.getText().toString());
+                                org.setname(editTextName.getText().toString());
+                                org.setLocation(editTextLocation.getText().toString());
+                                org.setcat(String.valueOf(cat.getSelectedItemId()));
+                                org.setUid(User_ID);
+
+
                                 //display message to the user here
                                 Toast.makeText(RegisterOrgActivity.this, "Successfully registered", Toast.LENGTH_LONG).show();
                                 //close this activity
                                 finish();
                                 //opening login activity
-                                startActivity(new Intent(getApplicationContext(), LoginOrgActivity.class));
+                                startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
                             } else {
                                 //display some message here
                                 Toast.makeText(RegisterOrgActivity.this, "Registration Error", Toast.LENGTH_LONG).show();
