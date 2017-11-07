@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.hp.hireme.AccuontActivity.EditProfileActivity">
+
+
+    <!--//name-->
+    <!--<EditText-->
+        <!--android:id="@+id/profile_name"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:hint="@string/edit_profile_name"-->
+        <!--android:inputType="textPersonName"-->
+        <!--android:maxLines="1"-->
+        <!--android:padding="@dimen/_12sdp"-->
+        <!--android:textSize="@dimen/_12sdp"-->
+        <!--android:background="@drawable/bottom_border"-->
+        <!--android:textColor="@color/colorBlack"-->
+        <!--android:singleLine="true"-->
+        <!--tools:layout_editor_absoluteY="0dp"-->
+        <!--tools:layout_editor_absoluteX="8dp" />-->
+
+
+    <!--//old password-->
+    <!--<EditText-->
+        <!--android:id="@+id/oldPass"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:hint="@string/edit_old_pass"-->
+        <!--android:inputType="textOldPass"-->
+        <!--android:maxLines="1"-->
+        <!--android:padding="@dimen/_12sdp"-->
+        <!--android:textSize="@dimen/_12sdp"-->
+        <!--android:background="@drawable/bottom_border"-->
+        <!--android:textColor="@color/colorBlack"-->
+        <!--android:singleLine="true"-->
+        <!--tools:layout_editor_absoluteY="0dp"-->
+        <!--tools:layout_editor_absoluteX="8dp" />-->
+
+    <!--//new password-->
+    <!--<EditText-->
+        <!--android:id="@+id/newPass"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:hint="@string/edit_new_pass"-->
+        <!--android:inputType="textNewPass"-->
+        <!--android:maxLines="1"-->
+        <!--android:padding="@dimen/_12sdp"-->
+        <!--android:textSize="@dimen/_12sdp"-->
+        <!--android:background="@drawable/bottom_border"-->
+        <!--android:textColor="@color/colorBlack"-->
+        <!--android:singleLine="true"-->
+        <!--tools:layout_editor_absoluteY="0dp"-->
+        <!--tools:layout_editor_absoluteX="8dp" />-->
+
+    <!--//conf. new password-->
+    <!--<EditText-->
+        <!--android:id="@+id/newPassConf"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:hint="@string/edit_new_pass_conf"-->
+        <!--android:inputType="textNewPassConf"-->
+        <!--android:maxLines="1"-->
+        <!--android:padding="@dimen/_12sdp"-->
+        <!--android:textSize="@dimen/_12sdp"-->
+        <!--android:background="@drawable/bottom_border"-->
+        <!--android:textColor="@color/colorBlack"-->
+        <!--android:singleLine="true"-->
+        <!--tools:layout_editor_absoluteY="0dp"-->
+        <!--tools:layout_editor_absoluteX="8dp" />-->
+
+    <!--//btn-->
+    <!--<Button-->
+        <!--android:id="@+id/save_edit_button"-->
+        <!--android:layout_width="395dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textColor="@color/colorWhite"-->
+        <!--android:text="@string/save_edit"-->
+        <!--android:background="@color/colorPrimaryDark"-->
+        <!--android:padding="@dimen/_12sdp"-->
+        <!--tools:layout_editor_absoluteY="0dp"-->
+        <!--tools:layout_editor_absoluteX="8dp" />-->
+
+
+    <LinearLayout
+        android:layout_width="397dp"
+        android:layout_height="526dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="9dp"
+        tools:layout_editor_absoluteY="34dp">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Edit Profile"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="29dp"
+            tools:layout_editor_absoluteY="38dp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Change Name"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Change Password"
+            android:textAllCaps="false"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/oldPass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="old password"
+            android:inputType="textPersonName"
+            android:text="Old Password" />
+
+        <EditText
+            android:id="@+id/newPass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="new password"
+            android:inputType="textPersonName"
+            android:text="New Password" />
+
+        <EditText
+            android:id="@+id/conPass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="confirm new password"
+            android:inputType="textPersonName"
+            android:text="Confirm New Password" />
+
+        <Button
+            android:id="@+id/save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="0dp"
+            android:text="Save" />
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cancel" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

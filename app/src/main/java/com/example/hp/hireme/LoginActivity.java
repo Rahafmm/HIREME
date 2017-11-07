@@ -119,7 +119,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private EditText editTextEmail;
     private EditText editTextPasword;
     private TextView textViewregister;
-   private FirebaseAuth firebaseAuth;
+    private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
     private TextView textViewregisterorg;
     private TextView textViewloginorg;
