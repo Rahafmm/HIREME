@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.hp.hireme.activityAddPosition"
+    android:background="@drawable/qq"
+    >
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="307dp"
+        android:layout_height="556dp"
+
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        android:paddingTop="10dp"
+        android:textAlignment="gravity"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/newpos"
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            android:paddingLeft="80dp"
+
+            android:text="إضافة وظيفة جديدة "
+            android:textAlignment="center"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="58dp" />
+
+        <EditText
+            android:id="@+id/posname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:hint="ادخل اسم الوظيفة  "
+            android:inputType="textPersonName"
+            android:singleLine="false"
+            android:textAlignment="textStart"
+            android:textAllCaps="true" />
+
+        <TextView
+            android:id="@+id/nameempty"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:paddingLeft="15dp"
+            android:paddingTop="15dp"
+            android:text=""
+            android:textAlignment="textStart"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="48dp"
+            tools:layout_editor_absoluteY="267dp" />
+
+        <EditText
+            android:id="@+id/posdes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ادخل تفاصيل الوظيفة "
+            android:inputType="textEmailAddress"
+            android:textAlignment="gravity" />
+
+        <TextView
+            android:id="@+id/posdesempty"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:paddingLeft="15dp"
+            android:paddingTop="15dp"
+            android:text=""
+            android:textAlignment="textStart"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="48dp"
+            tools:layout_editor_absoluteY="267dp" />
+
+
+
+        <Button
+            android:id="@+id/buttonAddPosition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#9fd0d4"
+            android:text="إضافة" />
+
+
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
