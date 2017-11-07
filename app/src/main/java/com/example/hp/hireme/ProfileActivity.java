@@ -1,11 +1,11 @@
 package com.example.hp.hireme;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.ImageButton;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
 
     private FirebaseAuth firebaseAuth;
-    private TextView textViewUserEmail;
+    private ImageButton addpos;
     private Button buttonLogout;
 
     @Override
@@ -30,15 +30,15 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         FirebaseUser user= firebaseAuth.getCurrentUser();
 
-        textViewUserEmail=(TextView) findViewById(R.id.textviewUserEmail);
+
 
         buttonLogout=(Button) findViewById(R.id.buttonLogout);
 
-        textViewUserEmail.setText("Welcome "+user.getEmail());
+        addpos= (ImageButton) findViewById(R.id.addpos);
 
         buttonLogout.setOnClickListener(this);
 
-
+        addpos.setOnClickListener(this);
     }
 
     @Override
@@ -48,6 +48,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             firebaseAuth.signOut();
             finish();
             startActivity(new Intent(this, LoginActivity.class));
+        }
+        if (view==addpos){
+
+            startActivity(new Intent(this, activityAddPosition.class));
         }
     }
 }
