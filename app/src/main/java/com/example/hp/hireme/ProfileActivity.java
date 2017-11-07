@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -15,7 +16,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private FirebaseAuth firebaseAuth;
     private TextView textViewUserEmail;
     private Button buttonLogout;
-
+private ImageButton imageButton8;
+    private ImageButton addpos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,12 +32,13 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         FirebaseUser user= firebaseAuth.getCurrentUser();
 
-        textViewUserEmail=(TextView) findViewById(R.id.textviewUserEmail);
 
         buttonLogout=(Button) findViewById(R.id.buttonLogout);
 
-        textViewUserEmail.setText("Welcome "+user.getEmail());
-
+        imageButton8=(ImageButton)findViewById(R.id.imageButton8);
+        addpos=(ImageButton)findViewById(R.id.addpos);
+        addpos.setOnClickListener(this);
+        imageButton8.setOnClickListener(this);
         buttonLogout.setOnClickListener(this);
 
 
@@ -48,6 +51,12 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             firebaseAuth.signOut();
             finish();
             startActivity(new Intent(this, LoginActivity.class));
+        }
+        if(view==imageButton8){
+            startActivity(new Intent(this, ProfileEditActivity2.class));
+        }
+        if(view==addpos){
+            startActivity(new Intent(this, activityAddPosition.class));
         }
     }
 }
