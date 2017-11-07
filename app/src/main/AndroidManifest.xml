@@ -21,6 +21,7 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".ProfileEditActivity2" />
         <activity android:name=".ProfileActivity" />
+        <activity android:name=".AccuontActivity.EditProfileActivity" />
         <activity android:name=".RegisterOrgActivity" />
         <activity android:name=".LoginOrgActivity" />
         <activity android:name=".activityAddPosition" />

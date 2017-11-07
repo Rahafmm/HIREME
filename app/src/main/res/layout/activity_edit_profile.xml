@@ -128,15 +128,6 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/oldPass"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="old password"
-            android:inputType="textPersonName"
-            android:text="Old Password" />
-
-        <EditText
             android:id="@+id/newPass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -144,15 +135,6 @@
             android:hint="new password"
             android:inputType="textPersonName"
             android:text="New Password" />
-
-        <EditText
-            android:id="@+id/conPass"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="confirm new password"
-            android:inputType="textPersonName"
-            android:text="Confirm New Password" />
 
         <Button
             android:id="@+id/save"
