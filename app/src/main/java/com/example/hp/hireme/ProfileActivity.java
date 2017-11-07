@@ -20,7 +20,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-
+//hi
         firebaseAuth= FirebaseAuth.getInstance();
 
         if (firebaseAuth.getCurrentUser()==null){
