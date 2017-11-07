@@ -24,9 +24,7 @@
         <activity android:name=".RegisterOrgActivity" />
         <activity android:name=".LoginOrgActivity" />
         <activity android:name=".activityAddPosition" />
-        <activity
-            android:name=".profileCand"
-            android:label="@string/title_activity_profile_cand"></activity>
+        <activity android:name=".profileCand"></activity>
     </application>
 
 </manifest>
