@@ -125,7 +125,7 @@ import com.google.firebase.storage.StorageReference;
              * */
 
 
-                Toast.makeText(ProfileEditActivity2.this, "Successfully changed password", Toast.LENGTH_LONG).show();
+
                 pickImage();
 
         }
@@ -144,6 +144,9 @@ import com.google.firebase.storage.StorageReference;
                     showImage(imageUri);
                 }
             }
+            FirebaseStorage storage = FirebaseStorage.getInstance();
+            StorageReference storageRef = storage.getReference().child("Org").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+            storageRef.child("pic").putFile((Uri)(findViewById(R.id.profile_image)).getTag());
         }
 
         private void showImage(Uri imageUri) {
@@ -165,8 +168,8 @@ import com.google.firebase.storage.StorageReference;
             mDatabase.child("Org").child(userID).child("Location").setValue(profile_location.getText().toString());
 
             FirebaseStorage storage = FirebaseStorage.getInstance();
-            StorageReference storageRef = storage.getReference().child("Org").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-            storageRef.child("pic").putFile((Uri)(findViewById(R.id.profile_image)).getTag());
+           // StorageReference storageRef = storage.getReference().child("Org").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+           // storageRef.child("pic").putFile((Uri)(findViewById(R.id.profile_image)).getTag());
 
            // mDatabase.child("Org").child(userID).child("Location").setValue((findViewById(R.id.profile_image)).getTag());
 
@@ -195,7 +198,7 @@ import com.google.firebase.storage.StorageReference;
                     progressDialog.show();
                     mDatabase= FirebaseDatabase.getInstance().getReference();
                     String pass=profile_password.getText().toString();
-                    profile_name.setText(user1.getEmail());
+
 
                     user1.updatePassword(pass)
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
