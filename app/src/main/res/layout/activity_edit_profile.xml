@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.hp.hireme.AccuontActivity.EditProfileActivity">
+    tools:context="com.example.hp.hireme.AccuontActivity.EditProfileActivity"
+    android:background="@drawable/qq">
 
 
     <!--//name-->
@@ -97,7 +98,7 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Edit Profile"
+            android:text="تعديل المعلومات"
             android:textAlignment="center"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -108,7 +109,7 @@
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Change Name"
+            android:text="تغيير الإسم"
             android:textSize="18sp" />
 
         <EditText
@@ -116,14 +117,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
+            android:hint="الإسم الجديد"
+            android:inputType="textPersonName" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Change Password"
+            android:text="تغيير كلمة المرور"
             android:textAllCaps="false"
             android:textSize="18sp" />
 
@@ -132,21 +133,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="new password"
-            android:inputType="textPersonName"
-            android:text="New Password" />
+            android:hint="كلمة المرور الجديدة"
+            android:inputType="textPersonName" />
 
         <Button
             android:id="@+id/save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:elevation="0dp"
-            android:text="Save" />
+            android:text="حفظ" />
 
         <Button
             android:id="@+id/cancel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cancel" />
+            android:text="تراجع" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
