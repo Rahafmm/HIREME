@@ -9,8 +9,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="307dp"
-        android:layout_height="556dp"
+        android:layout_width="305dp"
+        android:layout_height="574dp"
 
         android:layout_centerVertical="true"
         android:layout_marginBottom="8dp"
@@ -20,12 +20,14 @@
         android:orientation="vertical"
         android:paddingTop="10dp"
         android:textAlignment="gravity"
+        android:weightSum="1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="46dp">
 
         <TextView
             android:id="@+id/textView"
@@ -80,9 +82,9 @@
         <TextView
             android:id="@+id/textnameempty"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="20dp"
             android:paddingLeft="15dp"
-            android:paddingTop="15dp"
+            android:paddingTop="-5dp"
             android:text=""
             android:textAlignment="textStart"
             android:textColor="@android:color/holo_red_light"
@@ -103,9 +105,9 @@
         <TextView
             android:id="@+id/textemailempty"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="20dp"
             android:paddingLeft="15dp"
-            android:paddingTop="15dp"
+            android:paddingTop="-5dp"
             android:text=""
             android:textAlignment="textStart"
             android:textColor="@android:color/holo_red_light"
@@ -125,9 +127,9 @@
         <TextView
             android:id="@+id/textpasswordempty"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="20dp"
             android:paddingLeft="15dp"
-            android:paddingTop="15dp"
+            android:paddingTop="-5dp"
             android:text=""
             android:textAlignment="textStart"
             android:textColor="@android:color/holo_red_light"
@@ -147,9 +149,9 @@
         <TextView
             android:id="@+id/textpasswordmatch"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="20dp"
             android:paddingLeft="15dp"
-            android:paddingTop="15dp"
+            android:paddingTop="-5dp"
             android:text=""
             android:textAlignment="textStart"
             android:textColor="@android:color/holo_red_light"
@@ -166,6 +168,24 @@
             android:hint="ادخل موقع الشركة"
             android:inputType="text"
             android:textAlignment="gravity" />
+
+        <TextView
+            android:id="@+id/textcat"
+            android:layout_width="match_parent"
+            android:paddingTop="14dp"
+            android:layout_height="40dp"
+            android:layout_weight="0.26"
+            android:text="ادخل تنصيف الشركة"
+            android:textAlignment="textStart"
+            android:textSize="18sp" />
+
+        <Spinner
+            android:id="@+id/cat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textcat"
+            android:layout_weight="0.58"
+            android:hint="ادخل موقع الشركة" />
 
         <Button
             android:id="@+id/buttonRgister"
