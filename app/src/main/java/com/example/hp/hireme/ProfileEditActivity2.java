@@ -197,16 +197,15 @@ import com.google.firebase.storage.StorageReference;
                     progressDialog.setMessage("changing Password , please wait!!");
                     progressDialog.show();
                     mDatabase= FirebaseDatabase.getInstance().getReference();
-                    String pass=profile_password.getText().toString();
-
+                    String pass=profile_password.getText().toString().trim();
 
                     user1.updatePassword(pass)
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
-
-                                mDatabase.child("Org").child(userID).child("Cpassword").setValue(profile_password.getText().toString());
+                                String pass=profile_password.getText().toString().trim();
+                                mDatabase.child("Org").child(userID).child("Cpassword").setValue(pass);
 
                                 //display message to the user here
                                 Toast.makeText(ProfileEditActivity2.this, "Successfully changed password", Toast.LENGTH_LONG).show();
