@@ -104,6 +104,7 @@
             android:ems="10"
             android:inputType="textPassword"
             android:hint="الرقم السري"
+
             android:maxLines="1"
             android:paddingTop="20dp"
             android:singleLine="true"
