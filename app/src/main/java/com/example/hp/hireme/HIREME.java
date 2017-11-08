@@ -165,7 +165,7 @@ public class HIREME extends AppCompatActivity implements View.OnClickListener {
                                 //close this activity
                                 finish();
                                 //opening login activity
-                                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                                 startActivity(new Intent(getApplicationContext(), profileCand.class));
                             } else {
                                 //display some message here
                                 Toast.makeText(HIREME.this, "Registration Error", Toast.LENGTH_LONG).show();
