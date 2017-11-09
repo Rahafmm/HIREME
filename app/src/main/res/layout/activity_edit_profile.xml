@@ -88,11 +88,18 @@
 
 
     <LinearLayout
-        android:layout_width="397dp"
-        android:layout_height="526dp"
+        android:layout_width="360dp"
+        android:layout_height="492dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="9dp"
-        tools:layout_editor_absoluteY="34dp">
+        android:layout_marginRight="7dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp">
 
         <TextView
             android:id="@+id/textView2"
@@ -107,14 +114,14 @@
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="match_parent"
+            android:layout_width="359dp"
             android:layout_height="wrap_content"
             android:text="تغيير الإسم"
             android:textSize="18sp" />
 
         <EditText
             android:id="@+id/name"
-            android:layout_width="match_parent"
+            android:layout_width="361dp"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="الإسم الجديد"
@@ -122,7 +129,7 @@
 
         <TextView
             android:id="@+id/textView4"
-            android:layout_width="match_parent"
+            android:layout_width="361dp"
             android:layout_height="wrap_content"
             android:text="تغيير كلمة المرور"
             android:textAllCaps="false"
@@ -130,7 +137,7 @@
 
         <EditText
             android:id="@+id/newPass"
-            android:layout_width="match_parent"
+            android:layout_width="365dp"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="كلمة المرور الجديدة"
@@ -141,12 +148,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:elevation="0dp"
-            android:text="حفظ" />
+            android:text="حفظ"
+            android:textAlignment="center" />
 
-        <Button
-            android:id="@+id/cancel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="تراجع" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

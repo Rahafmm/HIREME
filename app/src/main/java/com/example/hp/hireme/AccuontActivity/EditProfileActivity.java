@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.hp.hireme.profileCand;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -77,7 +79,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
 
-        setTitle("Edit Account Information");
+
 
         name = (EditText) findViewById(R.id.name);
 
@@ -85,7 +87,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
 
 
         save = (Button) findViewById(R.id.save);
-        cancel = (Button) findViewById(R.id.cancel);
+
 
         progressDialog = new ProgressDialog(this);
 
@@ -112,6 +114,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
 
         if(!(TextUtils.isEmpty(name.getText().toString().trim())))
             mDatabase.child("candet").child(userID).child("name").setValue(name.getText().toString());
+
 
 
 
@@ -153,6 +156,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
 
     }
     /////end edit
+
 
 
 

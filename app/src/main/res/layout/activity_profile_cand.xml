@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.hp.hireme.profileCand">
+    tools:context="com.example.hp.hireme.profileCand"
+    android:background="@drawable/qq">
     <Button
         android:id="@+id/buttonLogout"
         android:layout_width="wrap_content"
@@ -15,9 +16,10 @@
         tools:layout_conversion_absoluteWidth="0dp"
         tools:layout_conversion_absoluteX="0dp"
         tools:layout_conversion_absoluteY="0dp"
-        tools:layout_editor_absoluteX="320dp"
+        tools:layout_editor_absoluteX="290dp"
         app:layout_constraintBottom_toTopOf="@+id/imageButton8"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="1dp" />
     <ImageButton
         android:id="@+id/editprofile"
         android:layout_width="90dp"
