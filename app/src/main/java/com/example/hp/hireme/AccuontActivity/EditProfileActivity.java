@@ -112,6 +112,8 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View v) {
 
+
+
         if(!(TextUtils.isEmpty(name.getText().toString().trim())))
             mDatabase.child("candet").child(userID).child("name").setValue(name.getText().toString());
 
