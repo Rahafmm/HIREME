@@ -16,6 +16,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class profileCand extends AppCompatActivity implements View.OnClickListener {
 
+
     private BottomNavigationView bottomNavigationView;
 
     private ImageButton industrial;
