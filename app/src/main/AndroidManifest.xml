@@ -25,8 +25,9 @@
         <activity android:name=".RegisterOrgActivity" />
         <activity android:name=".LoginOrgActivity" />
         <activity android:name=".activityAddPosition" />
-        <activity android:name=".listOrg" />
-        <activity android:name=".profileCand"></activity>
+        <activity android:name=".addCV" />
+        <activity android:name=".profileCand" />
+        <activity android:name=".ViewUploadsActivity"></activity>
     </application>
 
 </manifest>

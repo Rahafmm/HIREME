@@ -196,11 +196,12 @@ public class RegisterOrgActivity extends AppCompatActivity implements View.OnCli
 
                                 Cureent_User_db.child("name").setValue(Name);
                                 org=new Org();
-                                org.setEmail(editTextEmail.getText().toString());
+
                                 org.setname(editTextName.getText().toString());
                                 org.setLocation(editTextLocation.getText().toString());
                                 org.setcat(String.valueOf(cat.getSelectedItemId()));
                                 org.setUid(User_ID);
+                                org.setpass(editTextPassword.getText().toString());
 
 
                                 //display message to the user here
