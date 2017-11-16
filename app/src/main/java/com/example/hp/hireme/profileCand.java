@@ -21,9 +21,9 @@ private ImageButton editprofile;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_cand);
-        editprofile=(ImageButton)findViewById(R.id.editprofile);
+        //editprofile=(ImageButton)findViewById(R.id.editprofile);
         buttonLogout=(Button) findViewById(R.id.buttonLogout);
-        addCV=(ImageButton)findViewById(R.id.addCV);
+        //addCV=(ImageButton)findViewById(R.id.addCV);
         buttonLogout.setOnClickListener(this);
         addCV.setOnClickListener(this);
         editprofile.setOnClickListener(this);
