@@ -11,10 +11,9 @@ import java.util.ArrayList;
  */
 
 public class Org  {
-    private String Email;
+
     private String name;
     private String Location;
-    public Uri imgurl;
     private String pass;
     private String cat;
     private String uid;
@@ -28,8 +27,6 @@ public class Org  {
                 "name='" + name + '\'' +
 
                 ", Location='" + Location + '\'' +
-                ", imgurl='" + imgurl + '\'' +
-                ", email='" + Email + '\'' +
                 ", uid='" + uid + '\'' +
                 ", cat='" + cat + '\'' +
                 '}';
@@ -53,13 +50,6 @@ public class Org  {
         this.pass = pass;
     }
 
-    public String getEmail() {
-        return Email;
-    }
-
-    public void setEmail(String email) {
-        this.Email = email;
-    }
 
     public String getname() {
         return name;

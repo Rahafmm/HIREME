@@ -86,23 +86,27 @@ import com.google.firebase.database.ValueEventListener;
             }
             //if email and password are not empty
             //display progress
-            progressDialog.setMessage("Loging In please wait");
-            progressDialog.show();
 
-            firebaseAuth.signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            progressDialog.dismiss();
-                            if (task.isSuccessful()){
-                                //start profile activity
-                                finish();
-                                startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+
+                progressDialog.setMessage("Loging In please wait");
+                progressDialog.show();
+
+                firebaseAuth.signInWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                progressDialog.dismiss();
+                                if (task.isSuccessful()) {
+                                    //start profile activity
+                                    finish();
+                                    startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                                } else {
+                                    Toast.makeText(LoginOrgActivity.this, "The email OR password are incorrect", Toast.LENGTH_LONG).show();
+                                }
                             }
-                        }
-                    });
+                        });
+            }
 
-        }
 
         @Override
         public void onClick(View view){

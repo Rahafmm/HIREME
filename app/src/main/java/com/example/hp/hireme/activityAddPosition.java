@@ -68,22 +68,29 @@ public class activityAddPosition extends AppCompatActivity implements View.OnCli
         }
 
         //displaying a progress dialog
-        progressDialog.setMessage("الرجاء الانتظار...");
-        progressDialog.show();
+
 
 if(firebaseAuth.getInstance().getCurrentUser()==null){
     startActivity(new Intent(this, LoginActivity.class));
 }
 else {
-     uid=firebaseAuth.getInstance().getCurrentUser().getUid();
-    mDatabase= FirebaseDatabase.getInstance().getReference().child("Org");
+    progressDialog.setMessage("الرجاء الانتظار...");
+    progressDialog.show();
+    if(posdesempty.getText().toString().trim().isEmpty()&&nameempty.getText().toString().trim().isEmpty()) {
+        uid = firebaseAuth.getInstance().getCurrentUser().getUid();
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Org");
 //DatabaseReference currentU=mDatabase.child(uid);
-    mDatabase.child(uid).child("posisiton").child("namepos").setValue(namepos);
-    mDatabase.child(uid).child("posisiton").child("despos").setValue(despos);
+        mDatabase.child(uid).child("posisiton").child("namepos").setValue(namepos);
+        mDatabase.child(uid).child("posisiton").child("despos").setValue(despos);
 
-    Toast.makeText(activityAddPosition.this, "تمت الاضافة ", Toast.LENGTH_LONG).show();
-    finish();
-    startActivity(new Intent(this, ProfileActivity.class));
+        Toast.makeText(activityAddPosition.this, "تمت الاضافة ", Toast.LENGTH_LONG).show();
+        finish();
+        startActivity(new Intent(this, ProfileActivity.class));
+    }
+    else{
+        Toast.makeText(activityAddPosition.this, "لم تتم الاضافه", Toast.LENGTH_LONG).show();
+    }
+    progressDialog.dismiss();
 }
 
     }
