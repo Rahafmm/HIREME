@@ -27,6 +27,7 @@
         <activity android:name=".activityAddPosition" />
         <activity android:name=".addCV" />
         <activity android:name=".profileCand" />
+        <activity android:name=".listOrg" />
         <activity android:name=".ViewUploadsActivity"></activity>
     </application>
 

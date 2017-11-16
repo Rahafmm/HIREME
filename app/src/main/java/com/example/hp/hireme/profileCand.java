@@ -7,7 +7,6 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.example.hp.hireme.AccuontActivity.EditProfileActivity;
@@ -61,7 +60,10 @@ public class profileCand extends AppCompatActivity implements View.OnClickListen
                                                                              startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                                                                          }else if(item.getItemId()== R.id.edit){
                                                                              startActivity(new Intent(getApplicationContext(), EditProfileActivity.class));
+                                                                         }else if(item.getItemId()== R.id.addCV){
+                                                                             startActivity(new Intent(getApplicationContext(), addCV.class));
                                                                          }
+
 
                                                                          return false;
                                                                      }

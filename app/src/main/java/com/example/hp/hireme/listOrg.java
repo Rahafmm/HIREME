@@ -3,13 +3,9 @@ package com.example.hp.hireme;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Adapter;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -54,8 +50,13 @@ public class listOrg extends AppCompatActivity {
                 for(DataSnapshot ds : dataSnapshot.getChildren()){
                     Org name =ds.getValue(Org.class);
                     names.add(name.getname());
+                    String[] uploads = new String[names.size()];
+
+                    for (int i = 0; i < uploads.length; i++) {
+                        uploads[i] = names.get(i);
+                    }
                     final ArrayAdapter<String> list;
-                    list=new ArrayAdapter<String>(listOrg.this,android.R.layout.simple_list_item_2,names);
+                    list=new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_list_item_1,uploads);
                     listorg.setAdapter(list);
                 }
             }

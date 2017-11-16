@@ -11,7 +11,11 @@
         android:title="logout"></item>
 
     <item
-        android:id="@+id/edit"
-        android:icon="@drawable/ic_edit_black_24dp"
+    android:id="@+id/edit"
+    android:icon="@drawable/ic_edit_black_24dp"
+    android:title="edit profile"></item>
+    <item
+        android:id="@+id/addCV"
+        android:icon="@drawable/ic_note_add_black_24dp"
         android:title="edit profile"></item>
 </menu>
