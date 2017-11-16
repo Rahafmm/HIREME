@@ -1,0 +1,5 @@
+<root>
+    <item name='com.google.firebase.storage.UploadTask.TaskSnapshot long getBytesTransferred()'>
+        <annotation name='java.lang.Deprecated' />
+    </item>
+</root>

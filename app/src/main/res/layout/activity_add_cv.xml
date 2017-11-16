@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.hp.hireme.addCV">
+    <EditText
+        android:id="@+id/editTextFileName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:hint="Enter a name for your file"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/buttonUploadFile"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/buttonUploadFile"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextFileName"
+        android:text="Upload PDF"
+        app:layout_constraintBottom_toTopOf="@+id/textViewStatus"
+        app:layout_constraintTop_toBottomOf="@+id/editTextFileName"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="126dp"
+        tools:layout_editor_absoluteY="294dp"
+        android:id="@+id/linearLayout3">
+
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textViewStatus"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:text="No file selected"
+        android:textAlignment="center"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textViewUploads"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textViewUploads"
+        android:layout_width="318dp"
+        android:layout_height="80dp"
+        android:padding="10dp"
+        android:text="View Uploads"
+        android:textAlignment="center"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:textColor="@color/colorPrimaryDark"
+        tools:layout_editor_absoluteX="33dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewStatus" />
+
+
+</android.support.constraint.ConstraintLayout>
