@@ -185,6 +185,18 @@ import com.google.firebase.storage.StorageReference;
                     catgory = "health";
                     break;
                 case "3":
+                    catgory = "industrial";
+                    break;
+                case "4":
+                    catgory = "food";
+                    break;
+                case "5":
+                    catgory = "Busines";
+                    break;
+                case "6":
+                    catgory = "travel";
+                    break;
+                case "7":
                     catgory = "Other";
                     break;
             }

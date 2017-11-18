@@ -1,4 +1,4 @@
-package com.example.hp.hireme;
+package com.example.hp.hireme.AccuontActivity;
 import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;

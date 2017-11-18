@@ -7,7 +7,6 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -16,6 +15,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.hp.hireme.AccuontActivity.Org;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -43,7 +43,7 @@ public class RegisterOrgActivity extends AppCompatActivity implements View.OnCli
     private Spinner cat;
     Org org;
     String record="nothing";
-    String cata[]={"IT","Health","Other"};
+    String cata[]={"IT","health","industrial","food","Busines","travel","Other"};
     ArrayAdapter<String> adapter;
 
 
@@ -90,6 +90,18 @@ public class RegisterOrgActivity extends AppCompatActivity implements View.OnCli
                                                       record = "health";
                                                       break;
                                                   case 2:
+                                                      record = "industrial";
+                                                      break;
+                                                  case 3:
+                                                      record = "food";
+                                                      break;
+                                                  case 4:
+                                                      record = "Busines";
+                                                      break;
+                                                  case 5:
+                                                      record = "travel";
+                                                      break;
+                                                  case 6:
                                                       record = "Other";
                                                       break;
                                               }

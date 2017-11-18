@@ -3,10 +3,14 @@
 
     <array name="catogary">
 
-        <item name="Tue"></item>
-        <item name="Tue">IT</item>
-        <item name="Mon">Health</item>
-        <item name="Wed">Other</item>
+        <item name="1"></item>
+        <item name="2">IT</item>
+        <item name="3">health</item>
+        <item name="4">industrial</item>
+        <item name="5">food</item>
+        <item name="6">Busines</item>
+        <item name="7">travel</item>
+        <item name="8">Other</item>
     </array>
     <string name="title_activity_profile_cand">profileCand</string>
     <string name="title_home">Home</string>
