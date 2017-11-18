@@ -12,16 +12,7 @@
         tools:layout_editor_absoluteY="0dp"
         tools:layout_editor_absoluteX="8dp" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintRight_toLeftOf="@+id/listView"
-        app:layout_constraintLeft_toRightOf="@+id/listView"
-        app:layout_constraintHorizontal_bias="0.25"
-        app:layout_constraintBottom_toTopOf="@+id/listView"
-        app:layout_constraintTop_toBottomOf="@+id/listView" />
+
 
 
 </android.support.constraint.ConstraintLayout>

@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,7 +37,7 @@ public class addCV extends AppCompatActivity implements View.OnClickListener {
     //the firebase objects for storage and database
     StorageReference mStorageReference;
     DatabaseReference mDatabaseReference;
-
+ImageButton undo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,10 +52,11 @@ public class addCV extends AppCompatActivity implements View.OnClickListener {
         textViewStatus = (TextView) findViewById(R.id.textViewStatus);
         editTextFilename = (EditText) findViewById(R.id.editTextFileName);
         progressBar = (ProgressBar) findViewById(R.id.progressbar);
-
+        undo=(ImageButton)findViewById(R.id.undo);
         //attaching listeners to views
         findViewById(R.id.buttonUploadFile).setOnClickListener(this);
         findViewById(R.id.textViewUploads).setOnClickListener(this);
+        undo.setOnClickListener(this);
     }
 
     //this function will get the pdf from the storage
@@ -99,7 +101,7 @@ public class addCV extends AppCompatActivity implements View.OnClickListener {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         progressBar.setVisibility(View.GONE);
-                        textViewStatus.setText("File Uploaded Successfully");
+                        textViewStatus.setText("تم تحميل الملف بنجاح");
 
                         Upload upload = new Upload(editTextFilename.getText().toString(), taskSnapshot.getDownloadUrl().toString());
                         mDatabaseReference.child(mDatabaseReference.push().getKey()).setValue(upload);
@@ -116,7 +118,7 @@ public class addCV extends AppCompatActivity implements View.OnClickListener {
                     @Override
                     public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
                         double progress = (100.0 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
-                        textViewStatus.setText((int) progress + "% Uploading...");
+                        textViewStatus.setText((int) progress + "% تحميل ...");
                     }
                 });
 
@@ -131,6 +133,9 @@ public class addCV extends AppCompatActivity implements View.OnClickListener {
             case R.id.textViewUploads:
                 startActivity(new Intent(this, ViewUploadsActivity.class));
                 break;
+        }
+        if(view ==undo){
+            startActivity(new Intent(this, profileCand.class));
         }
     }
 }
