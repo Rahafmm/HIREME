@@ -1,5 +1,6 @@
 package com.example.hp.hireme;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.hp.hireme.AccuontActivity.Constants;
@@ -31,6 +33,7 @@ public class ViewUploadsActivity extends AppCompatActivity {
     //list to store uploads data
     List<Upload> uploadList;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,14 +46,16 @@ public class ViewUploadsActivity extends AppCompatActivity {
         //adding a clicklistener on listview
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemClick(AdapterView<?> adapterView, View view, final int i, long l) {
                 //getting the upload
-                Upload upload = uploadList.get(i);
+                final Upload upload = uploadList.get(i);
 
                 //Opening the upload file in browser using the upload url
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse(upload.getUrl()));
                 startActivity(intent);
+
+
             }
         });
 

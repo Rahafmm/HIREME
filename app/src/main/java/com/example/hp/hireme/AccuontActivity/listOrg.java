@@ -79,6 +79,7 @@ public class listOrg extends AppCompatActivity {
                 //displaying it to list
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, uploads);
                 listorg.setAdapter(adapter);
+
             }
 
             @Override

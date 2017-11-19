@@ -13,6 +13,16 @@
         tools:layout_editor_absoluteX="8dp" />
 
 
+    <Button
+        android:id="@+id/buttonAddfav"
+        android:layout_width="88dp"
+        android:layout_height="wrap_content"
+        android:background="#9fd0d4"
+        android:text="favorite"
+        tools:layout_editor_absoluteY="3dp"
+        tools:layout_editor_absoluteX="200dp" />
+
+
 
 
 </android.support.constraint.ConstraintLayout>
