@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.hp.hireme.R;
 import com.example.hp.hireme.profileCand;
@@ -30,6 +31,7 @@ public class listOrg extends AppCompatActivity {
     ListView listorg;
     DatabaseReference mDatabase;
     ArrayList<Org> names;
+    TextView listorg1;
 
 
 
@@ -43,20 +45,22 @@ public class listOrg extends AppCompatActivity {
 
         names=new ArrayList<>();
         listorg=(ListView) findViewById(R.id.listorg);
+        listorg1=(TextView)findViewById(R.id.listorg1);
+        //listorg1.setText(cat);
       listorg.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
                 Org selOrg = names.get(i);
 
-               Intent intent =new Intent(listOrg.this, viewInfoOrg.class);
-                //Intent intent = new Intent(Intent.ACTION_VIEW);
+               //Intent intent =new Intent(listOrg.this, viewInfoOrg.class);
+                Intent intent = new Intent(listOrg.this, viewInfoOrg.class);
                 intent.putExtra("org",selOrg.getUid());
                 startActivity(intent);
             }
         });
 
-        //listorg=(ListView) findViewById(R.id.listorg);
+
 
         mDatabase= FirebaseDatabase.getInstance().getReference().child("Org");
 
@@ -65,13 +69,14 @@ public class listOrg extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     Org orga = postSnapshot.getValue(Org.class);
-                   // if(orga.getname().equals(cat))
-                    names.add(orga);
+
+                       names.add(orga);
                 }
 
                 String[] uploads = new String[names.size()];
 
                 for (int i = 0; i < uploads.length; i++) {
+
                     uploads[i] = names.get(i).getname();
 
                 }
