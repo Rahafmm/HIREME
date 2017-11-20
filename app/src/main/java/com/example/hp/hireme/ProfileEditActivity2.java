@@ -140,6 +140,7 @@ import com.google.firebase.storage.StorageReference;
              * */
             if (requestCode == REQ_CODE_PICK_IMAGE && resultCode == Activity.RESULT_OK) {
                 Uri imageUri = data.getData();
+
                 if (imageUri != null) {
                     showImage(imageUri);
                 }
@@ -147,6 +148,7 @@ import com.google.firebase.storage.StorageReference;
             FirebaseStorage storage = FirebaseStorage.getInstance();
             StorageReference storageRef = storage.getReference().child("Org").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
             storageRef.child("pic").putFile((Uri)(findViewById(R.id.profile_image)).getTag());
+
         }
 
         private void showImage(Uri imageUri) {

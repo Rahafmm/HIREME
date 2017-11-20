@@ -27,11 +27,11 @@ import java.util.ArrayList;
  */
 
 public class listOrg extends AppCompatActivity {
-   String cat;
+   //String cat;
     ListView listorg;
     DatabaseReference mDatabase;
     ArrayList<Org> names;
-    TextView listorg1;
+
 
 
 
@@ -41,12 +41,12 @@ public class listOrg extends AppCompatActivity {
         setContentView(R.layout.test);
 
         Intent intent=getIntent();
-        cat=intent.getStringExtra("cat");
+       final String cat=intent.getExtras().getString("cat","");
 
         names=new ArrayList<>();
         listorg=(ListView) findViewById(R.id.listorg);
-        listorg1=(TextView)findViewById(R.id.listorg1);
-        //listorg1.setText(cat);
+
+
       listorg.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -55,7 +55,10 @@ public class listOrg extends AppCompatActivity {
 
                //Intent intent =new Intent(listOrg.this, viewInfoOrg.class);
                 Intent intent = new Intent(listOrg.this, viewInfoOrg.class);
-                intent.putExtra("org",selOrg.getUid());
+                intent.putExtra("name",selOrg.getname());
+                intent.putExtra("location",selOrg.getLocation());
+                intent.putExtra("cat",selOrg.getcatgory());
+                intent.putExtra("id",selOrg.getUid());
                 startActivity(intent);
             }
         });
@@ -69,8 +72,8 @@ public class listOrg extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     Org orga = postSnapshot.getValue(Org.class);
-
-                       names.add(orga);
+                    if(orga.getcatgory().toUpperCase().equals(cat.toUpperCase())){
+                       names.add(orga);}
                 }
 
                 String[] uploads = new String[names.size()];

@@ -59,11 +59,11 @@ public class Org  {
         this.name = nname;
     }
 
-    public String getcat() {
+    public String getcatgory() {
         return cat;
     }
 
-    public void setcat(String catt) {
+    public void setcatgory(String catt) {
         this.cat = catt;
     }
 

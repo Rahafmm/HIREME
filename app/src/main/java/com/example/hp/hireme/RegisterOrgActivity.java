@@ -211,9 +211,10 @@ public class RegisterOrgActivity extends AppCompatActivity implements View.OnCli
 
                                 org.setname(editTextName.getText().toString());
                                 org.setLocation(editTextLocation.getText().toString());
-                                org.setcat(String.valueOf(cat.getSelectedItemId()));
+
                                 org.setUid(User_ID);
                                 org.setpass(editTextPassword.getText().toString());
+                                org.setcatgory(record);
 
 
                                 //display message to the user here
