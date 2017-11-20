@@ -7,9 +7,11 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.example.hp.hireme.AccuontActivity.EditProfileActivity;
+import com.example.hp.hireme.AccuontActivity.FavoriteActivity;
 import com.example.hp.hireme.AccuontActivity.listOrg;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -25,6 +27,7 @@ public class profileCand extends AppCompatActivity implements View.OnClickListen
     private ImageButton Busines;
     private ImageButton travel;
     private ImageButton Health;
+    private Button buttonViewFav;
 
     public String category;
 
@@ -41,6 +44,7 @@ public class profileCand extends AppCompatActivity implements View.OnClickListen
         Busines=(ImageButton)findViewById(R.id.Busines);
         travel=(ImageButton)findViewById(R.id.travel);
         Health=(ImageButton)findViewById(R.id.Health);
+        buttonViewFav=(Button)findViewById(R.id.buttonViewFav);
 
         Health.setOnClickListener(this);
         IT.setOnClickListener(this);
@@ -48,6 +52,7 @@ public class profileCand extends AppCompatActivity implements View.OnClickListen
         Busines.setOnClickListener(this);
         travel.setOnClickListener(this);
         industrial.setOnClickListener(this);
+        buttonViewFav.setOnClickListener(this);
 
         bottomNavigationView=(BottomNavigationView)findViewById(R.id.nav);
         firebaseAuth= FirebaseAuth.getInstance();
@@ -63,6 +68,8 @@ public class profileCand extends AppCompatActivity implements View.OnClickListen
                                                                              startActivity(new Intent(getApplicationContext(), EditProfileActivity.class));
                                                                          }else if(item.getItemId()== R.id.addCV){
                                                                              startActivity(new Intent(getApplicationContext(), addCV.class));
+                                                                         }else if(item.getItemId()==R.id.buttonViewFav){
+                                                                             startActivity(new Intent(getApplicationContext(),FavoriteActivity.class));
                                                                          }
 
 
