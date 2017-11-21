@@ -19,4 +19,9 @@
         android:id="@+id/addCV"
         android:icon="@drawable/ic_note_add_black_24dp"
         android:title="edit profile"></item>
+
+    <item
+        android:id="@+id/fav"
+        android:icon="@drawable/ic_stars_black_24dp"
+        android:title="fav"></item>
 </menu>
