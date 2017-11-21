@@ -26,35 +26,37 @@ import java.util.List;
 
 public class FavoriteActivity extends AppCompatActivity {
 
-    Button buttonAddfav;
-    ArrayList<Org> faves;
+    Button buttonViewFav;
+    ArrayList<Org> fav;
     //ArrayList<String> favArray;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.test);
+        setContentView(R.layout.activity_profile_cand);
 
         //favArray = new ArrayList<>();
 
-        buttonAddfav = (Button) findViewById(R.id.FavButton);
+        buttonViewFav = (Button) findViewById(R.id.buttonViewFav);
 
-        buttonAddfav.setOnClickListener((View.OnClickListener) this);
+        buttonViewFav.setOnClickListener((View.OnClickListener) this);
     }
 
     public void onDataChange(DataSnapshot dataSnapshot) {
         for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-            Org orga = postSnapshot.getValue(Org.class);
+            viewInfoOrg orga = postSnapshot.getValue(viewInfoOrg.class);
+            Candidate c ;
+            Candidate ca;
+            //fav=ca.getfav();
 
-            faves.add(orga);
     }
 
-        String[] favArray = new String[faves.size()];
+        String[] favArray = new String[fav.size()];
 
         for (int i = 0; i < favArray.length; i++) {
 
-            favArray[i] = faves.get(i).getname();
+            favArray[i] = fav.get(i).getname();
 
         }
 
@@ -64,12 +66,12 @@ public class FavoriteActivity extends AppCompatActivity {
     }
 
         public void onClick(View view){
-            if(view==buttonAddfav){
-                addFav();
+            if(view==buttonViewFav){
+                viewFav();
             }
 
         }
-        private void addFav() {
+        private void viewFav() {
 
             //String item;
             //boolean clicked=true;

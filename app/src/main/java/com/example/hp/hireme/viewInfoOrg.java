@@ -31,7 +31,8 @@ import java.util.ArrayList;
  * Created by Lama on 18/11/17.
  */
 
-public class viewInfoOrg extends AppCompatActivity  implements View.OnClickListener {
+public class viewInfoOrg extends AppCompatActivity{
+
     private TextView name1;
     private TextView loc;
     private TextView ca;
@@ -40,7 +41,7 @@ public class viewInfoOrg extends AppCompatActivity  implements View.OnClickListe
     private ProgressDialog progressDialog;
     DatabaseReference mDatabase;
     DatabaseReference mDatabase1;
-
+    ArrayList<Org> favArray;
     Org g;
     String Id;
     Org org;
@@ -48,10 +49,12 @@ public class viewInfoOrg extends AppCompatActivity  implements View.OnClickListe
     //TextView t;
     private ImageView imageView;
     private FirebaseAuth firebaseAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_info);
+
         firebaseAuth = FirebaseAuth.getInstance();
         Intent intent = getIntent();
         final String cat = intent.getExtras().getString("cat", "");
@@ -63,83 +66,87 @@ public class viewInfoOrg extends AppCompatActivity  implements View.OnClickListe
         loc = (TextView) findViewById(R.id.loc);
         ca = (TextView) findViewById(R.id.ca);
         FavButton = (Button) findViewById(R.id.FavButton);
-        m=(TextView)findViewById(R.id.m);
+        m = (TextView) findViewById(R.id.m);
         //imageView=(ImageView)findViewById(R.id.imageView);
 
         // t=(TextView)findViewById(R.id.t);
-
-        //Fav Button
-        FavButton.setOnClickListener((View.OnClickListener) this);
-
         name1.setText(name);
         loc.setText(location);
         ca.setText(cat);
+        //Fav Button
+        FavButton.setOnClickListener(new View.OnClickListener() {
 
 
-        // FirebaseStorage storage = FirebaseStorage.getInstance();
-        // StorageReference storageRef = storage.getReference().child("Org").child(Id);
+            // FirebaseStorage storage = FirebaseStorage.getInstance();
+            // StorageReference storageRef = storage.getReference().child("Org").child(Id);
 
-        // String m= storageRef.child("pic").getDownloadUrl().toString();
-        // t.setText(m);
-        //Picasso.with(viewInfoOrg.this).load(m).into(imageView);
+            // String m= storageRef.child("pic").getDownloadUrl().toString();
+            // t.setText(m);
+            //Picasso.with(viewInfoOrg.this).load(m).into(imageView);
 
 
-    }
+            @Override
+            public void onClick(View view) {
+                try {
 
-    @Override
-    public void onClick(View view) {
-        progressDialog.setMessage("Registering Please Wait...");
-        progressDialog.show();
-        m.setText("bnnnnn");
-        if (view == FavButton) {
 
-            final String User_ID = firebaseAuth.getCurrentUser().getUid();
+                    //m.setText("bnnnnn");
+                    if (view == FavButton) {
+                        //FavButton.setText("dee");
+                        final String User_ID = firebaseAuth.getCurrentUser().getUid();
 
-            mDatabase = FirebaseDatabase.getInstance().getReference().child("candet");
-            mDatabase1 = FirebaseDatabase.getInstance().getReference().child("Org");
+                        mDatabase = FirebaseDatabase.getInstance().getReference().child("candet");
+                        mDatabase1 = FirebaseDatabase.getInstance().getReference().child("Org");
 
-            mDatabase1.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                         g= postSnapshot.getValue(Org.class);
-                        if (g.getUid().equals(Id)) {
+                        mDatabase1.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                                    g = postSnapshot.getValue(Org.class);
+                                    if (g != null)
+                                        if (g.getUid().equals(Id)) {
 
-                        org=postSnapshot.getValue(Org.class);
-                        }
+                                            org = postSnapshot.getValue(Org.class);
+                                        }
+
+                                }
+                                //FavButton.setText("ll");
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+
+                            }
+                        });
+
+
+                        mDatabase.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                                    Candidate can = postSnapshot.getValue(Candidate.class);
+                                    if (can != null)
+                                        if (can.getUid().equals(User_ID)) {
+//m.setText("b");
+
+                                            can.setFav(org);
+                                            mDatabase.child(User_ID).child("fav").setValue(org);
+                                        }
+
+                                }
+
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+
+                            }
+                        });
+
                     }
-
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-
-                }
-            });
-
-
-            mDatabase.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                        Candidate can= postSnapshot.getValue(Candidate.class);
-
-                        if (can.getUid().equals(User_ID)) {
-m.setText("b");
-                           can.setFav(org);
-                           mDatabase.child(User_ID).child("fav").setValue(org);
-                        }
-
-                    }
-
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-
-                }
-            });
-
-        }
+                }catch (Exception e){System.out.print("error");}
+            }
+        });
     }
-    }
+
+}

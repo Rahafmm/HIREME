@@ -7,15 +7,10 @@ import java.util.ArrayList;
  */
 
 public class Candidate {
-
-
-
-
         int count=0;
         private String name;
         private String pass;
         private String uid;
-
 
     public ArrayList<Org> getFav() {
         return fav;
@@ -53,13 +48,6 @@ public class Candidate {
         public void setname(String nname) {
             this.name = nname;
         }
-
-
-
-
-
-
-
     }
 
 

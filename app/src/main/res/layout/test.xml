@@ -18,14 +18,6 @@
 
 
 
-    <Button
-        android:id="@+id/buttonAddfav"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:background="#9fd0d4"
-        android:text="add favorite"
-        tools:layout_editor_absoluteY="45dp"
-        tools:layout_editor_absoluteX="900dp" />
 
 
 </android.support.constraint.ConstraintLayout>

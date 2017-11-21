@@ -173,9 +173,9 @@
         android:id="@+id/buttonViewFav"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="view Favorites"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="458dp" />
+        android:text="المفضلة"
+        tools:layout_editor_absoluteX="50dp"
+        tools:layout_editor_absoluteY="200dp" />
 
 
 </android.support.constraint.ConstraintLayout>
