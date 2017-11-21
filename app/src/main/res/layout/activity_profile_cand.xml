@@ -175,7 +175,9 @@
         android:layout_height="wrap_content"
         android:text="view Favorites"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="458dp" />
+        tools:layout_editor_absoluteY="1000dp"
+
+        />
 
 
 </android.support.constraint.ConstraintLayout>

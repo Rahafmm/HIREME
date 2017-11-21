@@ -65,6 +65,7 @@ public class listOrg extends AppCompatActivity {
 
 
 
+
         mDatabase= FirebaseDatabase.getInstance().getReference().child("Org");
 
         mDatabase.addValueEventListener(new ValueEventListener() {
@@ -84,7 +85,7 @@ public class listOrg extends AppCompatActivity {
 
                 }
 
-                //displaying it to list
+                //disp laying it to list
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, uploads);
                 listorg.setAdapter(adapter);
 

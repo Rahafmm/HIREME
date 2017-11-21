@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.hp.hireme.AccuontActivity.Candidate;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -159,13 +160,19 @@ public class HIREME extends AppCompatActivity implements View.OnClickListener {
                                 DatabaseReference Cureent_User_db = mDatabase.child(User_ID);
                                 Cureent_User_db.child("name").setValue(Name);
                                 Cureent_User_db.child("Cpassword").setValue(Cpassword);
+                                Candidate can=new Candidate();
+                                can.setname(editTextName.getText().toString());
+                                can.setpass(editTextPassword.getText().toString());
+                                can.setUid(User_ID);
                                 //display message to the user here
+
                                 Toast.makeText(HIREME.this, "Successfully registered", Toast.LENGTH_LONG).show();
 
                                 //close this activity
                                 finish();
                                 //opening login activity
                                  startActivity(new Intent(getApplicationContext(), profileCand.class));
+
                             } else {
                                 //display some message here
                                 Toast.makeText(HIREME.this, "Registration Error", Toast.LENGTH_LONG).show();

@@ -26,6 +26,63 @@ import java.util.List;
 
 public class FavoriteActivity extends AppCompatActivity {
 
+    Button buttonAddfav;
+    ArrayList<Org> faves;
+    //ArrayList<String> favArray;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.test);
+
+        //favArray = new ArrayList<>();
+
+        buttonAddfav = (Button) findViewById(R.id.FavButton);
+
+        buttonAddfav.setOnClickListener((View.OnClickListener) this);
+    }
+
+    public void onDataChange(DataSnapshot dataSnapshot) {
+        for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+            Org orga = postSnapshot.getValue(Org.class);
+
+            faves.add(orga);
+    }
+
+        String[] favArray = new String[faves.size()];
+
+        for (int i = 0; i < favArray.length; i++) {
+
+            favArray[i] = faves.get(i).getname();
+
+        }
+
+        //displaying it to list
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, favArray);
+        //favArray.etAdapter(adapter);
+    }
+
+        public void onClick(View view){
+            if(view==buttonAddfav){
+                addFav();
+            }
+
+        }
+        private void addFav() {
+
+            //String item;
+            //boolean clicked=true;
+            //for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                //Org orga = postSnapshot.getValue(Org.class);
+                }
+
+
+    }
+
+
+
+/**
     String cat;
     ListView listFav;
     DatabaseReference mDatabase;
@@ -96,6 +153,7 @@ public class FavoriteActivity extends AppCompatActivity {
 
 
     }
-    }
+    */
+
 
 
