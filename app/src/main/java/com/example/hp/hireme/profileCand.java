@@ -68,7 +68,7 @@ public class profileCand extends AppCompatActivity implements View.OnClickListen
                                                                              startActivity(new Intent(getApplicationContext(), EditProfileActivity.class));
                                                                          }else if(item.getItemId()== R.id.addCV){
                                                                              startActivity(new Intent(getApplicationContext(), addCV.class));
-                                                                         }else if(item.getItemId()==R.id.buttonViewFav){
+                                                                         }else if(item.getItemId()==R.id.fav){
                                                                              startActivity(new Intent(getApplicationContext(),FavoriteActivity.class));
                                                                          }
 
