@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1061189764666-3bnnvil3oqknp7hog9bt61cutqhsuqik.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hp.hireme",
+            "certificate_hash": "f861fa118de8876d9d03f9a519cb72f66e49aac6"
+          }
+        },
+        {
           "client_id": "1061189764666-r5ctqs2kfofvrs4ovum16vnb8is2ooe3.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
