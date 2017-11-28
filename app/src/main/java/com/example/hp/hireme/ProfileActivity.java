@@ -43,6 +43,7 @@ private ImageButton imageButton8;
         buttonLogout.setOnClickListener(this);
 
 
+
     }
 
     @Override
@@ -54,10 +55,15 @@ private ImageButton imageButton8;
             startActivity(new Intent(this, LoginActivity.class));
         }
         if(view==imageButton8){
+
             startActivity(new Intent(this, ProfileEditActivity2.class));
             //startActivity(new Intent(this, EditProfileActivity.class));
         }
         if(view==addpos){
+            //Intent  i = getIntent();
+            //Org org = (Org)i.getSerializableExtra("org");
+           // Intent intent=new Intent(ProfileActivity.this, activityAddPosition.class);
+           // intent.putExtra("org",org);
             startActivity(new Intent(this, activityAddPosition.class));
         }
     }

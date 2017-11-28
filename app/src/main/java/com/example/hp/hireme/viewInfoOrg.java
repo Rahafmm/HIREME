@@ -2,30 +2,27 @@ package com.example.hp.hireme;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.hp.hireme.AccuontActivity.Candidate;
-import com.example.hp.hireme.AccuontActivity.Org;
-import com.example.hp.hireme.AccuontActivity.listOrg;
+import com.example.hp.hireme.AccuontActivity.Position;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Lama on 18/11/17.
@@ -38,13 +35,17 @@ public class viewInfoOrg extends AppCompatActivity{
     private TextView ca;
     private TextView m;
     private Button FavButton;
+    private TextView textView5;
+    private ListView listView2;
     private ProgressDialog progressDialog;
     DatabaseReference mDatabase;
     DatabaseReference mDatabase1;
     ArrayList<Org> favArray;
+    List<Position> s;
     Org g;
     String Id;
     Org org;
+    String id;
 
     //TextView t;
     private ImageView imageView;
@@ -66,15 +67,61 @@ public class viewInfoOrg extends AppCompatActivity{
         loc = (TextView) findViewById(R.id.loc);
         ca = (TextView) findViewById(R.id.ca);
         FavButton = (Button) findViewById(R.id.FavButton);
-        m = (TextView) findViewById(R.id.m);
+
+        textView5 = (TextView) findViewById(R.id.textView5);
+        listView2=(ListView) findViewById(R.id.listView2);
+        listView2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, final int i, long l) {
+
+                final Position selOrg = s.get(i);
+                //Intent intent =new Intent(listOrg.this, viewInfoOrg.class);
+                Intent intent = new Intent(viewInfoOrg.this, viewInfoPos.class);
+                intent.putExtra("name",selOrg.getName());
+                intent.putExtra("des",selOrg.getDes());
+                intent.putExtra("id",id);
+                startActivity(intent);
+            }
+        });
         //imageView=(ImageView)findViewById(R.id.imageView);
 
         // t=(TextView)findViewById(R.id.t);
         name1.setText(name);
         loc.setText(location);
         ca.setText(cat);
+
+        mDatabase= FirebaseDatabase.getInstance().getReference().child("Org");
+
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    Org o = postSnapshot.getValue(Org.class);
+                    id=postSnapshot.getKey();
+                    if(postSnapshot.getKey().equals(Id)){
+                        s=o.getposition();}
+                }
+
+                String[] uploads = new String[s.size()];
+
+                for (int i = 0; i < uploads.length; i++) {
+
+                    uploads[i] = s.get(i).getName();
+
+                }
+
+                //disp laying it to list
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, uploads);
+                listView2.setAdapter(adapter);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
         //Fav Button
-        FavButton.setOnClickListener(new View.OnClickListener() {
+      /*  FavButton.setOnClickListener(new View.OnClickListener() {
 
 
             // FirebaseStorage storage = FirebaseStorage.getInstance();
@@ -104,7 +151,7 @@ public class viewInfoOrg extends AppCompatActivity{
                                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                                     g = postSnapshot.getValue(Org.class);
                                     if (g != null)
-                                        if (g.getUid().equals(Id)) {
+                                        if (g.getuid().equals(Id)) {
 
                                             org = postSnapshot.getValue(Org.class);
                                         }
@@ -146,7 +193,7 @@ public class viewInfoOrg extends AppCompatActivity{
                     }
                 }catch (Exception e){System.out.print("error");}
             }
-        });
+        });*/
     }
 
 }

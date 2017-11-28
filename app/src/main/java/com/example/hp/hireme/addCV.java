@@ -103,7 +103,7 @@ ImageButton undo;
                         progressBar.setVisibility(View.GONE);
                         textViewStatus.setText("تم تحميل الملف بنجاح");
 
-                        Upload upload = new Upload(editTextFilename.getText().toString(), taskSnapshot.getDownloadUrl(). toString());
+                        Upload upload = new Upload(editTextFilename.getText().toString(), taskSnapshot.getDownloadUrl().toString());
                         mDatabaseReference.child(mDatabaseReference.push().getKey()).setValue(upload);
                     }
                 })

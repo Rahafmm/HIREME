@@ -1,44 +1,56 @@
-package com.example.hp.hireme.AccuontActivity;
+package com.example.hp.hireme;
 import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.example.hp.hireme.AccuontActivity.Position;
+
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Lama on 03/11/17.
  */
 
-public class Org  {
+public class Org   {
 
     private String name;
     private String Location;
     private String pass;
     private String cat;
     private String uid;
+    private List<Position> position;
 
+    public List<Position> getposition() {
+        return position;
+    }
 
-
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-
-                ", Location='" + Location + '\'' +
-                ", uid='" + uid + '\'' +
-                ", cat='" + cat + '\'' +
-                '}';
+    public void setposition(List<Position> position) {
+        this.position = position;
     }
 
 
+   // private int p;
 
-    public String getUid() {
+
+
+
+
+   /* public Position[] getposition() {
+        return position;
+    }
+
+    public void setposition(Position pos) {
+        position[p++] = pos;
+    }*/
+
+
+    public String getuid() {
         return uid;
     }
 
-    public void setUid(String uid) {
+    public void setuid(String uid) {
         this.uid = uid;
     }
 

@@ -3,6 +3,7 @@ package com.example.hp.hireme;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
@@ -11,9 +12,24 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.hp.hireme.AccuontActivity.Position;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.example.hp.hireme.AccuontActivity.Candidate;
+import com.example.hp.hireme.Org;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+
+import static com.example.hp.hireme.R.id.cat;
 
 public class activityAddPosition extends AppCompatActivity implements View.OnClickListener{
     private EditText posdes;
@@ -24,6 +40,11 @@ public class activityAddPosition extends AppCompatActivity implements View.OnCli
     private ProgressDialog progressDialog;
     private DatabaseReference mDatabase;
     private FirebaseAuth firebaseAuth;
+   public int inc=0;
+    DatabaseReference mDatabase1;
+    ArrayList<Position> pos;
+    Position[] w;
+    List<Position> s;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +72,7 @@ public class activityAddPosition extends AppCompatActivity implements View.OnCli
     public void AddPos() {
         final String namepos = posname.getText().toString().trim();
         final String despos = posdes.getText().toString().trim();
-        String uid = null;
+
 
 
         //checking if name and desc are empty
@@ -77,16 +98,74 @@ else {
     progressDialog.setMessage("الرجاء الانتظار...");
     progressDialog.show();
     if(posdesempty.getText().toString().trim().isEmpty()&&nameempty.getText().toString().trim().isEmpty()) {
-        uid = firebaseAuth.getInstance().getCurrentUser().getUid();
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Org");
-//DatabaseReference currentU=mDatabase.child(uid);
-        mDatabase.child(uid).child("posisiton").child("namepos").setValue(namepos);
-        mDatabase.child(uid).child("posisiton").child("despos").setValue(despos);
+        final String uid = firebaseAuth.getInstance().getCurrentUser().getUid();
 
-        Toast.makeText(activityAddPosition.this, "تمت الاضافة ", Toast.LENGTH_LONG).show();
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Org").child(uid);
+//DatabaseReference currentU=mDatabase.child(uid);
+
+      // mDatabase.child(namepos).child("name").setValue(namepos);
+      // mDatabase.child(namepos).child("des").setValue(despos);
+        mDatabase1= FirebaseDatabase.getInstance().getReference().child("Org");
+
+        mDatabase1.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    Org o = postSnapshot.getValue(Org.class);
+
+                        if (postSnapshot.getKey().equals(uid)) {
+                           s= o.getposition();
+                        }
+                    Position[] ar =new Position[2];
+if(s.size()<2){
+    for(int i=0;i<=s.size();i++){
+        ar[i]=s.remove(i);
+        inc=i;
+    }
+
+    Position po =new Position();
+    po.setName(namepos);
+    po.setDes(despos);
+    ar[++inc]=po;
+    List na = new ArrayList<Position>(Arrays.asList(ar));
+    mDatabase.child("position").setValue(na);
+    Toast.makeText(activityAddPosition.this, "تمت الاضافه", Toast.LENGTH_LONG).show();
+
+}
+else{
+    Toast.makeText(activityAddPosition.this, "لم تتم الإضافة , يحق للشركه ان تطرح وظيفتين فقط", Toast.LENGTH_LONG).show();
+
+}
+
+
+
+                }
+            }
+
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
+
+
+
+
+        // org.setposition(po);
+
+
+       // Toast.makeText(activityAddPosition.this, "تمت الاضافة ", Toast.LENGTH_LONG).show();
         finish();
         startActivity(new Intent(this, ProfileActivity.class));
-    }
+        }
+
+
+
+
     else{
         Toast.makeText(activityAddPosition.this, "لم تتم الاضافه", Toast.LENGTH_LONG).show();
     }

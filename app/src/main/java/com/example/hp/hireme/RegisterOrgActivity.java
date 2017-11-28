@@ -15,13 +15,15 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.hp.hireme.AccuontActivity.Org;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.example.hp.hireme.Org;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.io.Serializable;
 
 public class RegisterOrgActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText editTextEmail;
@@ -41,7 +43,7 @@ public class RegisterOrgActivity extends AppCompatActivity implements View.OnCli
     private TextView logCan;
     private TextView regCan;
     private Spinner cat;
-    Org org;
+    Org org1;
     String record="nothing";
     String cata[]={"IT","health","industrial","food","Busines","travel","Other"};
     ArrayAdapter<String> adapter;
@@ -207,16 +209,17 @@ public class RegisterOrgActivity extends AppCompatActivity implements View.OnCli
                                 Cureent_User_db.child("catgory").setValue(record);
 
                                 Cureent_User_db.child("name").setValue(Name);
-                                org=new Org();
+                                org1=new Org();
 
-                                org.setname(editTextName.getText().toString());
-                                org.setLocation(editTextLocation.getText().toString());
+                                org1.setname(editTextName.getText().toString());
+                                org1.setLocation(editTextLocation.getText().toString());
 
-                                org.setUid(User_ID);
-                                org.setpass(editTextPassword.getText().toString());
-                                org.setcatgory(record);
+                                org1.setuid(User_ID);
+                                org1.setpass(editTextPassword.getText().toString());
+                                org1.setcatgory(record);
 
-
+                               // Intent intent=new Intent(RegisterOrgActivity.this, ProfileActivity.class);
+                               // intent.putExtra("org", (Serializable) org1);
                                 //display message to the user here
                                 Toast.makeText(RegisterOrgActivity.this, "Successfully registered", Toast.LENGTH_LONG).show();
                                 //close this activity

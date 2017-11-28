@@ -28,9 +28,10 @@
         <activity android:name=".addCV" />
         <activity android:name=".profileCand" />
 
-        <activity android:name=".AccuontActivity.listOrg" />
+        <activity android:name=".listOrg" />
         <activity android:name=".AccuontActivity.FavoriteActivity" />
         <activity android:name=".viewInfoOrg" />
+        <activity android:name=".viewInfoPos" />
         <activity android:name=".ViewUploadsActivity"></activity>
     </application>
 
