@@ -15,6 +15,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.hp.hireme.AccuontActivity.Position;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.example.hp.hireme.Org;
@@ -24,6 +25,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class RegisterOrgActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText editTextEmail;
@@ -202,13 +206,21 @@ public class RegisterOrgActivity extends AppCompatActivity implements View.OnCli
 
                             if (task.isSuccessful()) {
                                 String User_ID = firebaseAuth.getCurrentUser().getUid();
-                                DatabaseReference Cureent_User_db = mDatabase.child(User_ID);
+                                //DatabaseReference Cureent_User_db = mDatabase.child(User_ID);
 
-                                Cureent_User_db.child("Cpassword").setValue(Cpassword);
-                                Cureent_User_db.child("Location").setValue(Location);
-                                Cureent_User_db.child("catgory").setValue(record);
+                               // Cureent_User_db.child("Cpassword").setValue(Cpassword);
+                                //Cureent_User_db.child("Location").setValue(Location);
+                                //Cureent_User_db.child("catgory").setValue(record);
 
-                                Cureent_User_db.child("name").setValue(Name);
+                                //Cureent_User_db.child("name").setValue(Name);
+                                final String uid = firebaseAuth.getInstance().getCurrentUser().getUid();
+                                Toast.makeText(RegisterOrgActivity.this, uid, Toast.LENGTH_LONG).show();
+                                Position[] ar =new Position[2];
+                                Position po =new Position();
+                                po.setName("none");
+                                po.setDes("none");
+                                ar[0]=po;
+                                List na = new ArrayList<Position>(Arrays.asList(ar));
                                 org1=new Org();
 
                                 org1.setname(editTextName.getText().toString());
@@ -217,7 +229,8 @@ public class RegisterOrgActivity extends AppCompatActivity implements View.OnCli
                                 org1.setuid(User_ID);
                                 org1.setpass(editTextPassword.getText().toString());
                                 org1.setcatgory(record);
-
+                                org1.setposition(na);
+                                mDatabase.child(editTextName.getText().toString()).setValue(org1);
                                // Intent intent=new Intent(RegisterOrgActivity.this, ProfileActivity.class);
                                // intent.putExtra("org", (Serializable) org1);
                                 //display message to the user here

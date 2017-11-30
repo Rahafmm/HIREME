@@ -75,12 +75,15 @@ public class viewInfoOrg extends AppCompatActivity{
             public void onItemClick(AdapterView<?> adapterView, View view, final int i, long l) {
 
                 final Position selOrg = s.get(i);
+                if (!s.get(i).getName().equals("none")) {
+
+
                 //Intent intent =new Intent(listOrg.this, viewInfoOrg.class);
                 Intent intent = new Intent(viewInfoOrg.this, viewInfoPos.class);
                 intent.putExtra("name",selOrg.getName());
                 intent.putExtra("des",selOrg.getDes());
                 intent.putExtra("id",id);
-                startActivity(intent);
+                startActivity(intent);}
             }
         });
         //imageView=(ImageView)findViewById(R.id.imageView);
@@ -98,15 +101,18 @@ public class viewInfoOrg extends AppCompatActivity{
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     Org o = postSnapshot.getValue(Org.class);
                     id=postSnapshot.getKey();
-                    if(postSnapshot.getKey().equals(Id)){
+                    if(o.getname().toUpperCase().equals(name.toUpperCase())){
                         s=o.getposition();}
                 }
 
                 String[] uploads = new String[s.size()];
 
                 for (int i = 0; i < uploads.length; i++) {
-
+if(!s.get(i).getName().equals("none"))
                     uploads[i] = s.get(i).getName();
+                    else {
+    uploads[i]="";
+                    }
 
                 }
 
