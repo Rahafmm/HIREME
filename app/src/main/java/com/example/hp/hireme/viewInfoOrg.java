@@ -83,6 +83,10 @@ public class viewInfoOrg extends AppCompatActivity{
                 intent.putExtra("name",selOrg.getName());
                 intent.putExtra("des",selOrg.getDes());
                 intent.putExtra("id",id);
+                    intent.putExtra("nameOrg",name);
+                    intent.putExtra("location",location);
+                    intent.putExtra("idOrg",Id);
+                    intent.putExtra("cat",cat);
                 startActivity(intent);}
             }
         });

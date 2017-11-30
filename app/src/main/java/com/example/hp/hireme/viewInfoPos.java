@@ -27,7 +27,7 @@ import java.util.List;
  * Created by Lama on 28/11/17.
  */
 
-public class viewInfoPos extends AppCompatActivity {
+public class viewInfoPos extends AppCompatActivity implements View.OnClickListener {
 
 
         private TextView name1;
@@ -49,7 +49,13 @@ public class viewInfoPos extends AppCompatActivity {
             Intent intent = getIntent();
             final String des = intent.getExtras().getString("des", "");
             final String name = intent.getExtras().getString("name", "");
-            final String Id = intent.getExtras().getString("id", "");
+            final String Id1 = intent.getExtras().getString("id", "");
+            final String nameOrg = intent.getExtras().getString("name", "");
+            final String idOrg = intent.getExtras().getString("Id", "");
+
+            String User_ID = firebaseAuth.getCurrentUser().getUid();
+
+
 
             name1 = (TextView) findViewById(R.id.name1);
             de = (TextView) findViewById(R.id.de);
@@ -59,6 +65,13 @@ public class viewInfoPos extends AppCompatActivity {
 
             name1.setText(name);
             de.setText(des);
+
+            FavButton.setOnClickListener(this);
+
+
+    }
+    @Override
+    public void onClick(View view) {
 
 
 
