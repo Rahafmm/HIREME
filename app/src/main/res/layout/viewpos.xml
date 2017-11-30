@@ -12,7 +12,7 @@
     <Button
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:id="@+id/FavButton"
+        android:id="@+id/FavButtonn"
         android:text="أقدم على الوظيفه"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="100dp"

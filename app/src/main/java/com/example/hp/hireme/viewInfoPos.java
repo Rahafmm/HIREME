@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.hp.hireme.AccuontActivity.Position;
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,41 +33,44 @@ public class viewInfoPos extends AppCompatActivity implements View.OnClickListen
 
         private TextView name1;
         private TextView de;
-        private Button FavButton;
+        private Button FavButtonn;
         private TextView textView3;
         private TextView textView2;
         private FirebaseAuth firebaseAuth;
         DatabaseReference mDatabase;
+    private String des;
+    private String Id1;
+    private  String nameOrg;
+    private String idOrg;
+    private String User_ID;
 
 
-
-        @Override
+    @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.viewpos);
 
             firebaseAuth = FirebaseAuth.getInstance();
             Intent intent = getIntent();
-            final String des = intent.getExtras().getString("des", "");
-            final String name = intent.getExtras().getString("name", "");
-            final String Id1 = intent.getExtras().getString("id", "");
-            final String nameOrg = intent.getExtras().getString("name", "");
-            final String idOrg = intent.getExtras().getString("Id", "");
+            des = intent.getExtras().getString("des", "");
+            final String namey = intent.getExtras().getString("name", "");
+              Id1 = intent.getExtras().getString("id", "");
+             nameOrg = intent.getExtras().getString("name", "");
+             idOrg = intent.getExtras().getString("Id", "");
 
-            String User_ID = firebaseAuth.getCurrentUser().getUid();
-
+            User_ID = firebaseAuth.getCurrentUser().getUid();
 
 
             name1 = (TextView) findViewById(R.id.name1);
             de = (TextView) findViewById(R.id.de);
-            FavButton = (Button) findViewById(R.id.FavButton);
+            FavButtonn = (Button) findViewById(R.id.FavButtonn);
             textView3 = (TextView) findViewById(R.id.textView3);
             textView2 = (TextView) findViewById(R.id.textView2);
 
-            name1.setText(name);
+            name1.setText(namey);
             de.setText(des);
 
-            FavButton.setOnClickListener(this);
+            FavButtonn.setOnClickListener(this);
 
 
     }
@@ -74,6 +78,16 @@ public class viewInfoPos extends AppCompatActivity implements View.OnClickListen
     public void onClick(View view) {
 
 
+        application ca =new application();
+        ca.setIdCan(User_ID);
+       // ca.setIdOrg(idOrg);
+        ca.setNameOrg(Id1);
+        mDatabase= FirebaseDatabase.getInstance().getReference().child("application");
+        String pu=Id1+"_"+nameOrg;
 
+        mDatabase.child(pu).setValue(ca);
+        Toast.makeText(viewInfoPos.this, "تم رفع طلبك بنجاح", Toast.LENGTH_LONG).show();
+        finish();
+        startActivity(new Intent(this, profileCand.class));
     }
 }
