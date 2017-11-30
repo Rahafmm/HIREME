@@ -12,27 +12,32 @@ public class Candidate {
         int count=0;
         private String name;
         private String pass;
-        private String uid;
+        //private String uid;
 
-    public ArrayList<Org> getFav() {
-        return fav;
+    public Upload getUpload() {
+        return upload;
     }
 
-    public void setFav(Org g) {
-       fav.set(count, g);
-        count++;
+    public void setUpload(Upload upload) {
+        this.upload = upload;
     }
 
-    ArrayList<Org> fav;
+    private Upload upload;
 
 
-        public String getUid() {
+
+
+
+   // ArrayList<Org> fav;
+
+
+       /* public String getUid() {
             return uid;
         }
 
         public void setUid(String uid) {
             this.uid = uid;
-        }
+        }*/
 
         public String getPass() {
             return pass;

@@ -17,6 +17,8 @@ import com.example.hp.hireme.AccuontActivity.Constants;
 import com.example.hp.hireme.AccuontActivity.Upload;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -32,7 +34,9 @@ public class addCV extends AppCompatActivity implements View.OnClickListener {
     //these are the views
     TextView textViewStatus;
     EditText editTextFilename;
+    private FirebaseAuth firebaseAuth;
     ProgressBar progressBar;
+    String User_id;
 
     //the firebase objects for storage and database
     StorageReference mStorageReference;
@@ -46,7 +50,10 @@ ImageButton undo;
 
         //getting firebase objects
         mStorageReference = FirebaseStorage.getInstance().getReference();
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference(Constants.DATABASE_PATH_UPLOADS);
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference("candet");
+        firebaseAuth = FirebaseAuth.getInstance();
+         User_id = firebaseAuth.getCurrentUser().getUid();
+
 
         //getting the views
         textViewStatus = (TextView) findViewById(R.id.textViewStatus);
