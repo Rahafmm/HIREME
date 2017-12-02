@@ -41,7 +41,7 @@ public class addCV extends AppCompatActivity implements View.OnClickListener {
     //the firebase objects for storage and database
     StorageReference mStorageReference;
     DatabaseReference mDatabaseReference;
-ImageButton undo;
+    ImageButton undo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
