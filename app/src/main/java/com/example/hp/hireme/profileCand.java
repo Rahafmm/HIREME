@@ -43,7 +43,7 @@ public class profileCand extends AppCompatActivity implements View.OnClickListen
         Busines=(ImageButton)findViewById(R.id.Busines);
         travel=(ImageButton)findViewById(R.id.travel);
         Health=(ImageButton)findViewById(R.id.Health);
-        buttonViewFav=(Button)findViewById(R.id.buttonViewFav);
+        //buttonViewFav=(Button)findViewById(R.id.buttonViewFav);
 
         Health.setOnClickListener(this);
         IT.setOnClickListener(this);
@@ -51,12 +51,13 @@ public class profileCand extends AppCompatActivity implements View.OnClickListen
         Busines.setOnClickListener(this);
         travel.setOnClickListener(this);
         industrial.setOnClickListener(this);
-        buttonViewFav.setOnClickListener(this);
+        //buttonViewFav.setOnClickListener(this);
 
         bottomNavigationView=(BottomNavigationView)findViewById(R.id.nav);
         firebaseAuth= FirebaseAuth.getInstance();
         FirebaseUser user= firebaseAuth.getCurrentUser();
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener()
+                                                                 {
                                                                      @Override
                                                                      public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                                                                          if(item.getItemId()== R.id.Logout){

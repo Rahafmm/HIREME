@@ -4,4 +4,7 @@
     <color name="colorPrimaryDark">#9fd0d4</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorAccentThem">#017d6c</color>
+    <color name="transparent">#00000000</color>
+    <color name="product_list_item_bg">#ffffff</color>
+    <color name="view_divider_color">#BABABA</color>
 </resources>

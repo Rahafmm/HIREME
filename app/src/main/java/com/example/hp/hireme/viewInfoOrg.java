@@ -1,9 +1,13 @@
 package com.example.hp.hireme;
 
+import android.app.Notification;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.NotificationCompat;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -11,6 +15,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.app.NotificationManager;
+import android.content.Context;
 
 import com.example.hp.hireme.AccuontActivity.Candidate;
 import com.example.hp.hireme.AccuontActivity.Position;
@@ -20,6 +27,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.RemoteMessage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,10 +54,12 @@ public class viewInfoOrg extends AppCompatActivity{
     String Id;
     Org org;
     String id;
+    private String name;
 
     //TextView t;
     private ImageView imageView;
     private FirebaseAuth firebaseAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +70,7 @@ public class viewInfoOrg extends AppCompatActivity{
         Intent intent = getIntent();
         final String cat = intent.getExtras().getString("cat", "");
         final String location = intent.getExtras().getString("location", "");
-        final String name = intent.getExtras().getString("name", "");
+        name = intent.getExtras().getString("name", "");
         Id = intent.getExtras().getString("id", "");
 
         name1 = (TextView) findViewById(R.id.name1);
@@ -130,80 +140,89 @@ if(!s.get(i).getName().equals("none"))
 
             }
         });
+
+
+
+
+
         //Fav Button
-      /*  FavButton.setOnClickListener(new View.OnClickListener() {
+       FavButton.setOnClickListener(new View.OnClickListener() {
 
 
-            // FirebaseStorage storage = FirebaseStorage.getInstance();
-            // StorageReference storageRef = storage.getReference().child("Org").child(Id);
 
-            // String m= storageRef.child("pic").getDownloadUrl().toString();
-            // t.setText(m);
-            //Picasso.with(viewInfoOrg.this).load(m).into(imageView);
-
-
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View view) {
-                try {
+
+                String User_ID = firebaseAuth.getCurrentUser().getUid();
 
 
-                    //m.setText("bnnnnn");
-                    if (view == FavButton) {
-                        //FavButton.setText("dee");
-                        final String User_ID = firebaseAuth.getCurrentUser().getUid();
+                mDatabase1 = FirebaseDatabase.getInstance().getReference().child("fav");
+                mDatabase1.child(User_ID).child(name).setValue("1");
+                Toast.makeText(viewInfoOrg.this, "تمت الإضافه بنجاح", Toast.LENGTH_LONG).show();
 
-                        mDatabase = FirebaseDatabase.getInstance().getReference().child("candet");
-                        mDatabase1 = FirebaseDatabase.getInstance().getReference().child("Org");
+               //start
 
-                        mDatabase1.addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
-                                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                                    g = postSnapshot.getValue(Org.class);
-                                    if (g != null)
-                                        if (g.getuid().equals(Id)) {
+//                NotificationManager not=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+//                Notification notif=new Notification.Builder(this)
+//                .setSmallIcon(R.drawable.a1)
+//                        .setContentTitle("Notification")
+//                        .setContentText("you have added the Org to your fav list")
+//                        .build();
+//                not.notify(0,notif);
+                //end
+                // startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                //notify
 
-                                            org = postSnapshot.getValue(Org.class);
-                                        }
+//                NotificationCompat.Builder mBuilder =
+//                        new NotificationCompat.Builder(this)
+//                        .setSmallIcon(R.drawable.a1)
+//                        .setContentTitle("Notification")
+//                        .setContentText("you have added the Org to your fav list");
+//
+//                NotificationManager mNotificationManger =
+//                        (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+//
+//                NotificationManager.notify().
+//                        mNotificationManager.notify(001,mBuilder.build());
+//                sendNotification(this);
+                getnotiy(view);
 
-                                }
-                                //FavButton.setText("ll");
-                            }
-
-                            @Override
-                            public void onCancelled(DatabaseError databaseError) {
-
-                            }
-                        });
-
-
-                        mDatabase.addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
-                                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                                    Candidate can = postSnapshot.getValue(Candidate.class);
-                                    if (can != null)
-                                        if (can.getUid().equals(User_ID)) {
-//m.setText("b");
-
-                                            can.setFav(org);
-                                            mDatabase.child(User_ID).child("fav").setValue(org);
-                                        }
-
-                                }
-
-                            }
-
-                            @Override
-                            public void onCancelled(DatabaseError databaseError) {
-
-                            }
-                        });
-
-                    }
-                }catch (Exception e){System.out.print("error");}
             }
-        });*/
+
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+            public void getnotiy(View view){
+                NotificationManager not=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+                Notification notif=new Notification.Builder(viewInfoOrg.this)
+                .setSmallIcon(R.drawable.a1)
+                        .setContentTitle("Notification")
+                        .setContentText("you have added the Org to your fav list")
+                        .build();
+                not.notify(0,notif);
+
+            }
+
+
+//           public void sendNotification(View.OnClickListener view){
+//                               NotificationCompat.Builder mBuilder =
+//                                       (NotificationCompat.Builder) new NotificationCompat.Builder((Context) view)
+//                                       .setSmallIcon(R.drawable.a1)
+//                                       .setContentTitle("Notification")
+//                                       .setContentText("you have added the Org to your fav list");
+//
+//                NotificationManager mNotificationManger =
+//                        (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+//
+//                NotificationManager.notify()
+//                        .mNotificationManager.notify(001,mBuilder.build());
+//
+//            }
+
+
+
+
+        });
     }
+
 
 }
