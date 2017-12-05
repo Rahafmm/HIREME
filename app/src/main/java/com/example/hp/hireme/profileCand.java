@@ -7,6 +7,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.example.hp.hireme.AccuontActivity.EditProfileActivity;
@@ -25,7 +26,7 @@ public class profileCand extends AppCompatActivity implements View.OnClickListen
     private ImageButton Busines;
     private ImageButton travel;
     private ImageButton Health;
-   // private Button buttonViewFav;
+    private Button buttonViewFav;
 
     public String category;
 
@@ -42,7 +43,7 @@ public class profileCand extends AppCompatActivity implements View.OnClickListen
         Busines=(ImageButton)findViewById(R.id.Busines);
         travel=(ImageButton)findViewById(R.id.travel);
         Health=(ImageButton)findViewById(R.id.Health);
-        //buttonViewFav=(Button)findViewById(R.id.buttonViewFav);
+        buttonViewFav=(Button)findViewById(R.id.buttonViewFav);
 
         Health.setOnClickListener(this);
         IT.setOnClickListener(this);
@@ -50,7 +51,7 @@ public class profileCand extends AppCompatActivity implements View.OnClickListen
         Busines.setOnClickListener(this);
         travel.setOnClickListener(this);
         industrial.setOnClickListener(this);
-       // buttonViewFav.setOnClickListener(this);
+        buttonViewFav.setOnClickListener(this);
 
         bottomNavigationView=(BottomNavigationView)findViewById(R.id.nav);
         firebaseAuth= FirebaseAuth.getInstance();
