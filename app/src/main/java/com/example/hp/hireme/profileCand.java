@@ -43,7 +43,7 @@ public class profileCand extends AppCompatActivity implements View.OnClickListen
         Busines=(ImageButton)findViewById(R.id.Busines);
         travel=(ImageButton)findViewById(R.id.travel);
         Health=(ImageButton)findViewById(R.id.Health);
-        buttonViewFav=(Button)findViewById(R.id.buttonViewFav);
+       // buttonViewFav=(Button)findViewById(R.id.buttonViewFav);
 
         Health.setOnClickListener(this);
         IT.setOnClickListener(this);
