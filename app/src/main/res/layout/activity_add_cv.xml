@@ -10,7 +10,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:hint="ادخل اسم الملف "
+        android:hint="ادخل اسم الملف  "
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -19,7 +19,21 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintVertical_bias="1.0"
         android:layout_marginTop="200dp"/>
-
+    <TextView
+        android:id="@+id/textnameempty"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:paddingLeft="15dp"
+        android:paddingTop="-5dp"
+        android:text="*"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/holo_red_light"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginRight="133dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="212dp" />
     <Button
         android:id="@+id/buttonUploadFile"
         android:layout_width="368dp"

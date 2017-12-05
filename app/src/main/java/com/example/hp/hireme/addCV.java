@@ -18,9 +18,11 @@ import com.example.hp.hireme.AccuontActivity.Upload;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -37,10 +39,13 @@ public class addCV extends AppCompatActivity implements View.OnClickListener {
     private FirebaseAuth firebaseAuth;
     ProgressBar progressBar;
     String User_id;
+    private Candidate C;
+    Upload upload;
 
     //the firebase objects for storage and database
     StorageReference mStorageReference;
     DatabaseReference mDatabaseReference;
+    DatabaseReference mDatabaseReference1;
     ImageButton undo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,11 +55,11 @@ public class addCV extends AppCompatActivity implements View.OnClickListener {
 
         //getting firebase objects
         mStorageReference = FirebaseStorage.getInstance().getReference();
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference("candet");
+
         firebaseAuth = FirebaseAuth.getInstance();
          User_id = firebaseAuth.getCurrentUser().getUid();
-
-
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference("candet").child(User_id);
+        mDatabaseReference1 = FirebaseDatabase.getInstance().getReference("candet");
         //getting the views
         textViewStatus = (TextView) findViewById(R.id.textViewStatus);
         editTextFilename = (EditText) findViewById(R.id.editTextFileName);
@@ -100,6 +105,7 @@ public class addCV extends AppCompatActivity implements View.OnClickListener {
     //the code is same as the previous tutorial
     //so we are not explaining it
     private void uploadFile(Uri data) {
+
         progressBar.setVisibility(View.VISIBLE);
         StorageReference sRef = mStorageReference.child(Constants.STORAGE_PATH_UPLOADS + System.currentTimeMillis() + ".pdf");
         sRef.putFile(data)
@@ -109,9 +115,26 @@ public class addCV extends AppCompatActivity implements View.OnClickListener {
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         progressBar.setVisibility(View.GONE);
                         textViewStatus.setText("تم تحميل الملف بنجاح");
+                        mDatabaseReference1.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                                    if(postSnapshot.getKey().equals(User_id))
+                                    C = postSnapshot.getValue(Candidate.class);
+                                    //Upload up = C.getUpload();
 
-                        Upload upload = new Upload(editTextFilename.getText().toString(), taskSnapshot.getDownloadUrl().toString());
-                        mDatabaseReference.child(mDatabaseReference.push().getKey()).setValue(upload);
+                                }
+
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+
+                            }
+                        });
+
+                        Upload upload = new Upload(editTextFilename.getText().toString(), taskSnapshot.getDownloadUrl().toString(),User_id);
+                        mDatabaseReference.child("upload").setValue(upload);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -126,6 +149,7 @@ public class addCV extends AppCompatActivity implements View.OnClickListener {
                     public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
                         double progress = (100.0 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
                         textViewStatus.setText((int) progress + "% تحميل ...");
+                       // C.setupload(upload);
                     }
                 });
 

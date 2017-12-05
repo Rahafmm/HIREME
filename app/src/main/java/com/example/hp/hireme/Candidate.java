@@ -1,8 +1,6 @@
-package com.example.hp.hireme.AccuontActivity;
+package com.example.hp.hireme;
 
-import com.example.hp.hireme.Org;
-
-import java.util.ArrayList;
+import com.example.hp.hireme.AccuontActivity.Upload;
 
 /**
  * Created by l8een on 11/21/2017.
@@ -12,13 +10,23 @@ public class Candidate {
         int count=0;
         private String name;
         private String pass;
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
+    private String uid;
         //private String uid;
 
-    public Upload getUpload() {
+    public Upload getupload() {
         return upload;
     }
 
-    public void setUpload(Upload upload) {
+    public void setupload(Upload upload) {
         this.upload = upload;
     }
 

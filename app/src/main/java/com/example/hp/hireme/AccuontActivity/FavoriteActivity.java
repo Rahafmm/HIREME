@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 
+import com.example.hp.hireme.Candidate;
 import com.example.hp.hireme.Org;
 import com.example.hp.hireme.R;
 import com.example.hp.hireme.viewInfoOrg;
@@ -28,7 +29,7 @@ public class FavoriteActivity extends AppCompatActivity {
 
         //favArray = new ArrayList<>();
 
-        buttonViewFav = (Button) findViewById(R.id.buttonViewFav);
+        //buttonViewFav = (Button) findViewById(R.id.buttonViewFav);
 
         buttonViewFav.setOnClickListener((View.OnClickListener) this);
     }

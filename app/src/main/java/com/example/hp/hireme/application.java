@@ -1,9 +1,5 @@
 package com.example.hp.hireme;
 
-import com.example.hp.hireme.AccuontActivity.Position;
-
-import java.util.List;
-
 /**
  * Created by l8een on 11/28/2017.
  */
@@ -11,6 +7,26 @@ import java.util.List;
 public class application {
 
     private String idCan;
+
+    public String getAppname() {
+        return appname;
+    }
+
+    public void setAppname(String appname) {
+        this.appname = appname;
+    }
+
+    private String appname;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    private String url;
     //private String idOrg;
 
     public String getIdCan() {

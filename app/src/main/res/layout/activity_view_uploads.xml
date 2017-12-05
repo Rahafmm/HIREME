@@ -10,7 +10,7 @@
         android:id="@+id/textView5"
         android:layout_width="381dp"
         android:layout_height="45dp"
-        android:text="* عند إضافة اكثر من ملف أو تريد تعديل الملف,اضغط ضغطة مطولة على اسم الملف"
+        android:text="* إذا كنت تريد تعديل الملف,اضغط ضغطة مطولة على اسم الملف"
         android:textAlignment="center"
         android:textColor="@android:color/darker_gray"
         android:textSize="18sp"

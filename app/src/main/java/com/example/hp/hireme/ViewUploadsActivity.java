@@ -13,8 +13,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
-import com.example.hp.hireme.AccuontActivity.Constants;
 import com.example.hp.hireme.AccuontActivity.Upload;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,6 +34,8 @@ public class ViewUploadsActivity extends AppCompatActivity implements View.OnCli
     final Context context = this;
     boolean press;
     ImageButton undo;
+    private FirebaseAuth firebaseAuth;
+    String User_id;
     //database reference to get uploads data
     DatabaseReference mDatabaseReference;
 
@@ -67,18 +69,18 @@ public class ViewUploadsActivity extends AppCompatActivity implements View.OnCli
             }
         });
 
-
+        firebaseAuth = FirebaseAuth.getInstance();
+        User_id = firebaseAuth.getCurrentUser().getUid();
         //getting the database reference
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference(Constants.DATABASE_PATH_UPLOADS);
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("candet").child(User_id).child("upload");
 
         //retrieving upload data from firebase database
         mDatabaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    Upload upload = postSnapshot.getValue(Upload.class);
+                    Upload upload = dataSnapshot.getValue(Upload.class);
                     uploadList.add(upload);
-                }
+
 
                  uploads = new String[uploadList.size()];
 
@@ -117,7 +119,7 @@ public class ViewUploadsActivity extends AppCompatActivity implements View.OnCli
                 ViewUploadsActivity.this);
 
         alert.setTitle("حذف");
-        alert.setMessage("هل تريد حذف الملف ؟*سيتم حذف جميع الملفات!!");
+        alert.setMessage("هل تريد حذف الملف ؟");
         alert.setPositiveButton("نعم", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
