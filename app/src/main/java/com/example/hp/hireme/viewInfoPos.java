@@ -48,6 +48,7 @@ public class viewInfoPos extends AppCompatActivity implements View.OnClickListen
             des = intent.getExtras().getString("des", "");
             final String namey = intent.getExtras().getString("name", "");
               Id1 = intent.getExtras().getString("id", "");
+
              nameOrg = intent.getExtras().getString("name", "");
              idOrg = intent.getExtras().getString("Id", "");
 

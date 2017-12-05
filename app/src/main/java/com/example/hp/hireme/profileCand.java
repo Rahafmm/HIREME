@@ -51,7 +51,7 @@ public class profileCand extends AppCompatActivity implements View.OnClickListen
         Busines.setOnClickListener(this);
         travel.setOnClickListener(this);
         industrial.setOnClickListener(this);
-        buttonViewFav.setOnClickListener(this);
+        //buttonViewFav.setOnClickListener(this);
 
         bottomNavigationView=(BottomNavigationView)findViewById(R.id.nav);
         firebaseAuth= FirebaseAuth.getInstance();
