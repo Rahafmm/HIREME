@@ -18,13 +18,11 @@ import android.widget.Toast;
 import com.example.hp.hireme.AccuontActivity.Position;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.example.hp.hireme.Org;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -215,7 +213,7 @@ public class RegisterOrgActivity extends AppCompatActivity implements View.OnCli
                                 //Cureent_User_db.child("name").setValue(Name);
                                 final String uid = firebaseAuth.getInstance().getCurrentUser().getUid();
                                 Toast.makeText(RegisterOrgActivity.this, uid, Toast.LENGTH_LONG).show();
-                                Position[] ar =new Position[2];
+                                Position[] ar =new Position[50];
                                 Position po =new Position();
                                 po.setName("none");
                                 po.setDes("none");

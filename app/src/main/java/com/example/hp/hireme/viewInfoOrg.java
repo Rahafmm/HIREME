@@ -1,13 +1,13 @@
 package com.example.hp.hireme;
 
 import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.app.NotificationCompat;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,8 +16,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.app.NotificationManager;
-import android.content.Context;
 
 import com.example.hp.hireme.AccuontActivity.Position;
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,7 +24,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.messaging.RemoteMessage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -113,9 +110,10 @@ public class viewInfoOrg extends AppCompatActivity{
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     Org o = postSnapshot.getValue(Org.class);
-                    id=postSnapshot.getKey();
+                   // id=postSnapshot.getKey();
                     if(o.getname().toUpperCase().equals(name.toUpperCase())){
-                        s=o.getposition();}
+                        s=o.getposition();
+                    id=o.getname();}
                 }
 
                 String[] uploads = new String[s.size()];

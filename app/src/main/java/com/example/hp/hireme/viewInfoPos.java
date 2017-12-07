@@ -94,7 +94,7 @@ public class viewInfoPos extends AppCompatActivity implements View.OnClickListen
         mDatabase= FirebaseDatabase.getInstance().getReference().child("application");
         String pu=Id1;
 
-        mDatabase.child(pu).setValue(ca);
+        mDatabase.child(pu+" _ "+User_ID).setValue(ca);
         Toast.makeText(viewInfoPos.this, "تم رفع طلبك بنجاح", Toast.LENGTH_LONG).show();
         finish();
         startActivity(new Intent(this, profileCand.class));
