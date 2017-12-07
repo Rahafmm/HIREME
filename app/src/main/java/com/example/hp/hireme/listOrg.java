@@ -3,9 +3,13 @@ package com.example.hp.hireme;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -25,8 +29,10 @@ import java.util.ArrayList;
 public class listOrg extends AppCompatActivity {
    //String cat;
     ListView listView;
+    //SearchView ss;
     DatabaseReference mDatabase;
     ArrayList<Org> names;
+    EditText search;
 String id;
 
 
@@ -41,6 +47,10 @@ String id;
 
         names=new ArrayList<>();
         listView=(ListView) findViewById(R.id.listView);
+
+        /////////////search
+        search=(EditText)findViewById(R.id.search);
+
 
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -82,8 +92,26 @@ String id;
                 }
 
                 //disp laying it to list
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, uploads);
+                final ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, uploads);
                 listView.setAdapter(adapter);
+
+                /////////search
+                search.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                    adapter.getFilter().filter(charSequence);
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable editable) {
+
+                    }
+                });
 
             }
 

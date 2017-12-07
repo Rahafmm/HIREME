@@ -27,12 +27,14 @@
         <activity android:name=".activityAddPosition" />
         <activity android:name=".addCV" />
         <activity android:name=".profileCand" />
-        <activity android:name=".listOrg" />
+
+        <activity android:name=".listOrg"
+            android:windowSoftInputMode="stateHidden"
+            />
         <activity android:name=".AccuontActivity.FavoriteActivity" />
         <activity android:name=".viewInfoOrg" />
         <activity android:name=".viewInfoPos" />
-        <activity android:name=".ViewUploadsActivity" />
-        <activity android:name=".viewapplication"></activity>
+        <activity android:name=".ViewUploadsActivity"></activity>
     </application>
 
 </manifest>

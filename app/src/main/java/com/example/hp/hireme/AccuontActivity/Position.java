@@ -1,5 +1,7 @@
 package com.example.hp.hireme.AccuontActivity;
 
+import java.util.List;
+
 /**
  * Created by Lama on 28/11/17.
  */
@@ -25,5 +27,15 @@ public class Position {
 
     private String des;
 
+
+    public List<String> getCandidates() {
+        return candidates;
+    }
+
+    public void setCandidates(List<String> candidates) {
+        this.candidates = candidates;
+    }
+
+    private List<String> candidates;
 
 }
