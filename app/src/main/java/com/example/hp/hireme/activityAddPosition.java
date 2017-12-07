@@ -109,9 +109,9 @@ else {
                     Org o = postSnapshot.getValue(Org.class);
                         if (o.getuid().toUpperCase().equals(uid.toUpperCase())) {
                            s= o.getposition();}
-                            Position[] ar =new Position[2];
+                            Position[] ar =new Position[50];
 
-                            if (s.size() < 2 ) {
+                            if (s.size() < 50 ) {
                                 for (int i = 0; i < s.size(); i++) {
                                     ar[i]=s.remove(i);
                                     inc = i;
