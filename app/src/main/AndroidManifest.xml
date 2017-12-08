@@ -32,6 +32,8 @@
         <activity android:name=".viewInfoOrg" />
         <activity android:name=".viewInfoPos" />
         <activity android:name=".ViewUploadsActivity" />
+        <activity android:name=".viewRAapplication" />
+        <activity android:name=".viewapp" />
         <activity android:name=".viewapplication"></activity>
     </application>
 

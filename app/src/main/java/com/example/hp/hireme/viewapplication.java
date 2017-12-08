@@ -19,16 +19,18 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class viewapplication extends AppCompatActivity {
- ListView lisapp;
+    private ListView lisapp;
     private FirebaseAuth firebaseAuth;
-    String User_id;
-    DatabaseReference mDatabaseReference;
-    DatabaseReference mDatabaseReference1;
+    private String User_id;
+    private  DatabaseReference mDatabaseReference;
+    private  DatabaseReference mDatabaseReference1;
     //List<application> app;
-    ArrayList<application> names;
-    String nameOrg;
-    String S;
-    String [] arr;
+    private  ArrayList<application> names;
+    private  ArrayList<String> key;
+    private  String nameOrg;
+    private  String S;
+    private  String [] arr;
+    private String[] j;
     int i=0;
     //Intent intent = getIntent();
    // final String name = intent.getExtras().getString("name", "");
@@ -39,21 +41,24 @@ public class viewapplication extends AppCompatActivity {
         lisapp=(ListView)findViewById(R.id.lisapp);
         firebaseAuth = FirebaseAuth.getInstance();
         arr=new String[100];
-        names=new ArrayList<>();
-        lisapp.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        names=new ArrayList<application>();
+        key=new ArrayList<String>();
+       lisapp.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, final int i, long l) {
                 //getting the upload
                 final application upload = names.get(i);
+ String ke =names.get(i).getNameOrg()+" _ "+names.get(i).getIdCan();
 
-                //Opening the upload file in browser using the upload url
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse(upload.getUrl()));
+                Intent intent = new Intent(viewapplication.this, viewRAapplication.class);
+                intent.putExtra("app",ke);
+                intent.putExtra("url",upload.getUrl());
+
                 startActivity(intent);
-
 
             }
         });
+
         User_id = firebaseAuth.getCurrentUser().getUid();
         mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("Org");
 
@@ -79,17 +84,19 @@ public class viewapplication extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     application o = postSnapshot.getValue(application.class);
-                    if(o.getNameOrg().toUpperCase().equals(nameOrg.toUpperCase()))
+                    if(o.getNameOrg().toUpperCase().equals(nameOrg.toUpperCase())&&(o.getStatus().equals("none"))){
                         names.add(o);
+                    key.add(postSnapshot.getKey());}
                        // Toast.makeText(viewapplication.this, S, Toast.LENGTH_SHORT).show();
                 }
 
                 String[] uploads = new String[names.size()];
+              // j = new String[names.size()];
 
                 for (int i = 0; i < uploads.length; i++) {
 
                     uploads[i] = names.get(i).getAppname();
-
+                   // j[i]=key.get(i);
                 }
 
                 //disp laying it to list
