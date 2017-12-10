@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.hp.hireme.AccuontActivity.Position;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,7 +19,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class activityAddPosition extends AppCompatActivity implements View.OnClickListener{
@@ -29,15 +27,17 @@ public class activityAddPosition extends AppCompatActivity implements View.OnCli
     private TextView nameempty;
     private TextView posdesempty;
     private Button buttonAddPosition;
+    private  DatabaseReference mDatabases;
     private ProgressDialog progressDialog;
     private DatabaseReference mDatabase;
     private FirebaseAuth firebaseAuth;
    public int inc=0;
     DatabaseReference mDatabase1;
-    ArrayList<Position> pos;
-    Position[] w;
-    List<Position> s;
-    List<Position> s1;
+    ArrayList<position> pos;
+    position[] w;
+    private Org os;
+    List<position> s;
+    List<position> s1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,58 +107,20 @@ else {
 
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     Org o = postSnapshot.getValue(Org.class);
-                        if (o.getuid().toUpperCase().equals(uid.toUpperCase())) {
-                           s= o.getposition();}
-                            Position[] ar =new Position[50];
+                    if (o.getuid().toUpperCase().equals(uid.toUpperCase())) {
+                        os = o;
+String k =os.getname();
+                        position po = new position();
+                        po.setName(namepos);
+                        po.setDes(despos);
+                        po.setNamorg(k);
+                         mDatabases= FirebaseDatabase.getInstance().getReference().child("position");
+                        mDatabases.child(os.getname()+"_"+namepos).setValue(po);
+                        Toast.makeText(activityAddPosition.this, "تمت اضافه الوظيفه بنجاح", Toast.LENGTH_LONG).show();
 
-                            if (s.size() < 50 ) {
-                                for (int i = 0; i < s.size(); i++) {
-                                    ar[i]=s.remove(i);
-                                    inc = i;
-                                }
-//if(ar[0].getName().equals("none"))
-
-      /*  if(ar[0].getName().equals("none")){
-            Position po = new Position();
-            po.setName(namepos);
-            po.setDes(despos);
-            ar[0] = po;
-            List na = new ArrayList<Position>(Arrays.asList(ar));
-            o.setposition(na);
-            mDatabase1.child(o.getname()).child("position").setValue(na);
-            Toast.makeText(activityAddPosition.this, "تمت الاضافه", Toast.LENGTH_LONG).show();
-        }else {
-                                Position po = new Position();
-                                po.setName(namepos);
-                                po.setDes(despos);
-            inc++;
-                                ar[inc] = po;
-            List na = new ArrayList<Position>(Arrays.asList(ar));*/
-
-                                Position po = new Position();
-                                po.setName(namepos);
-                                po.setDes(despos);
-                                ar[++inc]=po;
-                                List na = new ArrayList<Position>(Arrays.asList(ar));
-            o.setposition(na);
-            mDatabase1.child(o.getname()).child("position").setValue(na);
-            Toast.makeText(activityAddPosition.this, "تمت الاضافه", Toast.LENGTH_LONG).show();
-
-
-                            } else {
-                                Toast.makeText(activityAddPosition.this, "لم تتم الإضافة , يحق للشركه ان تطرح وظيفتين فقط", Toast.LENGTH_LONG).show();
-
-
-                        }
-
-
-
-
-
-
-
-
+                    }
                 }
+
             }
 
 

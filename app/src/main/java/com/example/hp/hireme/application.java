@@ -7,6 +7,19 @@ package com.example.hp.hireme;
 public class application {
 
     private String idCan;
+    private String status;
+    private String nameOrg;
+    private String appname;
+    private String url;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
 
     public String getAppname() {
         return appname;
@@ -16,7 +29,7 @@ public class application {
         this.appname = appname;
     }
 
-    private String appname;
+
 
     public String getUrl() {
         return url;
@@ -26,7 +39,7 @@ public class application {
         this.url = url;
     }
 
-    private String url;
+
     //private String idOrg;
 
     public String getIdCan() {
@@ -47,7 +60,7 @@ public class application {
         this.nameOrg = nameOrg;
     }
 
-    private String nameOrg;
+
 
 
 

@@ -1,4 +1,4 @@
-package com.example.hp.hireme.AccuontActivity;
+package com.example.hp.hireme;
 
 import java.util.List;
 
@@ -6,8 +6,19 @@ import java.util.List;
  * Created by Lama on 28/11/17.
  */
 
-public class Position {
+public class position {
     private String name;
+    private String namorg;
+
+    public String getNamorg() {
+        return namorg;
+    }
+
+    public void setNamorg(String nameOrg) {
+        this.namorg = nameOrg;
+    }
+
+
 
     public String getName() {
         return name;

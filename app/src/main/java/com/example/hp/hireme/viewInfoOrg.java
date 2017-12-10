@@ -17,7 +17,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.hp.hireme.AccuontActivity.Position;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -42,15 +41,17 @@ public class viewInfoOrg extends AppCompatActivity{
     private TextView textView5;
     private ListView listView2;
     private ProgressDialog progressDialog;
-    DatabaseReference mDatabase;
-    DatabaseReference mDatabase1;
-    ArrayList<Org> favArray;
-    List<Position> s;
-    Org g;
-    String Id;
-    Org org;
-    String id;
+    private DatabaseReference mDatabase8;
+    private DatabaseReference mDatabase1;
+    private ArrayList<Org> favArray;
+    private ArrayList<position> s;
+
+    private Org g;
+    private String Id;
+    private Org org;
+    private String id;
     private String name;
+   // private  Position i;
 
     //TextView t;
     private ImageView imageView;
@@ -68,7 +69,7 @@ public class viewInfoOrg extends AppCompatActivity{
         final String location = intent.getExtras().getString("location", "");
         name = intent.getExtras().getString("name", "");
         Id = intent.getExtras().getString("id", "");
-
+s=new ArrayList<position>();
         name1 = (TextView) findViewById(R.id.name1);
         loc = (TextView) findViewById(R.id.loc);
         ca = (TextView) findViewById(R.id.ca);
@@ -76,12 +77,13 @@ public class viewInfoOrg extends AppCompatActivity{
 
         textView5 = (TextView) findViewById(R.id.textView5);
         listView2=(ListView) findViewById(R.id.listView2);
+
         listView2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, final int i, long l) {
 
-                final Position selOrg = s.get(i);
-                if (!s.get(i).getName().equals("none")) {
+                final position selOrg = s.get(i);
+
 
 
                 //Intent intent =new Intent(listOrg.this, viewInfoOrg.class);
@@ -89,11 +91,13 @@ public class viewInfoOrg extends AppCompatActivity{
                 intent.putExtra("name",selOrg.getName());
                 intent.putExtra("des",selOrg.getDes());
                 intent.putExtra("id",id);
+
                     intent.putExtra("nameOrg",name);
+                intent.putExtra("Id",name);
                     intent.putExtra("location",location);
                     intent.putExtra("idOrg",Id);
                     intent.putExtra("cat",cat);
-                startActivity(intent);}
+                startActivity(intent);
             }
         });
         //imageView=(ImageView)findViewById(R.id.imageView);
@@ -103,35 +107,33 @@ public class viewInfoOrg extends AppCompatActivity{
         loc.setText(location);
         ca.setText(cat);
 
-        mDatabase= FirebaseDatabase.getInstance().getReference().child("Org");
+        mDatabase8= FirebaseDatabase.getInstance().getReference().child("position");
 
-        mDatabase.addValueEventListener(new ValueEventListener() {
+      mDatabase8.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    Org o = postSnapshot.getValue(Org.class);
-                   // id=postSnapshot.getKey();
-                    if(o.getname().toUpperCase().equals(name.toUpperCase())){
-                        s=o.getposition();
-                    id=o.getname();}
+                    position i = postSnapshot.getValue(position.class);
+
+                if (i.getNamorg().toUpperCase().equals(name.toUpperCase())) {
+                        s.add(i);
+                   }
+
                 }
+                String[] uplads = new String[s.size()];
 
-                String[] uploads = new String[s.size()];
+                for (int i = 0; i < uplads.length; i++) {
 
-                for (int i = 0; i < uploads.length; i++) {
-if(!s.get(i).getName().equals("none"))
-                    uploads[i] = s.get(i).getName();
-                    else {
-    uploads[i]="";
-                    }
+                    uplads[i] = s.get(i).getNamorg();
+
 
                 }
 
                 //disp laying it to list
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, uploads);
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, uplads);
                 listView2.setAdapter(adapter);
-            }
 
+            }
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
@@ -142,7 +144,7 @@ if(!s.get(i).getName().equals("none"))
 
 
 
-        //Fav Button
+       //Fav Button
        FavButton.setOnClickListener(new View.OnClickListener() {
 
 
