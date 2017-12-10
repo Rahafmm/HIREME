@@ -83,31 +83,33 @@ public class profileCand extends AppCompatActivity implements View.OnClickListen
 
     @Override
     public void onClick(View view) {
+        try {
+            if (view == industrial) {
+                category = "industrial";
+            }
+            if (view == IT) {
+                category = "IT";
+            }
+            if (view == food) {
+                category = "food";
+            }
+            if (view == Busines) {
+                category = "Busines";
+            }
+            if (view == travel) {
+                category = "travel";
+            }
+            if (view == Health) {
+                category = "Health";
+            }
 
-        if (view== industrial) {
-            category="industrial";
-        }
-        if(view == IT){
-            category="IT";
-        }
-        if (view== food) {
-            category="food";
-        }
-        if(view == Busines){
-            category="Busines";
-        }
-        if (view== travel) {
-            category="travel";
-        }
-        if(view == Health){
-            category="Health";
-        }
+            Intent intent = new Intent(profileCand.this, listOrg.class);
+            intent.putExtra("cat", category);
+            startActivity(intent);
 
-        Intent intent =new Intent(profileCand.this, listOrg.class);
-        intent.putExtra("cat",category);
-        startActivity(intent);
+        } catch (Exception e) {
+            System.out.print("there are no organizations on this category");
+        }
 
     }
-
-
 }
