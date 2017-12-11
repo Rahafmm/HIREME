@@ -1,7 +1,5 @@
 package com.example.hp.hireme;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,10 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 
-
-
-
-    public class LoginOrgActivity extends AppCompatActivity implements View.OnClickListener{
+public class LoginOrgActivity extends AppCompatActivity implements View.OnClickListener{
 
         private Button buttonLogIn;
         private EditText editTextEmail;
@@ -38,6 +33,8 @@ import com.google.firebase.database.ValueEventListener;
         private ProgressDialog progressDialog;
         private TextView textViewregisterCan;
         private TextView textViewloginCan;
+    private String User_id;
+    private DatabaseReference mDatabaseReference;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -98,8 +95,31 @@ import com.google.firebase.database.ValueEventListener;
                                 progressDialog.dismiss();
                                 if (task.isSuccessful()) {
                                     //start profile activity
-                                    finish();
-                                    startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                                    User_id = firebaseAuth.getCurrentUser().getUid();
+                                    mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("Org");
+
+                                    mDatabaseReference.addValueEventListener(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(DataSnapshot dataSnapshot) {
+                                            for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                                                Org o = postSnapshot.getValue(Org.class);
+                                                if(o.getuid().toUpperCase().equals(User_id.toUpperCase())){
+                                                    finish();
+                                                    startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                                                    break;
+                                                }
+                                                else{
+                                                    Toast.makeText(LoginOrgActivity.this, "البريد الالكتروني او كلمة السر خاطئة..", Toast.LENGTH_LONG).show();
+                                                }
+                                            }
+                                        }
+                                        @Override
+                                        public void onCancelled(DatabaseError databaseError) {
+
+                                        }
+                                    });
+
+
                                 } else {
                                     Toast.makeText(LoginOrgActivity.this, "البريد الالكتروني او كلمة المرور خاطئة", Toast.LENGTH_LONG).show();
                                 }

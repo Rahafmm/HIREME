@@ -16,6 +16,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 /*public class LoginActivity extends AppCompatActivity{
@@ -123,6 +128,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private ProgressDialog progressDialog;
     private TextView textViewregisterorg;
     private TextView textViewloginorg;
+    private String User_id;
+    private DatabaseReference mDatabaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -168,26 +175,45 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         //display progress
         progressDialog.setMessage("تسجيل الدخول، الرجاء الانتظار..");
         progressDialog.show();
-
         firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         progressDialog.dismiss();
-                        if (task.isSuccessful()){
+                        if (task.isSuccessful()) {
                             //start profile activity
+                            User_id = firebaseAuth.getCurrentUser().getUid();
+                            mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("candet");
 
-                            finish();
-                            startActivity(new Intent(getApplicationContext(), profileCand.class));
-                        }
-                        else{
+                            mDatabaseReference.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                                        Candidate o = postSnapshot.getValue(Candidate.class);
+                                        if(o.getUid().toUpperCase().equals(User_id.toUpperCase())){
+                                            finish();
+                                            startActivity(new Intent(getApplicationContext(), profileCand.class));
+                                            break;
+                                        }
+                                        else{
+                                            Toast.makeText(LoginActivity.this, "البريد الالكتروني او كلمة السر خاطئة..", Toast.LENGTH_LONG).show();
+                                        }
+                                    }
+                                }
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+
+                                }
+                            });
+
+
+                        } else {
                             Toast.makeText(LoginActivity.this, "البريد الالكتروني او كلمة السر خاطئة..", Toast.LENGTH_LONG).show();
                         }
-
                     }
                 });
-
     }
+
 
     @Override
     public void onClick(View view){
