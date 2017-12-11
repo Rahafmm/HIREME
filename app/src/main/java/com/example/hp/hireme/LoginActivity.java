@@ -139,7 +139,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         firebaseAuth = FirebaseAuth.getInstance();
 
 
-
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPasword = (EditText) findViewById(R.id.editTextPasword);
         buttonLogIn = (Button) findViewById(R.id.buttonLogin);
@@ -190,24 +189,25 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 public void onDataChange(DataSnapshot dataSnapshot) {
                                     for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                                         Candidate o = postSnapshot.getValue(Candidate.class);
-                                        if(o.getUid().toUpperCase().equals(User_id.toUpperCase())){
+                                        if (o.getUid().toUpperCase().equals(User_id.toUpperCase())) {
                                             finish();
                                             startActivity(new Intent(getApplicationContext(), profileCand.class));
                                             break;
                                         }
-                                        else{
+                                        else {
                                             Toast.makeText(LoginActivity.this, "البريد الالكتروني او كلمة السر خاطئة..", Toast.LENGTH_LONG).show();
                                         }
                                     }
                                 }
+
                                 @Override
                                 public void onCancelled(DatabaseError databaseError) {
 
                                 }
                             });
 
-
-                        } else {
+                        }
+                         else {
                             Toast.makeText(LoginActivity.this, "البريد الالكتروني او كلمة السر خاطئة..", Toast.LENGTH_LONG).show();
                         }
                     }

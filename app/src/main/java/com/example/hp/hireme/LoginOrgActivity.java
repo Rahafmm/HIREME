@@ -43,12 +43,7 @@ public class LoginOrgActivity extends AppCompatActivity implements View.OnClickL
 
             firebaseAuth = FirebaseAuth.getInstance();
 
-            if (firebaseAuth.getCurrentUser() != null) {
 
-                //profile activity here
-                finish();
-                startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
-            }
 
             editTextEmail = (EditText) findViewById(R.id.editTextEmail);
             editTextPasword = (EditText) findViewById(R.id.editTextPasword);

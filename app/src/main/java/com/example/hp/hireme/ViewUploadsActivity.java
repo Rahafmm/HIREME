@@ -38,7 +38,7 @@ public class ViewUploadsActivity extends AppCompatActivity implements View.OnCli
     String User_id;
     //database reference to get uploads data
     DatabaseReference mDatabaseReference;
-
+    DatabaseReference mDatabaseReference1;
     //list to store uploads data
     List<Upload> uploadList;
 
@@ -119,25 +119,19 @@ public class ViewUploadsActivity extends AppCompatActivity implements View.OnCli
                 ViewUploadsActivity.this);
 
         alert.setTitle("حذف");
-        alert.setMessage("هل تريد حذف الملف ؟");
+        alert.setMessage("*إذا كنت تريد تعديل الملف قم برفع ملف جديد سيتم حذف الملف السابق,,هل تريد تعديل الملف ؟");
         alert.setPositiveButton("نعم", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // TOD O Auto-generated method stub
-
-                // main code on after clicking yes
-                uploadList.remove(deletePosition);
-                adapter.notifyDataSetChanged();
-                adapter.notifyDataSetInvalidated();
-
-                mDatabaseReference.addValueEventListener(new ValueEventListener() {
                     @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                            Upload upload = postSnapshot.getValue(Upload.class);
-                            dataSnapshot.getRef().removeValue();
-                            uploadList.remove(upload);
-                        }
+                    public void onClick(DialogInterface dialog, int which) {
+                        // TOD O Auto-generated method stub
+
+                        // main code on after clicking yes
+                        uploadList.remove(deletePosition);
+                        Upload upload = new Upload("", "", User_id);
+                        mDatabaseReference1 = FirebaseDatabase.getInstance().getReference().child("candet").child(User_id).child("upload");
+                        mDatabaseReference1.setValue(upload);
+
+//                Intent in=new Intent(context, addCV.class);
 
                         uploads = new String[uploadList.size()];
 
@@ -148,18 +142,15 @@ public class ViewUploadsActivity extends AppCompatActivity implements View.OnCli
                         //displaying it to list
                         adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, uploads);
                         listView.setAdapter(adapter);
-                        Intent in=new Intent(context, addCV.class);
+                        Intent in = new Intent(context, addCV.class);
                         context.startActivity(in);
+                        startActivity(new Intent(getApplicationContext(), addCV.class));
                     }
 
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
 
-                    }
-                });
 //                Intent in=new Intent(context, addCV.class);
 //                context.startActivity(in);
-            }
+
         });
         alert.setNegativeButton("لا", new DialogInterface.OnClickListener() {
             @Override
