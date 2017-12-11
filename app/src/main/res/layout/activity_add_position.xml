@@ -8,15 +8,6 @@
     android:background="@drawable/qq"
     >
 
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="*"
-        android:textColor="@android:color/holo_red_dark"
-        tools:layout_editor_absoluteX="52dp"
-        tools:layout_editor_absoluteY="175dp" />
-
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="307dp"
@@ -50,6 +41,15 @@
             android:textStyle="bold"
             tools:layout_editor_absoluteX="58dp" />
 
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textColor="@android:color/holo_red_dark"
+            tools:layout_editor_absoluteX="52dp"
+            tools:layout_editor_absoluteY="175dp" />
+
         <EditText
             android:id="@+id/posname"
             android:layout_width="283dp"
@@ -80,6 +80,15 @@
             android:textStyle="bold"
             tools:layout_editor_absoluteX="48dp"
             tools:layout_editor_absoluteY="267dp" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textColor="@android:color/holo_red_dark"
+            tools:layout_editor_absoluteX="52dp"
+            tools:layout_editor_absoluteY="72dp" />
 
         <EditText
             android:id="@+id/posdes"
@@ -115,14 +124,5 @@
 
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="*"
-        android:textColor="@android:color/holo_red_dark"
-        tools:layout_editor_absoluteX="52dp"
-        tools:layout_editor_absoluteY="72dp" />
 
 </android.support.constraint.ConstraintLayout>

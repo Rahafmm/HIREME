@@ -83,6 +83,8 @@ public class LoginOrgActivity extends AppCompatActivity implements View.OnClickL
                 progressDialog.setMessage("تسجيل الدخول، الرجاء الانتظار..");
                 progressDialog.show();
 
+
+
                 firebaseAuth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                             @Override

@@ -9,42 +9,6 @@
     tools:context="com.example.hp.hireme.AccuontActivity.RegisterActivity">
 
 
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="*"
-        android:textColor="@android:color/holo_red_dark"
-        tools:layout_editor_absoluteX="59dp"
-        tools:layout_editor_absoluteY="338dp" />
-
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="*"
-        android:textColor="@android:color/holo_red_dark"
-        tools:layout_editor_absoluteX="59dp"
-        tools:layout_editor_absoluteY="72dp" />
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="*"
-        android:textColor="@android:color/holo_red_dark"
-        tools:layout_editor_absoluteX="59dp"
-        tools:layout_editor_absoluteY="173dp" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="*"
-        android:textColor="@android:color/holo_red_dark"
-        tools:layout_editor_absoluteX="59dp"
-        tools:layout_editor_absoluteY="256dp" />
-
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="307dp"
@@ -78,6 +42,15 @@
             android:textStyle="bold"
             tools:layout_editor_absoluteX="58dp" />
 
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textColor="@android:color/holo_red_dark"
+            tools:layout_editor_absoluteX="59dp"
+            tools:layout_editor_absoluteY="72dp" />
+
         <EditText
             android:id="@+id/editTextName"
             android:layout_width="match_parent"
@@ -98,7 +71,7 @@
         <TextView
             android:id="@+id/textnameempty"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="14dp"
             android:paddingLeft="15dp"
             android:paddingTop="15dp"
             android:text=""
@@ -108,6 +81,15 @@
             android:textStyle="bold"
             tools:layout_editor_absoluteX="48dp"
             tools:layout_editor_absoluteY="267dp" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textColor="@android:color/holo_red_dark"
+            tools:layout_editor_absoluteX="59dp"
+            tools:layout_editor_absoluteY="173dp" />
 
         <EditText
             android:id="@+id/editTextEmail"
@@ -120,7 +102,7 @@
         <TextView
             android:id="@+id/textemailempty"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="12dp"
             android:paddingLeft="15dp"
             android:paddingTop="15dp"
             android:text=""
@@ -130,6 +112,15 @@
             android:textStyle="bold"
             tools:layout_editor_absoluteX="48dp"
             tools:layout_editor_absoluteY="267dp" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textColor="@android:color/holo_red_dark"
+            tools:layout_editor_absoluteX="59dp"
+            tools:layout_editor_absoluteY="256dp" />
 
         <EditText
             android:id="@+id/editTextPasword"
@@ -142,7 +133,7 @@
         <TextView
             android:id="@+id/textpasswordempty"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="16dp"
             android:paddingLeft="15dp"
             android:paddingTop="15dp"
             android:text=""
@@ -152,6 +143,15 @@
             android:textStyle="bold"
             tools:layout_editor_absoluteX="48dp"
             tools:layout_editor_absoluteY="267dp" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textColor="@android:color/holo_red_dark"
+            tools:layout_editor_absoluteX="59dp"
+            tools:layout_editor_absoluteY="338dp" />
 
         <EditText
             android:id="@+id/editTextCPasword"
@@ -164,7 +164,7 @@
         <TextView
             android:id="@+id/textpasswordmatch"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="14dp"
             android:paddingLeft="15dp"
             android:paddingTop="15dp"
             android:text=""

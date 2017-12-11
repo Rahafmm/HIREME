@@ -7,60 +7,6 @@
     tools:context="com.example.hp.hireme.AccuontActivity.RegisterActivity"
     android:background="@drawable/qq">
 
-    <TextView
-        android:id="@+id/textView23"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="*"
-        android:textColor="@android:color/holo_red_dark"
-        tools:layout_editor_absoluteX="59dp"
-        tools:layout_editor_absoluteY="378dp" />
-
-    <TextView
-        android:id="@+id/textView21"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="*"
-        android:textColor="@android:color/holo_red_dark"
-        tools:layout_editor_absoluteX="59dp"
-        tools:layout_editor_absoluteY="262dp" />
-
-    <TextView
-        android:id="@+id/textView22"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="*"
-        android:textColor="@android:color/holo_red_dark"
-        tools:layout_editor_absoluteX="59dp"
-        tools:layout_editor_absoluteY="322dp" />
-
-    <TextView
-        android:id="@+id/textView20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="*"
-        android:textColor="@android:color/holo_red_dark"
-        tools:layout_editor_absoluteX="59dp"
-        tools:layout_editor_absoluteY="200dp" />
-
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="*"
-        android:textColor="@android:color/holo_red_dark"
-        tools:layout_editor_absoluteX="59dp"
-        tools:layout_editor_absoluteY="139dp" />
-
-    <TextView
-        android:id="@+id/textView18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="*"
-        android:textColor="@android:color/holo_red_dark"
-        tools:layout_editor_absoluteX="59dp"
-        tools:layout_editor_absoluteY="72dp" />
-
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="305dp"
@@ -116,6 +62,15 @@
             tools:layout_constraintRight_creator="1"
             tools:layout_constraintTop_creator="1" />
 
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textColor="@android:color/holo_red_dark"
+            tools:layout_editor_absoluteX="59dp"
+            tools:layout_editor_absoluteY="72dp" />
+
         <EditText
             android:id="@+id/editTextName"
             android:layout_width="match_parent"
@@ -136,7 +91,7 @@
         <TextView
             android:id="@+id/textnameempty"
             android:layout_width="match_parent"
-            android:layout_height="20dp"
+            android:layout_height="9dp"
             android:paddingLeft="15dp"
             android:paddingTop="-5dp"
             android:text=""
@@ -147,6 +102,15 @@
             tools:layout_editor_absoluteX="48dp"
             tools:layout_editor_absoluteY="267dp" />
 
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textColor="@android:color/holo_red_dark"
+            tools:layout_editor_absoluteX="59dp"
+            tools:layout_editor_absoluteY="139dp" />
 
         <EditText
             android:id="@+id/editTextEmail"
@@ -159,7 +123,7 @@
         <TextView
             android:id="@+id/textemailempty"
             android:layout_width="match_parent"
-            android:layout_height="20dp"
+            android:layout_height="5dp"
             android:paddingLeft="15dp"
             android:paddingTop="-5dp"
             android:text=""
@@ -169,6 +133,15 @@
             android:textStyle="bold"
             tools:layout_editor_absoluteX="48dp"
             tools:layout_editor_absoluteY="267dp" />
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textColor="@android:color/holo_red_dark"
+            tools:layout_editor_absoluteX="59dp"
+            tools:layout_editor_absoluteY="200dp" />
 
         <EditText
             android:id="@+id/editTextPasword"
@@ -181,7 +154,7 @@
         <TextView
             android:id="@+id/textpasswordempty"
             android:layout_width="match_parent"
-            android:layout_height="20dp"
+            android:layout_height="7dp"
             android:paddingLeft="15dp"
             android:paddingTop="-5dp"
             android:text=""
@@ -191,6 +164,15 @@
             android:textStyle="bold"
             tools:layout_editor_absoluteX="48dp"
             tools:layout_editor_absoluteY="267dp" />
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textColor="@android:color/holo_red_dark"
+            tools:layout_editor_absoluteX="59dp"
+            tools:layout_editor_absoluteY="262dp" />
 
         <EditText
             android:id="@+id/editTextCPasword"
@@ -203,7 +185,7 @@
         <TextView
             android:id="@+id/textpasswordmatch"
             android:layout_width="match_parent"
-            android:layout_height="20dp"
+            android:layout_height="5dp"
             android:paddingLeft="15dp"
             android:paddingTop="-5dp"
             android:text=""
@@ -215,6 +197,15 @@
             tools:layout_editor_absoluteY="267dp" />
 
 
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textColor="@android:color/holo_red_dark"
+            tools:layout_editor_absoluteX="59dp"
+            tools:layout_editor_absoluteY="322dp" />
+
         <EditText
             android:id="@+id/editTextLocation"
             android:layout_width="match_parent"
@@ -222,6 +213,15 @@
             android:hint="ادخل موقع الشركة"
             android:inputType="text"
             android:textAlignment="gravity" />
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textColor="@android:color/holo_red_dark"
+            tools:layout_editor_absoluteX="59dp"
+            tools:layout_editor_absoluteY="378dp" />
 
         <TextView
             android:id="@+id/textcat"
