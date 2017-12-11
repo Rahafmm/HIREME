@@ -105,7 +105,7 @@ public class addCV extends AppCompatActivity implements View.OnClickListener {
     //the code is same as the previous tutorial
     //so we are not explaining it
     private void uploadFile(Uri data) {
-
+//        if(editTextFilename.getText().toString()!=null) {
         progressBar.setVisibility(View.VISIBLE);
         StorageReference sRef = mStorageReference.child(Constants.STORAGE_PATH_UPLOADS + System.currentTimeMillis() + ".pdf");
         sRef.putFile(data)
@@ -133,8 +133,10 @@ public class addCV extends AppCompatActivity implements View.OnClickListener {
                             }
                         });
 
-                        Upload upload = new Upload(editTextFilename.getText().toString(), taskSnapshot.getDownloadUrl().toString(),User_id);
-                        mDatabaseReference.child("upload").setValue(upload);
+//if(editTextFilename.getText().toString()!=null) {
+    Upload upload = new Upload(editTextFilename.getText().toString(), taskSnapshot.getDownloadUrl().toString(), User_id);
+    mDatabaseReference.child("upload").setValue(upload);
+//}else{Toast.makeText(addCV.this, "اسم الملف فارغ قم بإدخاله!", Toast.LENGTH_LONG).show();}
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -152,6 +154,7 @@ public class addCV extends AppCompatActivity implements View.OnClickListener {
                        // C.setupload(upload);
                     }
                 });
+//        }else{Toast.makeText(addCV.this, "اسم الملف فارغ قم بإدخاله!", Toast.LENGTH_LONG).show();}
 
     }
 
@@ -159,7 +162,9 @@ public class addCV extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.buttonUploadFile:
+                if(editTextFilename.getText().toString()!=null) {
                 getPDF();
+        }else{Toast.makeText(addCV.this, "اسم الملف فارغ قم بإدخاله!", Toast.LENGTH_LONG).show();}
                 break;
             case R.id.textViewUploads:
                 startActivity(new Intent(this, ViewUploadsActivity.class));

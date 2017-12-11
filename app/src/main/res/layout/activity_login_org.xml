@@ -43,6 +43,16 @@
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="16dp" />
 
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textColor="@android:color/holo_red_dark"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="57dp"
+            tools:layout_editor_absoluteY="61dp" />
+
         <EditText
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
@@ -61,6 +71,15 @@
             android:textAlignment="textStart"
             android:textAllCaps="true"
             />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textColor="@android:color/holo_red_dark"
+            tools:layout_editor_absoluteX="57dp"
+            tools:layout_editor_absoluteY="127dp" />
 
         <EditText
             android:id="@+id/editTextPasword"
@@ -102,25 +121,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="*"
-        android:textColor="@android:color/holo_red_dark"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="57dp"
-        tools:layout_editor_absoluteY="61dp" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="*"
-        android:textColor="@android:color/holo_red_dark"
-        tools:layout_editor_absoluteX="57dp"
-        tools:layout_editor_absoluteY="127dp" />
 
 
 </android.support.constraint.ConstraintLayout>

@@ -195,7 +195,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                             break;
                                         }
                                         else {
-                                            Toast.makeText(LoginActivity.this, "البريد الالكتروني او كلمة السر خاطئة..", Toast.LENGTH_LONG).show();
+                                            Toast.makeText(LoginActivity.this, "تم تسجيل الدخول بنجاح.", Toast.LENGTH_LONG).show();
                                         }
                                     }
                                 }
