@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.example.hp.hireme.AccuontActivity.EditProfileActivity;
-import com.example.hp.hireme.AccuontActivity.FavoriteActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 

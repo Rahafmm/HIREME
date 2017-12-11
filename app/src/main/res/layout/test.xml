@@ -8,31 +8,38 @@
     android:background="@drawable/untitleddesign">
 
 
-    <ListView
-        android:id="@+id/listView"
-        android:textDirection="rtl"
-        android:layout_width="368dp"
-        android:layout_height="495dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="72dp" />
-
     <EditText
         android:id="@+id/search"
-        android:layout_width="360dp"
-        android:layout_height="wrap_content"
+        android:layout_width="213dp"
+        android:layout_height="43dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="15dp"
-        android:hint="Search...."
+        android:hint="بحث...."
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/listView">
+        app:layout_constraintBottom_toTopOf="@+id/listView"
+        app:layout_constraintVertical_bias="0.742"
+        app:layout_constraintHorizontal_bias="0.419">
 
 
     </EditText>
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="317dp"
+        android:layout_height="268dp"
+        android:textDirection="rtl"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="65dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.509" />
 
 
 </android.support.constraint.ConstraintLayout>

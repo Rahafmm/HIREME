@@ -28,13 +28,14 @@
         <activity android:name=".addCV" />
         <activity android:name=".profileCand" />
         <activity android:name=".listOrg" />
-        <activity android:name=".AccuontActivity.FavoriteActivity" />
+        <activity android:name=".FavoriteActivity" />
         <activity android:name=".viewInfoOrg" />
         <activity android:name=".viewInfoPos" />
         <activity android:name=".ViewUploadsActivity" />
         <activity android:name=".viewRAapplication" />
         <activity android:name=".viewapp" />
-        <activity android:name=".viewapplication"></activity>
+        <activity android:name=".viewapplication" />
+        <activity android:name=".viewrequset" />
     </application>
 
 </manifest>

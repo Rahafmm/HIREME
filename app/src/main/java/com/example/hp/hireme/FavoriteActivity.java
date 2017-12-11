@@ -1,7 +1,6 @@
-package com.example.hp.hireme.AccuontActivity;
+package com.example.hp.hireme;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -9,16 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.example.hp.hireme.Org;
-import com.example.hp.hireme.R;
-import com.example.hp.hireme.listOrg;
-import com.example.hp.hireme.profileCand;
-import com.example.hp.hireme.viewInfoOrg;
-import com.example.hp.hireme.viewRAapplication;
-import com.example.hp.hireme.viewapp;
-import com.example.hp.hireme.viewapplication;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -27,7 +17,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 
 public class FavoriteActivity extends AppCompatActivity implements View.OnClickListener{
@@ -139,7 +128,7 @@ nameO=new ArrayList<String>();
     public void onClick(View view) {
 
         if (view== myOrder) {
-            Intent intent =new Intent(FavoriteActivity.this, viewapp.class);
+            Intent intent =new Intent(FavoriteActivity.this, viewrequset.class);
             startActivity(intent);
         }
 
