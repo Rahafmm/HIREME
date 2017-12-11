@@ -107,7 +107,7 @@ public class profileCand extends AppCompatActivity implements View.OnClickListen
             startActivity(intent);
 
         } catch (Exception e) {
-            System.out.print("there are no organizations on this category");
+            System.out.print("ليس هناك شركات في هذه الفئة..");
         }
 
     }

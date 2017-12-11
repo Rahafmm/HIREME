@@ -76,19 +76,19 @@ import com.google.firebase.database.ValueEventListener;
 
             //checking if email and password are empty
             if (TextUtils.isEmpty(email) ){
-                Toast.makeText(this,"please enter your email",Toast.LENGTH_LONG).show();
+                Toast.makeText(this,"ادخل بريدك الالكتروني",Toast.LENGTH_LONG).show();
                 return;
             }
 
             if (TextUtils.isEmpty(password) ){
-                Toast.makeText(this,"please enter your password",Toast.LENGTH_LONG).show();
+                Toast.makeText(this,"ادخل كلمة المرور",Toast.LENGTH_LONG).show();
                 return;
             }
             //if email and password are not empty
             //display progress
 
 
-                progressDialog.setMessage("Loging In please wait");
+                progressDialog.setMessage("تسجيل الدخول، الرجاء الانتظار..");
                 progressDialog.show();
 
                 firebaseAuth.signInWithEmailAndPassword(email, password)
@@ -101,7 +101,7 @@ import com.google.firebase.database.ValueEventListener;
                                     finish();
                                     startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
                                 } else {
-                                    Toast.makeText(LoginOrgActivity.this, "The email OR password are incorrect", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(LoginOrgActivity.this, "البريد الالكتروني او كلمة المرور خاطئة", Toast.LENGTH_LONG).show();
                                 }
                             }
                         });

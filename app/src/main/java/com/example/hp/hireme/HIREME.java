@@ -146,7 +146,7 @@ public class HIREME extends AppCompatActivity implements View.OnClickListener {
 
             //if the email and password are not empty
             //displaying a progress dialog
-            progressDialog.setMessage("Registering Please Wait...");
+            progressDialog.setMessage("تسجيل، الرجاء الانتظار..");
             progressDialog.show();
 
             //creating a new user
@@ -171,7 +171,7 @@ public class HIREME extends AppCompatActivity implements View.OnClickListener {
                                 mDatabase.child(User_ID).setValue(can);
                                 //display message to the user here
 
-                                Toast.makeText(HIREME.this, "Successfully registered", Toast.LENGTH_LONG).show();
+                                Toast.makeText(HIREME.this, "تمت عملية التسجيل بنجاح", Toast.LENGTH_LONG).show();
 
                                 //close this activity
                                 finish();
@@ -180,7 +180,7 @@ public class HIREME extends AppCompatActivity implements View.OnClickListener {
 
                             } else {
                                 //display some message here
-                                Toast.makeText(HIREME.this, "Registration Error", Toast.LENGTH_LONG).show();
+                                Toast.makeText(HIREME.this, "هناك خلل..", Toast.LENGTH_LONG).show();
                             }
                             progressDialog.dismiss();
                         }

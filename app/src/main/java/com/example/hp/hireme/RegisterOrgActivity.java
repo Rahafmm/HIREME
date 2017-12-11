@@ -188,7 +188,7 @@ public class RegisterOrgActivity extends AppCompatActivity implements View.OnCli
         if(textpasswordmatch.getText().toString().trim().isEmpty()&&textpasswordempty.getText().toString().trim().isEmpty()&&tv.getText().toString().trim().isEmpty()&&textnameempty.getText().toString().trim().isEmpty()) {
             //if the email and password and Location are not empty
             //displaying a progress dialog
-            progressDialog.setMessage("Registering Please Wait...");
+            progressDialog.setMessage("تسجيل، الرجاء الانتظار..");
             progressDialog.show();
 
             //creating a new user
@@ -224,14 +224,14 @@ public class RegisterOrgActivity extends AppCompatActivity implements View.OnCli
                                // Intent intent=new Intent(RegisterOrgActivity.this, ProfileActivity.class);
                                // intent.putExtra("org", (Serializable) org1);
                                 //display message to the user here
-                                Toast.makeText(RegisterOrgActivity.this, "Successfully registered", Toast.LENGTH_LONG).show();
+                                Toast.makeText(RegisterOrgActivity.this, "تمت العملية بنجاح", Toast.LENGTH_LONG).show();
                                 //close this activity
                                 finish();
                                 //opening login activity
                                 startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
                             } else {
                                 //display some message here
-                                Toast.makeText(RegisterOrgActivity.this, "Registration Error", Toast.LENGTH_LONG).show();
+                                Toast.makeText(RegisterOrgActivity.this, "هناك خلل..", Toast.LENGTH_LONG).show();
                             }
                             progressDialog.dismiss();
                         }

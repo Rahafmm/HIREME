@@ -156,17 +156,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         //checking if email and password are empty
         if (TextUtils.isEmpty(email) ){
-            Toast.makeText(this,"please enter your email",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"ادخل بريدك الالكتروني",Toast.LENGTH_LONG).show();
             return;
         }
 
         if (TextUtils.isEmpty(password) ){
-            Toast.makeText(this,"please enter your password",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"ادخل كلمة السر",Toast.LENGTH_LONG).show();
             return;
         }
         //if email and password are not empty
         //display progress
-        progressDialog.setMessage("Loging In please wait");
+        progressDialog.setMessage("تسجيل الدخول، الرجاء الانتظار..");
         progressDialog.show();
 
         firebaseAuth.signInWithEmailAndPassword(email, password)
@@ -181,7 +181,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             startActivity(new Intent(getApplicationContext(), profileCand.class));
                         }
                         else{
-                            Toast.makeText(LoginActivity.this, "The email OR password are incorrect", Toast.LENGTH_LONG).show();
+                            Toast.makeText(LoginActivity.this, "البريد الالكتروني او كلمة السر خاطئة..", Toast.LENGTH_LONG).show();
                         }
 
                     }

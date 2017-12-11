@@ -127,7 +127,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
             FirebaseUser user1 =FirebaseAuth.getInstance().getCurrentUser();
             if(user1!=null)
             {
-                progressDialog.setMessage("changing Password , please wait!!");
+                progressDialog.setMessage("يتم حفظ التعديلات الرجاء الانتظار..");
                 progressDialog.show();
                 mDatabase= FirebaseDatabase.getInstance().getReference();
                 String pass=newPass.getText().toString();
@@ -142,11 +142,11 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
                                     mDatabase.child("candet").child(userID).child("Cpassword").setValue(newPass.getText().toString());
 
                                     //display message to the user here
-                                    Toast.makeText(EditProfileActivity.this, "Successfully changed password", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(EditProfileActivity.this, "تمت العملية بنجاح..", Toast.LENGTH_LONG).show();
 
                                 } else {
                                     //display some message here
-                                    Toast.makeText(EditProfileActivity.this, "There is error in change password ", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(EditProfileActivity.this, "هناك خلل..", Toast.LENGTH_LONG).show();
 
                                 }
                                 progressDialog.dismiss();

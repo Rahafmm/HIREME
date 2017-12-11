@@ -208,7 +208,7 @@ import com.google.firebase.storage.StorageReference;
                 FirebaseUser user1 =FirebaseAuth.getInstance().getCurrentUser();
                 if(user1!=null)
                 {
-                    progressDialog.setMessage("changing Password , please wait!!");
+                    progressDialog.setMessage("يتم حفظ التغييرات، الرجاء الانتظار..");
                     progressDialog.show();
                     mDatabase= FirebaseDatabase.getInstance().getReference();
                     String pass=profile_password.getText().toString().trim();
@@ -222,11 +222,11 @@ import com.google.firebase.storage.StorageReference;
                                 mDatabase.child("Org").child(userID).child("Cpassword").setValue(pass);
 
                                 //display message to the user here
-                                Toast.makeText(ProfileEditActivity2.this, "Successfully changed password", Toast.LENGTH_LONG).show();
+                                Toast.makeText(ProfileEditActivity2.this, "تمت العملية بنجاح", Toast.LENGTH_LONG).show();
 
                             } else {
                                 //display some message here
-                                Toast.makeText(ProfileEditActivity2.this, "There is error in change password ", Toast.LENGTH_LONG).show();
+                                Toast.makeText(ProfileEditActivity2.this, "هناك خلل.. ", Toast.LENGTH_LONG).show();
 
                             }
                             progressDialog.dismiss();

@@ -81,7 +81,7 @@ public class addCV extends AppCompatActivity implements View.OnClickListener {
         Intent intent = new Intent();
         intent.setType("application/pdf");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_PDF_CODE);
+        startActivityForResult(Intent.createChooser(intent, "اختار صورة"), PICK_PDF_CODE);
     }
 
 
@@ -95,7 +95,7 @@ public class addCV extends AppCompatActivity implements View.OnClickListener {
                 //uploading the file
                 uploadFile(data.getData());
             }else{
-                Toast.makeText(this, "No file chosen", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "لم يتم اختيار ملف..", Toast.LENGTH_SHORT).show();
             }
         }
     }

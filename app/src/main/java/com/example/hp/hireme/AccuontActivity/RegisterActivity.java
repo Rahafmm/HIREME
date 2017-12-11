@@ -67,18 +67,18 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         //checking if email and passwords are empty
         if(TextUtils.isEmpty(email)){
-            Toast.makeText(this,"Please enter email",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"ادخل بريدك الالكتروني",Toast.LENGTH_LONG).show();
             return; //stop the function execution
         }
 
         if(TextUtils.isEmpty(password)){
-            Toast.makeText(this,"Please enter password",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"ادخل كلمة السر",Toast.LENGTH_LONG).show();
             return; //stop the function execution
         }
 
         //if the email and password are not empty
         //displaying a progress dialog
-        progressDialog.setMessage("Registering Please Wait...");
+        progressDialog.setMessage("تسجيل، الرجاء الانتظار..");
         progressDialog.show();
 
         //creating a new user
@@ -89,14 +89,14 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                         //checking if success
                         if(task.isSuccessful()){
                             //display message to the user here
-                            Toast.makeText(RegisterActivity.this,"Successfully registered",Toast.LENGTH_LONG).show();
+                            Toast.makeText(RegisterActivity.this,"تم التسجيل بنجاح",Toast.LENGTH_LONG).show();
                             //close this activity
                             finish();
                             //opening login activity
                             startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                         }else{
                             //display some message here
-                            Toast.makeText(RegisterActivity.this,"Registration Error",Toast.LENGTH_LONG).show();
+                            Toast.makeText(RegisterActivity.this,"هناك خلل..",Toast.LENGTH_LONG).show();
                         }
                         progressDialog.dismiss();
                     }

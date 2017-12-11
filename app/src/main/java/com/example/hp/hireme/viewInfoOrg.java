@@ -194,8 +194,8 @@ s=new ArrayList<position>();
                 NotificationManager not=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
                 Notification notif=new Notification.Builder(viewInfoOrg.this)
                 .setSmallIcon(R.drawable.a1)
-                        .setContentTitle("Notification")
-                        .setContentText("you have added the Org to your fav list")
+                        .setContentTitle("تنبية")
+                        .setContentText("لقد قمت بإضافة شركة الى مفضلتك بنجاح")
                         .build();
                 not.notify(0,notif);
 
