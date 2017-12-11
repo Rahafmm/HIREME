@@ -127,7 +127,7 @@ public class ViewUploadsActivity extends AppCompatActivity implements View.OnCli
 
                         // main code on after clicking yes
                         uploadList.remove(deletePosition);
-                        Upload upload = new Upload("", "", User_id);
+                        Upload upload = new Upload("لايوجد سيرة ذاتية", "", User_id);
                         mDatabaseReference1 = FirebaseDatabase.getInstance().getReference().child("candet").child(User_id).child("upload");
                         mDatabaseReference1.setValue(upload);
 

@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -35,7 +34,7 @@ public class addCV extends AppCompatActivity implements View.OnClickListener {
 
     //these are the views
     TextView textViewStatus;
-    EditText editTextFilename;
+    TextView editTextFilename;
     private FirebaseAuth firebaseAuth;
     ProgressBar progressBar;
     String User_id;
@@ -62,7 +61,7 @@ public class addCV extends AppCompatActivity implements View.OnClickListener {
         mDatabaseReference1 = FirebaseDatabase.getInstance().getReference("candet");
         //getting the views
         textViewStatus = (TextView) findViewById(R.id.textViewStatus);
-        editTextFilename = (EditText) findViewById(R.id.editTextFileName);
+        editTextFilename = (TextView) findViewById(R.id.editTextFileName);
         progressBar = (ProgressBar) findViewById(R.id.progressbar);
         undo=(ImageButton)findViewById(R.id.undo);
         //attaching listeners to views
@@ -133,7 +132,7 @@ public class addCV extends AppCompatActivity implements View.OnClickListener {
                             }
                         });
 
-                        Upload upload = new Upload(editTextFilename.getText().toString(), taskSnapshot.getDownloadUrl().toString(),User_id);
+                        Upload upload = new Upload("السيرة الذاتية", taskSnapshot.getDownloadUrl().toString(),User_id);
                         mDatabaseReference.child("upload").setValue(upload);
                     }
                 })

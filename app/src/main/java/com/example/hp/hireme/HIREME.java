@@ -165,7 +165,7 @@ public class HIREME extends AppCompatActivity implements View.OnClickListener {
                                 can.setpass(editTextPassword.getText().toString());
                                 can.setUid(User_ID);
                                 //can.setUid(User_ID);
-                                Upload u =new Upload("","S","");
+                                Upload u =new Upload("لايوجد سيرة ذاتية","","");
 
                                 can.setupload(u);
                                 mDatabase.child(User_ID).setValue(can);
