@@ -17,11 +17,8 @@ import com.example.hp.hireme.AccuontActivity.Upload;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -51,7 +48,6 @@ public class addCV extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_cv);
 
-
         //getting firebase objects
         mStorageReference = FirebaseStorage.getInstance().getReference();
 
@@ -80,7 +76,7 @@ public class addCV extends AppCompatActivity implements View.OnClickListener {
         Intent intent = new Intent();
         intent.setType("application/pdf");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "اختار صورة"), PICK_PDF_CODE);
+        startActivityForResult(Intent.createChooser(intent, "اختار ملف"), PICK_PDF_CODE);
     }
 
 
@@ -94,17 +90,17 @@ public class addCV extends AppCompatActivity implements View.OnClickListener {
                 //uploading the file
                 uploadFile(data.getData());
             }else{
-                Toast.makeText(this, "لم يتم اختيار ملف..", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "لم يتم اختيار ملف", Toast.LENGTH_SHORT).show();
             }
         }
     }
+
 
 
     //this method is uploading the file
     //the code is same as the previous tutorial
     //so we are not explaining it
     private void uploadFile(Uri data) {
-
         progressBar.setVisibility(View.VISIBLE);
         StorageReference sRef = mStorageReference.child(Constants.STORAGE_PATH_UPLOADS + System.currentTimeMillis() + ".pdf");
         sRef.putFile(data)
@@ -113,34 +109,16 @@ public class addCV extends AppCompatActivity implements View.OnClickListener {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         progressBar.setVisibility(View.GONE);
+                        //startActivity(new Intent(getApplicationContext(), addCV.class));
                         textViewStatus.setText("تم تحميل الملف بنجاح");
-                        mDatabaseReference1.addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
-                                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                                    if(postSnapshot.getKey().equals(User_id))
-                                    C = postSnapshot.getValue(Candidate.class);
-                                    //Upload up = C.getUpload();
-
-                                }
-
-
-                            }
-
-                            @Override
-                            public void onCancelled(DatabaseError databaseError) {
-
-                            }
-                        });
-
-                        Upload upload = new Upload("السيرة الذاتية", taskSnapshot.getDownloadUrl().toString(),User_id);
+                        Upload upload = new Upload("السيرة الذاتية ", taskSnapshot.getDownloadUrl().toString(),User_id);
                         mDatabaseReference.child("upload").setValue(upload);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception exception) {
-                        Toast.makeText(getApplicationContext(), exception.getMessage(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(addCV.this, exception.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 })
                 .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
@@ -148,10 +126,12 @@ public class addCV extends AppCompatActivity implements View.OnClickListener {
                     @Override
                     public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
                         double progress = (100.0 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
-                        textViewStatus.setText((int) progress + "% تحميل ...");
-                       // C.setupload(upload);
+                        textViewStatus.setText((int) progress + "% من التحميل ");
+
                     }
+
                 });
+
 
     }
 
@@ -164,9 +144,10 @@ public class addCV extends AppCompatActivity implements View.OnClickListener {
             case R.id.textViewUploads:
                 startActivity(new Intent(this, ViewUploadsActivity.class));
                 break;
+            case R.id.undo:
+                startActivity(new Intent(this,profileCand.class));
+                break;
         }
-        if(view ==undo){
-            startActivity(new Intent(this, profileCand.class));
-        }
+
     }
 }

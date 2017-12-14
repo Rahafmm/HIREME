@@ -129,7 +129,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private TextView textViewregisterorg;
     private TextView textViewloginorg;
     private String User_id;
-    private DatabaseReference mDatabaseReference;
+    private DatabaseReference mDatabaseReference2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -182,22 +182,24 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         if (task.isSuccessful()) {
                             //start profile activity
                             User_id = firebaseAuth.getCurrentUser().getUid();
-                            mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("candet");
+                            mDatabaseReference2 = FirebaseDatabase.getInstance().getReference().child("candet");
 
-                            mDatabaseReference.addValueEventListener(new ValueEventListener() {
+                            mDatabaseReference2.addValueEventListener(new ValueEventListener() {
                                 @Override
-                                public void onDataChange(DataSnapshot dataSnapshot) {
-                                    for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                                        Candidate o = postSnapshot.getValue(Candidate.class);
-                                        if (o.getUid().toUpperCase().equals(User_id.toUpperCase())) {
+                                public void onDataChange(DataSnapshot dataSnapshot1) {
+
+                                        if (dataSnapshot1.exists()) {
+                                            startActivity(new Intent(LoginActivity.this, profileCand.class));
                                             finish();
-                                            startActivity(new Intent(getApplicationContext(), profileCand.class));
-                                            break;
+                                            Toast.makeText(LoginActivity.this, "تم تسجيل الدخول بنجاح", Toast.LENGTH_LONG).show();
+
                                         }
                                         else {
-                                            Toast.makeText(LoginActivity.this, "تم تسجيل الدخول بنجاح.", Toast.LENGTH_LONG).show();
+                                            Toast.makeText(LoginActivity.this, "البريد الالكتروني او كلمة السر خاطئة..", Toast.LENGTH_LONG).show();
                                         }
-                                    }
+
+
+
                                 }
 
                                 @Override
