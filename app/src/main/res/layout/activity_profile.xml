@@ -33,7 +33,7 @@
         android:id="@+id/imageButton8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/settings"
+        app:srcCompat="@drawable/settings1"
         android:background="@android:color/transparent"
         app:layout_constraintBottom_toTopOf="@+id/addpos"
         app:layout_constraintVertical_bias="0.142"
@@ -51,25 +51,25 @@
         android:layout_width="wrap_content"
         android:background="@android:color/transparent"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/folder"
+        app:srcCompat="@drawable/folder1"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/imageButton8"
         app:layout_constraintBottom_toTopOf="@+id/addpos"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.32" />
+        app:layout_constraintVertical_bias="0.533" />
 
     <ImageButton
         android:id="@+id/addpos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/add"
+        app:srcCompat="@drawable/add1"
         android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.524"
+        app:layout_constraintVertical_bias="0.586"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.835" />
+        app:layout_constraintHorizontal_bias="0.566" />
 
 
 

@@ -181,32 +181,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         progressDialog.dismiss();
                         if (task.isSuccessful()) {
                             //start profile activity
-                            User_id = firebaseAuth.getCurrentUser().getUid();
-                            mDatabaseReference2 = FirebaseDatabase.getInstance().getReference().child("candet");
 
-                            mDatabaseReference2.addValueEventListener(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(DataSnapshot dataSnapshot1) {
-
-                                        if (dataSnapshot1.exists()) {
                                             startActivity(new Intent(LoginActivity.this, profileCand.class));
                                             finish();
                                             Toast.makeText(LoginActivity.this, "تم تسجيل الدخول بنجاح", Toast.LENGTH_LONG).show();
 
-                                        }
-                                        else {
-                                            Toast.makeText(LoginActivity.this, "البريد الالكتروني او كلمة السر خاطئة..", Toast.LENGTH_LONG).show();
-                                        }
 
 
 
-                                }
 
-                                @Override
-                                public void onCancelled(DatabaseError databaseError) {
 
-                                }
-                            });
 
                         }
                          else {
