@@ -105,9 +105,7 @@ public class LoginOrgActivity extends AppCompatActivity implements View.OnClickL
                                                     startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
                                                     break;
                                                 }
-                                                else{
-                                                    Toast.makeText(LoginOrgActivity.this, "البريد الالكتروني او كلمة السر خاطئة..", Toast.LENGTH_LONG).show();
-                                                }
+
                                             }
                                         }
                                         @Override

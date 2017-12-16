@@ -97,7 +97,7 @@
             android:text=""
             android:textAlignment="textStart"
             android:textColor="@android:color/holo_red_light"
-            android:textSize="18sp"
+            android:textSize="12sp"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="48dp"
             tools:layout_editor_absoluteY="267dp" />
@@ -109,6 +109,7 @@
             android:layout_height="wrap_content"
             android:text="*"
             android:textColor="@android:color/holo_red_dark"
+            android:textSize="12sp"
             tools:layout_editor_absoluteX="59dp"
             tools:layout_editor_absoluteY="139dp" />
 
@@ -140,6 +141,7 @@
             android:layout_height="wrap_content"
             android:text="*"
             android:textColor="@android:color/holo_red_dark"
+            android:textSize="12sp"
             tools:layout_editor_absoluteX="59dp"
             tools:layout_editor_absoluteY="200dp" />
 
@@ -171,6 +173,7 @@
             android:layout_height="wrap_content"
             android:text="*"
             android:textColor="@android:color/holo_red_dark"
+            android:textSize="12sp"
             tools:layout_editor_absoluteX="59dp"
             tools:layout_editor_absoluteY="262dp" />
 
@@ -203,6 +206,7 @@
             android:layout_height="wrap_content"
             android:text="*"
             android:textColor="@android:color/holo_red_dark"
+            android:textSize="12sp"
             tools:layout_editor_absoluteX="59dp"
             tools:layout_editor_absoluteY="322dp" />
 
@@ -220,6 +224,7 @@
             android:layout_height="wrap_content"
             android:text="*"
             android:textColor="@android:color/holo_red_dark"
+            android:textSize="12sp"
             tools:layout_editor_absoluteX="59dp"
             tools:layout_editor_absoluteY="378dp" />
 

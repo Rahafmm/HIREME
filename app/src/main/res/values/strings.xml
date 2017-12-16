@@ -10,7 +10,7 @@
         <item name="5">food</item>
         <item name="6">Busines</item>
         <item name="7">travel</item>
-        <item name="8">Other</item>
+
     </array>
     <string name="title_activity_profile_cand">profileCand</string>
     <string name="title_home">Home</string>

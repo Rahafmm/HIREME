@@ -124,7 +124,7 @@ s=new ArrayList<position>();
 
                 for (int i = 0; i < uplads.length; i++) {
 
-                    uplads[i] = s.get(i).getNamorg();
+                    uplads[i] = s.get(i).getName();
 
 
                 }

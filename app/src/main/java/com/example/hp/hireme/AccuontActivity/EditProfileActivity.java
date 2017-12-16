@@ -139,7 +139,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
 
-                                    mDatabase.child("candet").child(userID).child("Cpassword").setValue(newPass.getText().toString());
+                                    mDatabase.child("candet").child(userID).child("pass").setValue(newPass.getText().toString());
 
                                     //display message to the user here
                                     Toast.makeText(EditProfileActivity.this, "تمت العملية بنجاح..", Toast.LENGTH_LONG).show();

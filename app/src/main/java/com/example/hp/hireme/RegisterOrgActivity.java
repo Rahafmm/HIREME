@@ -55,10 +55,10 @@ public class RegisterOrgActivity extends AppCompatActivity implements View.OnCli
         //initializing firebase auth object
         firebaseAuth = FirebaseAuth.getInstance();
 
-        if (firebaseAuth.getCurrentUser() !=null){
+      //  if (firebaseAuth.getCurrentUser() !=null){
             //prf activity
-            finish();
-        }
+        //    finish();
+        //}
         mDatabase= FirebaseDatabase.getInstance().getReference().child("Org");
         //initializing views
         editTextName = (EditText) findViewById(R.id.editTextName);
@@ -100,9 +100,7 @@ public class RegisterOrgActivity extends AppCompatActivity implements View.OnCli
                                                   case 5:
                                                       record = "travel";
                                                       break;
-                                                  case 6:
-                                                      record = "Other";
-                                                      break;
+
                                               }
                                           }
 
@@ -207,7 +205,7 @@ public class RegisterOrgActivity extends AppCompatActivity implements View.OnCli
 
                                 //Cureent_User_db.child("name").setValue(Name);
                                 final String uid = firebaseAuth.getInstance().getCurrentUser().getUid();
-                                Toast.makeText(RegisterOrgActivity.this, uid, Toast.LENGTH_LONG).show();
+
 
 
 

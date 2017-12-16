@@ -29,8 +29,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -47,11 +50,15 @@ import com.google.firebase.storage.StorageReference;
         private FirebaseAuth.AuthStateListener mAuthListener;
         private DatabaseReference myRef;
         private  String userID;
+        private DatabaseReference mDatabase8;
         private FirebaseDatabase firebaseDatabase;
         private DatabaseReference databaseReference;
         private ProgressDialog progressDialog;
         Spinner gspinner;
-        private EditText profile_name;
+        private String loca="";
+        private String ca;
+        private String n;
+        //private EditText profile_name;
         private EditText profile_password;
         private EditText profile_location;
         DatabaseReference mDatabase;
@@ -63,7 +70,7 @@ import com.google.firebase.storage.StorageReference;
             super.onCreate(savedInstanceState);
             setContentView(R.layout.edit);
 
-            profile_name = (EditText) findViewById(R.id.profile_name);
+           // profile_name = (EditText) findViewById(R.id.profile_name);
             profile_password = (EditText) findViewById(R.id.profile_password);
             profile_location = (EditText) findViewById(R.id.profile_location);
             save=(Button) findViewById(R.id.buttonSave);
@@ -83,6 +90,33 @@ import com.google.firebase.storage.StorageReference;
             mDatabase= FirebaseDatabase.getInstance().getReference();
             FirebaseUser user = mAuth.getCurrentUser();
             userID = user.getUid();
+            mDatabase8= FirebaseDatabase.getInstance().getReference().child("Org");
+
+            mDatabase8.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                        Org i = postSnapshot.getValue(Org.class);
+
+                        if (i.getuid().toUpperCase().equals(userID.toUpperCase())) {
+                            if(i.getLocation()!=null)
+                                loca=i.getLocation();
+                            if(i.getcatgory()!= null)
+                                ca=i.getcatgory();
+                            n=postSnapshot.getKey();
+                        }
+
+
+                    }
+                }
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
+
+            profile_location.setText(loca);
 
             save.setOnClickListener(this);
 /////// for image
@@ -164,10 +198,9 @@ import com.google.firebase.storage.StorageReference;
         @Override
         public void onClick(View v) {
             String cat="0";
-            if(!(TextUtils.isEmpty(profile_name.getText().toString().trim())))
-            mDatabase.child("Org").child(userID).child("name").setValue(profile_name.getText().toString());
+
             if(!(TextUtils.isEmpty(profile_location.getText().toString().trim())))
-            mDatabase.child("Org").child(userID).child("Location").setValue(profile_location.getText().toString());
+            mDatabase.child("Org").child(n).child("location").setValue(profile_location.getText().toString());
 
             FirebaseStorage storage = FirebaseStorage.getInstance();
            // StorageReference storageRef = storage.getReference().child("Org").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
@@ -198,11 +231,8 @@ import com.google.firebase.storage.StorageReference;
                 case "6":
                     catgory = "travel";
                     break;
-                case "7":
-                    catgory = "Other";
-                    break;
             }
-            mDatabase.child("Org").child(userID).child("catgory").setValue(catgory);}
+            mDatabase.child("Org").child(n).child("catgory").setValue(catgory);}
 
             if(!(TextUtils.isEmpty(profile_password.getText().toString().trim()))){
                 FirebaseUser user1 =FirebaseAuth.getInstance().getCurrentUser();
@@ -219,7 +249,7 @@ import com.google.firebase.storage.StorageReference;
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
                                 String pass=profile_password.getText().toString().trim();
-                                mDatabase.child("Org").child(userID).child("Cpassword").setValue(pass);
+                                mDatabase.child("Org").child(n).child("pass").setValue(pass);
 
                                 //display message to the user here
                                 Toast.makeText(ProfileEditActivity2.this, "تمت العملية بنجاح", Toast.LENGTH_LONG).show();
