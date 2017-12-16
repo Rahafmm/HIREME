@@ -5,7 +5,12 @@ package com.example.hp.hireme;
  */
 
 
-
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toast;
 import android.Manifest;
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -266,5 +271,24 @@ import com.google.firebase.storage.StorageReference;
                 }
             }
 
+        }
+
+
+        @Override
+        public boolean onCreateOptionsMenu(Menu menu) {
+            // Inflate the menu; this adds items to the action bar if it is present.
+            getMenuInflater().inflate(R.menu.menu_main1, menu);
+            return true;
+        }
+
+        @Override
+        public boolean onOptionsItemSelected(MenuItem item) { switch(item.getItemId()) {
+            case R.id.home:
+                startActivity(new Intent(this, ProfileActivity.class) );
+                return(true);
+
+
+        }
+            return(super.onOptionsItemSelected(item));
         }
     }
