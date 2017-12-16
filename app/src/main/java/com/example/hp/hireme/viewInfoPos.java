@@ -84,20 +84,23 @@ public class viewInfoPos extends AppCompatActivity implements View.OnClickListen
     @Override
     public void onClick(View view) {
 
+        if (url.equals("")) {
+            Toast.makeText(this, "يجب رفع السيرة الذاتية قبل الطلب", Toast.LENGTH_SHORT).show();
+        } else {
+            application ca = new application();
+            ca.setIdCan(User_ID);
+            // ca.setIdOrg(idOrg);
+            ca.setNameOrg(idOrg);
+            ca.setUrl(url);
+            ca.setAppname(nameOrg);
+            ca.setStatus("none");
+            mDatabase = FirebaseDatabase.getInstance().getReference().child("application");
+            String pu = Id1;
 
-        application ca =new application();
-        ca.setIdCan(User_ID);
-       // ca.setIdOrg(idOrg);
-        ca.setNameOrg(idOrg);
-        ca.setUrl(url);
-        ca.setAppname(nameOrg);
-        ca.setStatus("none");
-        mDatabase= FirebaseDatabase.getInstance().getReference().child("application");
-        String pu=Id1;
-
-        mDatabase.child(idOrg+" _ "+User_ID).setValue(ca);
-        Toast.makeText(viewInfoPos.this, "تم رفع طلبك بنجاح", Toast.LENGTH_LONG).show();
-        finish();
-        startActivity(new Intent(this, profileCand.class));
+            mDatabase.child(idOrg + " _ " + User_ID).setValue(ca);
+            Toast.makeText(viewInfoPos.this, "تم رفع طلبك بنجاح", Toast.LENGTH_LONG).show();
+            finish();
+            startActivity(new Intent(this, profileCand.class));
+        }
     }
 }
